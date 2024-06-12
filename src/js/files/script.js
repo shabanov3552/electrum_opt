@@ -443,8 +443,9 @@ document.addEventListener("click", function (e) {
 });
 
 function dropdownAction(e, ddWrapper, ddActive) {
-   const target = e.target;
+   const target = e.target.closest('[data-dropdown-button]');
    const ddButton = ddWrapper.querySelector('[data-dropdown-button]');
+
 
    if (target == ddButton) {
       if (ddActive && ddActive !== ddWrapper) {

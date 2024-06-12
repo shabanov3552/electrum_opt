@@ -10,11 +10,63 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div class="wrapper @@modClass">
 		<header class="header">
 			<div class="header__container">
+				<a href="" class="header__logo"><img src="@img/logo.svg" alt=""></a>
+				<div class="header__manager manager dropdown" data-dropdown>
+					<a href="" class="dropdown__button" data-dropdown-button>
+						<div class="manager__title" data-da=".menu-mobile__manager, 1199.98">Ваш менеджер:</div>
+						<div class="manager__name" data-da=".menu-mobile__manager, 1199.98">Рыбакова Анастасия Васильевна</div>
+					</a>
+					<div class="dropdown__block">
+						<a href="tel:++71231235028" class="manager__phone" data-da=".menu-mobile__manager, 1199.98">
+							<img src="@img/icons/icon-phone.svg" alt="">
+							<span>+7 (123) 123-50 28</span>
+						</a>
+						<a href="mailto:info@mail.ru" class="manager__mail" data-da=".menu-mobile__manager, 1199.98">
+							<img src="@img/icons/icon-mail.svg" alt="">
+							<span>info@mail.ru</span>
+						</a>
+					</div>
+				</div>
+				<div class="header__status">
+					<div class="status-block" data-da=".menu-mobile__status, 1199.98">
+						<div class="status-block__discount">
+							<div class="status-block__discount-title">Скидка</div>
+							<div class="status-block__discount-rate">10%</div>
+						</div>
+						<div class="status-block__chunk">
+							<div class="status-block__title">Ваш статус:</div>
+							<div class="status-block__level">
+								<span>Серебряный</span>
+								<div class="status-block__tippy" data-tippy-content="Текст подсказки">?</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header__balance">
+					<div class="balance" data-da=".menu-mobile__balance, 1199.98">
+						<div class="balance__title">Баланс:</div>
+						<div class="balance__total">1 000 000 ₽</div>
+					</div>
+				</div>
+				<a href="tel:+88002004734" class="header__phone" data-da=".menu-mobile, 767.98, 0">8 800 200 47 34</a>
+				<button type="button" class="menu-icon icon-menu"><span></span></button>
+				<div class="menu-mobile">
+					<div class="menu-mobile__balance"></div>
+					<div class="menu-mobile__status"></div>
+					<div class="menu-mobile__manager manager"></div>
+				</div>
 			</div>
 		</header>
+		@@include('./_breadcrumbs.htm',{})
+		<div class="page-title">@@pageTitle</div>
+		@@include('./_menu-left.htm',{})
+		@@include('./_menu-right.htm',{})

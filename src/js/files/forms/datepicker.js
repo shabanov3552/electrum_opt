@@ -14,6 +14,7 @@ if (document.querySelector('[data-datepicker]')) {
 		overlayButton: 'Применить',
 		overlayPlaceholder: 'Год (4 цифры)',
 		startDay: 1,
+		// alwaysShow: true,
 		formatter: (input, date, instance) => {
 			const value = date.toLocaleDateString()
 			input.value = value

@@ -1,0 +1,368 @@
+@@include('html/_header.htm',{
+"title":"История заказов",
+"modClass":"",
+"pageTitle":"История заказов"
+})
+<main class="page">
+   <section class="history">
+      <div class="history__container">
+         <div class="history__header">
+            <div class="sort">
+               <div class="sort__box" data-one-select>
+                  <h5 class="sort__title">Сортировка</h5>
+                  <div class="sort__select">
+                     <select data-show-selected>
+                        <option value="1" selected="selected">сначала новые заказы</option>
+                        <option value="2">по возрастанию суммы заказа</option>
+                        <option value="3">по убыванию суммы заказа</option>
+                        <option value="4">сначала новые заказы</option>
+                        <option value="5">сначала старые заказы</option>
+                     </select>
+                  </div>
+               </div>
+
+               <div class="actions">
+                  <div class="actions__drop dropdown" data-dropdown>
+                     <a href="" class="actions__drop-button dropdown__button" data-dropdown-button>Фильтры</a>
+                     <div class="actions__drop-block dropdown__block">
+                        <div class="actions__radio">
+                           <div class="radio-wrapper">
+                              <div class="actions__title">Вид заказа</div>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="1" name="type" checked>
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Online-заказ</span>
+                              </label>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="2" name="type">
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Offline-заказ</span>
+                              </label>
+                           </div>
+                           <div class="radio-wrapper">
+                              <div class="actions__title">Статус заказа</div>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="1" name="status" checked>
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Принят, ожидается оплата</span>
+                              </label>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="2" name="status">
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Идёт сборка</span>
+                              </label>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="2" name="status">
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Отправлен</span>
+                              </label>
+                              <label class="radio">
+                                 <input class="radio__input" type="radio" value="2" name="status">
+                                 <div class="radio__chunk"></div>
+                                 <span class="radio__text">Доставлен</span>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="actions__price">
+                           <div class="actions__title">Цена заказа</div>
+                           <div class="filters__price">
+                              <div class="price-filter js_price">
+                                 <div class="price-filter__inputs">
+                                    <input autocomplete="off" type="number" name="form[]" placeholder="" class="price-filter__input js_input-from">
+                                    <span>—</span>
+                                    <input autocomplete="off" type="number" name="form[]" placeholder="" class="price-filter__input js_input-to">
+                                 </div>
+                                 <div class="price-filter__range-slider">
+                                    <div class="js-range" data-from="0" data-to="999999"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actions__calendar">
+                           <div class="actions__title">Дата</div>
+                           <input type="text" data-datepicker>
+                        </div>
+                        <a href="" class="actions__btn btn-15">Применить</a>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+         <div class="history__main">
+            <div class="history-card">
+               <div class="history-card__header">
+                  <div class="history-card__header-top">
+                     <div class="history-card__num"> Заказ № <span>153</span> </div>
+                     <div class="history-card__date">от 06.04.24 18:23</div>
+                     <div class="history-card__status order__status  status__accepted">Принят, ожидается оплата</div>
+                  </div>
+                  <div class="history-card__header-bottom">
+                     <div class="history-card__type">Online-заказ</div>
+                     <div class="history-card__total"> на сумму: <span> 250 000 ₽</span> </div>
+                  </div>
+               </div>
+               <div class="history-card__list">
+                  <div class="history-card__list-title">Состав заказа</div>
+                  <div class="history-card__list-chunk">
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="history-card__details" data-spollers>
+
+
+                  <button type="button" data-spoller class="history-card__details-title">Данные по заказу</button>
+                  <div class="history-card__details-body">
+                     <div class="order__details">
+                        <div class="order__details-col">
+                           <div class="order__details-row">
+                              <div class="order__details-name">Дата и время заказа</div>
+                              <div class="order__details-content">
+                                 18.07.2023 10:46 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">ФИО</div>
+                              <div class="order__details-content">
+                                 Тест 1807 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">E-mail</div>
+                              <div class="order__details-content">
+                                 personal101@bk.ru </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Телефон</div>
+                              <div class="order__details-content">
+                                 77777908208 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Адрес доставки</div>
+                              <div class="order__details-content">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="order__details-col">
+                           <div class="order__details-row">
+                              <div class="order__details-name">Способ оплаты</div>
+                              <div class="order__details-content">
+                                 Наличный расчет </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Способ доставки</div>
+                              <div class="order__details-content">
+                                 Самовывоз </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Сумма заказа</div>
+                              <div class="order__details-content">
+                                 8&nbsp;564.01 ₽ </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Скидка</div>
+                              <div class="order__details-content">
+                                 0 ₽ </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Итого</div>
+                              <div class="order__details-content">
+                                 8&nbsp;564.01 ₽ </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+
+               </div>
+               <div class="history-card__btns">
+                  <a href="" class="history-card__btn btn-15 btn-15_blck">Создать заявку на рекламацию</a>
+                  <a href="" class="history-card__btn btn-15">Повторить заказ</a>
+               </div>
+            </div>
+            <div class="history-card">
+               <div class="history-card__header">
+                  <div class="history-card__header-top">
+                     <div class="history-card__num"> Заказ № <span>153</span> </div>
+                     <div class="history-card__date">от 06.04.24 18:23</div>
+                     <div class="history-card__status order__status  status__paid">Оплачен, формируется к отправке</div>
+                  </div>
+                  <div class="history-card__header-bottom">
+                     <div class="history-card__type history-card__type_off">Offline-заказ</div>
+                     <div class="history-card__total"> на сумму: <span> 2 000 000 ₽</span> </div>
+                  </div>
+               </div>
+               <div class="history-card__list">
+                  <div class="history-card__list-title">Состав заказа</div>
+                  <div class="history-card__list-chunk">
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="history-card-item">
+                        <a href="" class="history-card-item__img"><img src="@img/catalog/prd_1.png" alt=""></a>
+                        <div class="history-card-item__available available">В наличии 325 м.</div>
+                        <a href="" class="history-card-item__name">TITAN 5 Корпус металлический ЩМП-80.80.30 УХЛ1 IP66 IEK</a>
+                        <div class="history-card-item__actions">
+                           <div data-quantity class="quantity">
+                              <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+                              <div class="quantity__input">
+                                 <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+                              </div>
+                              <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+                           </div>
+                           <div class="history-card-item__total">= 5000 ₽</div>
+                           <a href="" class="history-card-item__add-btn btn-15"><img src="@img/icons/icon-card-basket.svg" alt=""></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="history-card__details" data-spollers>
+
+
+                  <button type="button" data-spoller class="history-card__details-title">Данные по заказу</button>
+                  <div class="history-card__details-body">
+                     <div class="order__details">
+                        <div class="order__details-col">
+                           <div class="order__details-row">
+                              <div class="order__details-name">Дата и время заказа</div>
+                              <div class="order__details-content">
+                                 18.07.2023 10:46 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">ФИО</div>
+                              <div class="order__details-content">
+                                 Тест 1807 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">E-mail</div>
+                              <div class="order__details-content">
+                                 personal101@bk.ru </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Телефон</div>
+                              <div class="order__details-content">
+                                 77777908208 </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Адрес доставки</div>
+                              <div class="order__details-content">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="order__details-col">
+                           <div class="order__details-row">
+                              <div class="order__details-name">Способ оплаты</div>
+                              <div class="order__details-content">
+                                 Наличный расчет </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Способ доставки</div>
+                              <div class="order__details-content">
+                                 Самовывоз </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Сумма заказа</div>
+                              <div class="order__details-content">
+                                 8&nbsp;564.01 ₽ </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Скидка</div>
+                              <div class="order__details-content">
+                                 0 ₽ </div>
+                           </div>
+                           <div class="order__details-row">
+                              <div class="order__details-name">Итого</div>
+                              <div class="order__details-content">
+                                 8&nbsp;564.01 ₽ </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+
+               </div>
+               <div class="history-card__btns">
+                  <a href="" class="history-card__btn btn-15 btn-15_blck">Создать заявку на рекламацию</a>
+                  <a href="" class="history-card__btn btn-15">Повторить заказ</a>
+               </div>
+            </div>
+         </div>
+         @@include('html/_pagging.htm',{})
+      </div>
+   </section>
+</main>
+@@include('html/_footer.htm',{})

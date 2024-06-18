@@ -4,4 +4,27 @@
 :root {
 	--red-error: #ca2e33; // цвет ошибки в формах
 	--chernyy: #141414;
+
+	// =================================================================
+	// left-catalog
+	--red-main: #CF1235;
+	--red-logo: #E12A4C;
+	--bg-black: #000;
+	--btn-main-color: #E5E5E5;
+	--cat-border: #979797;
+	--bg-cat-dark-grey: #373737;
+	--bg-cat-light-grey: #515151;
+	--text-black: #000000;
+	--text-white: #ffffff;
+	--left-cat-btn: 128px;
+
+	@media (max-width:$xl) {
+		--left-cat-btn: 119px;
+	}
+
+	@media (max-width:$md) {
+		--left-cat-btn: 0px;
+	}
+
+	// =================================================================
 }

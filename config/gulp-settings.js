@@ -7,7 +7,7 @@ const buildFolder = `./dist`;
 const srcFolder = `./src`;
 
 // Пути к папкам и файлам проекта
-export const path = {
+export const pathtofiles = {
 	build: {
 		html: `${buildFolder}/`,
 		js: `${buildFolder}/js/`,

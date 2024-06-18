@@ -1,0 +1,127 @@
+.wholesale {
+
+   // .wholesale__container
+
+   &__container {}
+
+   // .wholesale__search-block
+
+   &__search-block {
+      max-width: 1077px;
+      margin-bottom: rem(40);
+   }
+
+   // .wholesale__title
+
+   &__title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 133%;
+      color: #000;
+      margin-bottom: rem(16);
+   }
+
+   // .wholesale__line
+
+   &__line {
+      margin-bottom: rem(28);
+
+      .form__input {
+         min-height: 260px;
+      }
+   }
+
+   // .wholesale__btns
+
+   &__btns {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      width: 100%;
+
+      @media (max-width:$md) {
+         flex-direction: column;
+      }
+   }
+
+   // .wholesale__btn
+
+   &__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      min-width: 352px;
+      height: 45px;
+      padding: rem(0) rem(16);
+
+      @media (max-width:$md) {
+         min-width: 0;
+      }
+   }
+
+   // .wholesale__result-block
+
+   &__result-block {
+      max-width: 1077px;
+   }
+
+   // .wholesale__result-list
+
+   &__result-list {
+      margin-top: rem(80);
+   }
+}
+
+.unavailable {
+   display: flex;
+   gap: 40px;
+   margin-bottom: rem(60);
+
+   @media (max-width:$md) {
+      display: grid;
+      gap: 16px;
+   }
+
+   // .unavailable__title
+
+   &__title {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 133%;
+      color: #a60101;
+      display: flex;
+      align-items: center;
+      align-items: flex-start;
+
+      &::before {
+         content: '';
+         display: block;
+         width: 24px;
+         height: 24px;
+         margin-right: rem(8);
+         background: url(../img/icons/unavailable.svg);
+      }
+   }
+
+   // .unavailable__list
+
+   &__list {
+      display: grid;
+      gap: 10px;
+
+      @media (max-width:$md) {
+         padding-left: rem(32);
+      }
+   }
+
+   // .unavailable__item
+
+   &__item {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #a60101;
+   }
+}

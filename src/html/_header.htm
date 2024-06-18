@@ -17,7 +17,7 @@
 
 <body>
 	<div class="wrapper @@modClass">
-		<header class="header">
+		<header class="header" data-scroll="100">
 			<div class="header__container">
 				<a href="" class="header__logo"><img src="@img/logo.svg" alt=""></a>
 				<div class="header__manager manager dropdown" data-dropdown>
@@ -65,8 +65,13 @@
 					<div class="menu-mobile__manager manager"></div>
 				</div>
 			</div>
+			@@include('_sidebar-catalog.htm',{})
 		</header>
-		@@include('./_breadcrumbs.htm',{})
-		<div class="page-title">@@pageTitle</div>
-		@@include('./_menu-left.htm',{})
-		@@include('./_menu-right.htm',{})
+		<div class="page-headline">
+			<div class="page-headline__container">
+				@@include('./_breadcrumbs.htm',{})
+				<div class="page-title">@@pageTitle</div>
+				@@include('./_menu-left.htm',{})
+				@@include('./_menu-right.htm',{})
+			</div>
+		</div>

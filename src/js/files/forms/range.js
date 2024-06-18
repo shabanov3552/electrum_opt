@@ -9,7 +9,7 @@ import * as noUiSlider from 'nouislider';
 
 export function rangeInit(rangeSlider) {
 	if (rangeSlider) {
-		let priceCnt = rangeSlider.closest('.price')
+		let priceCnt = rangeSlider.closest('.js_price')
 		let textFrom = parseInt(rangeSlider.getAttribute('data-from'));
 		let textTo = parseInt(rangeSlider.getAttribute('data-to'));
 		const input0 = priceCnt.querySelector('.js_input-from');

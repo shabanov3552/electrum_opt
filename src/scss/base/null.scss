@@ -5,6 +5,12 @@
 }
 
 *,
+html * {
+	scrollbar-width: thin;
+	scrollbar-color: #828282 transparent;
+}
+
+*,
 *:before,
 *:after {
 	box-sizing: border-box;

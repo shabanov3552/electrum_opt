@@ -1,0 +1,468 @@
+.history {
+   margin-bottom: rem(60);
+
+   .pagging {
+      padding: 0;
+      margin: 0;
+      margin-top: rem(60);
+   }
+
+   // .history__container
+
+   &__container {}
+
+   // .history__header
+
+   &__header {
+      margin-bottom: rem(24);
+
+      .sort {
+         display: grid;
+         gap: 16px;
+         grid-template-columns: 455px 200px;
+         justify-content: end;
+      }
+
+      .sort__box {
+         grid-template-columns: auto 1fr;
+      }
+
+      .sort__title {
+         margin: 0;
+      }
+
+      .actions {
+         display: block;
+
+         .radio__chunk {
+            flex: 0 0 20px;
+            width: 20px;
+            height: 20px;
+            background: #FFFFFF;
+            border: 1px solid #004fa6;
+            box-shadow: none;
+            border-radius: 15px;
+            position: relative;
+
+            &::before {
+               width: 10px;
+               height: 10px;
+               background: #004fa6;
+            }
+         }
+      }
+
+      .actions__drop-button {
+         width: 100%;
+         justify-content: space-between;
+      }
+
+      .actions__drop-block {
+         right: 0;
+         width: 567px;
+         padding: rem(32);
+      }
+
+      .actions__radio {
+         display: grid;
+         grid-template-columns: repeat(2, auto);
+         gap: 80px;
+         margin-bottom: rem(40);
+
+         .radio-wrapper {
+            gap: 10px;
+         }
+      }
+
+      .actions__price {
+         margin-bottom: rem(40);
+         max-width: 314px;
+
+         .filters__price {
+            border: none;
+            padding: 0;
+         }
+      }
+   }
+
+   // .history__main
+
+   &__main {
+      display: grid;
+      gap: 24px;
+   }
+}
+
+.history-card {
+   border: 1px solid #828282;
+   padding: 32px 40px;
+   display: grid;
+   grid-template-columns: 1fr auto;
+
+   @media (max-width:em(1639.98)) {
+      grid-template-columns: 1fr;
+   }
+
+   @media (max-width:em(1439.98)) {
+      max-width: 770px;
+   }
+
+   @media (max-width:$xl) {
+      padding: rem(32) rem(20);
+   }
+
+   @media (max-width:$md) {
+      padding: rem(32) rem(8);
+   }
+
+   // .history-card__header
+
+   &__header {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      display: grid;
+      gap: 24px;
+      margin-bottom: rem(32);
+
+      @media (max-width:em(1639.98)) {
+         grid-column: auto;
+         grid-row: auto;
+      }
+
+      @media (max-width:$md) {
+         gap: 16px;
+      }
+   }
+
+   // .history-card__header-top
+
+   &__header-top {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      @media (max-width:$xl) {
+         gap: 16px;
+         display: grid;
+         grid-template-columns: auto 1fr;
+         justify-self: start;
+      }
+   }
+
+   // .history-card__header-bottom
+
+   &__header-bottom {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      @media (max-width:$md) {
+         display: grid;
+         justify-items: start;
+         gap: 8px;
+      }
+   }
+
+   // .history-card__list
+
+   &__list {
+      grid-column: 1/3;
+      grid-row: 2/3;
+      margin-bottom: rem(32);
+
+      @media (max-width:em(1639.98)) {
+         grid-column: auto;
+         grid-row: auto;
+      }
+   }
+
+   // .history-card__details
+
+   &__details {
+      grid-column: 1/3;
+      grid-row: 3/4;
+
+      @media (max-width:em(1639.98)) {
+         grid-column: auto;
+         grid-row: auto;
+         margin-bottom: rem(32);
+      }
+   }
+
+   // .history-card__btns
+
+   &__btns {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      display: flex;
+      gap: 16px;
+      align-items: start;
+
+      @media (max-width:em(1639.98)) {
+         grid-column: auto;
+         grid-row: auto;
+      }
+
+      @media (max-width:$md) {
+         display: grid;
+      }
+   }
+
+   // .history-card__title
+
+   &__title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+   }
+
+   // .history-card__num
+
+   &__num {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 133%;
+      color: #000;
+
+      span {
+         color: #f6ac00;
+      }
+   }
+
+   // .history-card__date
+
+   &__date {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 133%;
+      color: #000;
+   }
+
+   // .history-card__status
+
+   &__status {
+      text-align: center;
+      margin: 0;
+
+      @media (max-width:$xl) {
+         grid-column: 1/3;
+      }
+   }
+
+   // .history-card__type
+
+   &__type {
+      border-radius: 100px;
+      padding: 8px 16px;
+      background: #2876ce;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 133%;
+      color: #fff;
+      text-align: center;
+      // .history-card__type_off
+
+      &_off {
+         background: #596675;
+      }
+   }
+
+   // .history-card__total
+
+   &__total {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 133%;
+      color: #000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      span {
+         font-weight: 600;
+         font-size: 29px;
+         line-height: 103%;
+         color: #004fa6;
+      }
+   }
+
+   // .history-card__list-title
+
+   &__list-title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 133%;
+      color: #000;
+      margin-bottom: rem(24);
+   }
+
+   // .history-card__list-chunk
+
+   &__list-chunk {
+      display: grid;
+      gap: 24px;
+   }
+
+   // .history-card__details-title
+
+   &__details-title {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 178%;
+      text-decoration: underline;
+      color: #000;
+      transition: all 0.3s ease 0s;
+
+      &._spoller-active {
+         margin-bottom: rem(20);
+      }
+
+      &:hover {
+         text-decoration: none;
+      }
+   }
+
+   // .history-card__details-body
+
+   &__details-body {}
+
+   // .history-card__btn
+
+   &__btn {
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: rem(12) rem(16);
+   }
+}
+
+.history-card-item {
+   display: grid;
+   grid-template-columns: 105px 1fr auto;
+   max-width: 690px;
+   gap: 16px;
+
+   @media (max-width:$lg) {
+      grid-template-columns: 105px 1fr;
+   }
+
+   // .history-card-item__img
+
+   &__img {
+      width: 105px;
+      height: 105px;
+      grid-column: 1/2;
+      grid-row: 1/3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // @media (max-width:$lg) {
+      //    grid-row: 1/2;
+      // }
+
+      img {
+         max-width: 100%;
+         max-height: 100%;
+      }
+   }
+
+   // .history-card-item__available
+
+   &__available {
+      display: flex;
+      align-items: center;
+      grid-column: 3/4;
+      grid-row: 2/3;
+
+      @media (max-width:$lg) {
+         grid-column: 2/3;
+         grid-row: 1/2;
+      }
+   }
+
+   // .history-card-item__name
+
+   &__name {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 133%;
+      color: var(--chernyy);
+      grid-column: 2/4;
+
+      @media (max-width:$lg) {
+         grid-column: 2/3;
+      }
+   }
+
+   // .history-card-item__actions
+
+   &__actions {
+      display: flex;
+      align-items: center;
+
+      @media (max-width:$lg) {
+         grid-column: 1/3;
+      }
+   }
+
+   // .history-card-item__total
+
+   &__total {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 133%;
+      color: #004fa6;
+      margin-left: rem(16);
+
+      @media (max-width:$md) {
+         font-size: 22px;
+      }
+   }
+
+   // .history-card-item__add-btn
+
+   &__add-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      width: 74px;
+      height: 49px;
+      margin-left: rem(40);
+
+      @media (max-width:$md) {
+         width: 51px;
+         height: 51px;
+         margin-left: rem(30);
+      }
+   }
+}
+
+.order {
+
+   // .order__status
+
+   &__status {}
+
+   // .order__details
+
+   &__details {}
+
+   // .order__details-col
+
+   &__details-col {}
+
+   // .order__details-row
+
+   &__details-row {}
+
+   // .order__details-name
+
+   &__details-name {}
+
+   // .order__details-content
+
+   &__details-content {}
+}

@@ -94,6 +94,7 @@
    &__line {
       margin-right: rem(22);
       position: relative;
+      margin-bottom: 0;
 
       @media (max-width:$xl) {
          margin-right: rem(8);
@@ -133,6 +134,7 @@
 
       ._form-focus & {
          transform: translateY(0);
+         top: -20px !important;
       }
    }
 

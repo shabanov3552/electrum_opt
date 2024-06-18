@@ -121,7 +121,7 @@ body::after {
 	// .popup__header
 
 	&__header {
-		border-bottom: 1px solid #CACACA;
+		// border-bottom: 1px solid #CACACA;
 		padding: rem(40);
 		padding-left: rem(54);
 		padding-right: rem(65);
@@ -728,3 +728,36 @@ body::after {
 }
 
 //#endregion
+
+.popup {
+
+	// .popup__main
+
+	&__main {
+		.log-in {
+
+			// .log-in__navigation
+
+			&__navigation {
+				width: 100%;
+			}
+
+			// .log-in__title
+
+			&__title {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.tabs {
+
+	// .tabs__navigation
+
+	&__navigation {}
+
+	// .tabs__title
+
+	&__title {}
+}

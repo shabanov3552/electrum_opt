@@ -139,11 +139,11 @@ textarea {
 		width: 100%;
 
 		.has-error & {
-			border: 2px solid var(--red-error);
+			border-bottom: 2px solid var(--red-error);
 		}
 
 		&.parsley-error {
-			border: 2px solid var(--red-error);
+			border-bottom: 2px solid var(--red-error);
 		}
 	}
 
@@ -214,12 +214,24 @@ textarea {
 	&__button+&__check {
 		margin-top: rem(24);
 	}
+
+	&__check+&__button {
+		margin-top: rem(24);
+	}
 }
 
 .parsley-errors-list {
 	padding: rem(10) 0;
 	color: var(--red-error);
 	margin-bottom: rem(-20);
+}
+
+.form__line_file-caption {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 143%;
+	color: #8a8a8a;
+	margin-top: rem(8);
 }
 
 //</FORM>

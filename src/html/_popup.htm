@@ -658,4 +658,405 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Добавить профиль -->
+	<div id="add-prof" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">Добавить профиль</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<div data-tabs class="tabs">
+						<nav data-tabs-titles class="tabs__navigation log-in__navigation">
+							<button type="button" class="tabs__title log-in__title _tab-active">Физ. лицо</button>
+							<button type="button" class="tabs__title log-in__title">Юр. лицо</button>
+						</nav>
+						<div data-tabs-body class="tabs__content">
+							<div class="tabs__body">
+								<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+									<div class="form__line">
+										<label for="" class="form__label">Фамилия Имя Отчество</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Телефон</label>
+										<input required type="tel" name="" class="form__input js_phone">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">E-mail</label>
+										<input required type="email" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Адрес доставки</label>
+										<input id="" type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__check">
+										<label class="checkbox">
+											<input class="checkbox__input" type="checkbox" checked>
+											<span class="checkbox__chunk"></span>
+											<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
+										</label>
+									</div>
+									<button type="submit" class="form__button btn-15">Сохранить</button>
+								</form>
+							</div>
+							<div class="tabs__body">
+								<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+									<div class="form__line">
+										<label for="" class="form__label">ИНН</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">КПП</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Название компании</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Юридический адрес</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Контактное лицо</label>
+										<input required type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Телефон</label>
+										<input required type="tel" name="" class="form__input js_phone">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">E-mail</label>
+										<input required type="email" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__line">
+										<label for="" class="form__label">Адрес доставки</label>
+										<input id="" type="text" name="" class="form__input">
+										<svg class="form__clear-svg">
+											<use xlink:href="img/icons/icons.svg#input_clear"></use>
+										</svg>
+									</div>
+									<div class="form__check">
+										<label class="checkbox">
+											<input class="checkbox__input" type="checkbox" checked>
+											<span class="checkbox__chunk"></span>
+											<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
+										</label>
+									</div>
+									<button type="submit" class="form__button btn-15">Сохранить</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Добавить профиль -->
+
+	<!-- Сменить пароль -->
+	<div id="change-pass" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">Изменить пароль</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+						<div class="form__line">
+							<label for="" class="form__label">Пароль</label>
+							<input id="" type="password" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<button type="submit" class="form__button btn-15">Сохранить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Сменить пароль -->
+
+	<!-- Изменить данные -->
+	<div id="change-data" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">Изменить данные</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+						<div class="form__line">
+							<label for="" class="form__label">ИНН</label>
+							<input required type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">КПП</label>
+							<input required type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Название компании</label>
+							<input required type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Юридический адрес</label>
+							<input required type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Контактное лицо</label>
+							<input required type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Телефон</label>
+							<input required type="tel" name="" class="form__input js_phone">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">E-mail</label>
+							<input required type="email" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Адрес доставки</label>
+							<input id="" type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__check">
+							<label class="checkbox">
+								<input class="checkbox__input" type="checkbox" checked>
+								<span class="checkbox__chunk"></span>
+								<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
+							</label>
+						</div>
+						<button type="submit" class="form__button btn-15">Сохранить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Изменить данные -->
+
+	<!-- Изменить данные -->
+	<div id="claim-modal" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">Заявка на рекламацию</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<div class="popup__text">Заказ №153 от 06.04.24 18:23</div>
+					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+						<div class="form__line">
+							<label for="" class="form__label">Тема заявки</label>
+							<input id="" type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Текст претензии</label>
+							<textarea required id="" autocomplete="off" name="" class="form__input"></textarea>
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line form__line_file">
+							<input type="file" name="file" id="input__file" class="input input__file" required>
+							<label for="input__file" class="input__file-button">
+								<span class="input__file-icon-wrapper">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M21.4383 11.0499L12.2483 20.2399C11.1225 21.3658 9.59552 21.9983 8.00334 21.9983C6.41115 21.9983 4.88418 21.3658 3.75834 20.2399C2.63249 19.1141 2 17.5871 2 15.9949C2 14.4027 2.63249 12.8758 3.75834 11.7499L12.9483 2.55992C13.6989 1.80936 14.7169 1.3877 15.7783 1.3877C16.8398 1.3877 17.8578 1.80936 18.6083 2.55992C19.3589 3.31048 19.7806 4.32846 19.7806 5.38992C19.7806 6.45138 19.3589 7.46936 18.6083 8.21992L9.40834 17.4099C9.03306 17.7852 8.52406 17.996 7.99334 17.996C7.46261 17.996 6.95362 17.7852 6.57834 17.4099C6.20306 17.0346 5.99222 16.5256 5.99222 15.9949C5.99222 15.4642 6.20306 14.9552 6.57834 14.5799L15.0683 6.09992" stroke="#004FA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+								<div class="input__file-button-text">Прикрепить файл</div>
+							</label>
+							<div class="form__line_file-caption">Прикрепите фото в формате PNG или JPEG.
+								Не более 5 файлов, объемом не более 10 Мб.</div>
+							<script>
+								const input = document.querySelector('.input__file');
+								const preview = document.querySelector('.input__file-button-text');
+								const fileIcon = document.querySelector('.input__file-icon-wrapper');
+								let clsBtn = clearBtnCreate();
+								input.style.opacity = 0;
+
+								input.addEventListener('change', insertFileName);
+								clsBtn.addEventListener('click', fileRemove);
+
+								function fileRemove(e) {
+									e.preventDefault();
+									input.value = '';
+									clsBtn.remove();
+									preview.textContent = `Прикрепить файл`;
+									preview.before(fileIcon);
+								}
+
+								function clearBtnCreate() {
+									let clearBtn = document.createElement('span');
+									clearBtn.classList.add('clear-btn');
+									clearBtn.insertAdjacentHTML(
+										'beforeend',
+										`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M23.768 22.6474C23.9165 22.4987 24 22.2972 24 22.0871C24 21.8769 23.9165 21.6754 23.768 21.5267L14.242 12.0008L23.7672 2.47246C23.9157 2.32384 23.9992 2.1223 23.9992 1.91215C23.9992 1.70201 23.9157 1.50047 23.7672 1.35185L22.6474 0.232036C22.4987 0.0834634 22.2972 0 22.0871 0C21.8769 0 21.6754 0.0834634 21.5267 0.232036L12.0008 9.75799L2.47246 0.232828C2.32384 0.0842559 2.1223 0.000792509 1.91215 0.000792509C1.70201 0.000792509 1.50047 0.0842559 1.35185 0.232828L0.232036 1.35264C0.0834634 1.50126 0 1.7028 0 1.91295C0 2.12309 0.0834634 2.32463 0.232036 2.47325L9.75799 12L0.232828 21.5267C0.0842559 21.6754 0.000792509 21.8769 0.000792509 22.0871C0.000792509 22.2972 0.0842559 22.4987 0.232828 22.6474L1.35344 23.768C1.50205 23.9165 1.70359 24 1.91374 24C2.12388 24 2.32543 23.9165 2.47404 23.768L12.0008 14.242L21.5275 23.768C21.6762 23.9165 21.8777 24 22.0878 24C22.298 24 22.4995 23.9165 22.6481 23.768L23.7688 22.6474H23.768Z" fill="#004FA6"/>
+										 </svg>
+`
+									);
+									return clearBtn
+								}
+
+
+								function insertFileName() {
+									while (preview.firstChild) {
+										preview.removeChild(preview.firstChild);
+									}
+
+									const curFiles = input.files;
+									if (curFiles.length === 0) {
+										const para = document.createElement('p');
+										para.textContent = 'Не выбрано ни одного файла';
+										preview.appendChild(para);
+									} else {
+										fileIcon.remove();
+										preview.before(clsBtn);
+										const list = document.createElement('ul');
+										preview.appendChild(list);
+										// list.style.paddingLeft = "20px";
+										for (const file of curFiles) {
+											const listItem = document.createElement('li');
+											const para = document.createElement('p');
+											para.textContent = file.name;
+											listItem.appendChild(para);
+											list.appendChild(listItem);
+										}
+									}
+								}
+							</script>
+						</div>
+						<a href="" class="claim__link">
+							<svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.75 0.5H2.5C2.10218 0.5 1.72064 0.658035 1.43934 0.93934C1.15804 1.22064 1 1.60218 1 2V14C1 14.3978 1.15804 14.7794 1.43934 15.0607C1.72064 15.342 2.10218 15.5 2.5 15.5H11.5C11.8978 15.5 12.2794 15.342 12.5607 15.0607C12.842 14.7794 13 14.3978 13 14V5.75L7.75 0.5Z" stroke="#004FA6" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M7.75 0.5V5.75H13" stroke="#004FA6" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							Условия рекламации pdf
+						</a>
+						<button type="submit" class="form__button btn-15">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Изменить данные -->
+
+	<!-- Запрос документа -->
+	<div id="doc-req" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">Запрос документа</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<div class="popup__text">Заказ №153 от 06.04.24 18:23</div>
+					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+						<div class="form__line">
+							<label for="" class="form__label">Название документа</label>
+							<input id="" type="text" name="" class="form__input">
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<div class="form__line">
+							<label for="" class="form__label">Сообщение</label>
+							<textarea required id="" autocomplete="off" name="" class="form__input"></textarea>
+							<svg class="form__clear-svg">
+								<use xlink:href="img/icons/icons.svg#input_clear"></use>
+							</svg>
+						</div>
+						<button type="submit" class="form__button btn-15">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Запрос документа -->
 </div>

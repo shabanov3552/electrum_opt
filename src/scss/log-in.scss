@@ -45,6 +45,10 @@
       color: #828282;
       padding: rem(8) rem(28);
 
+      &:hover {
+         background: #edf6ff;
+      }
+
       @media (max-width:em(460)) {
          width: 100%;
          padding: rem(8) rem(10);

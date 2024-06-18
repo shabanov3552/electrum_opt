@@ -13,8 +13,8 @@ if (document.querySelector('[data-datepicker]')) {
 		customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
 		overlayButton: 'Применить',
 		overlayPlaceholder: 'Год (4 цифры)',
-		startDay: 1,
-		// alwaysShow: true,
+		startDay: 0,
+		alwaysShow: true,
 		formatter: (input, date, instance) => {
 			const value = date.toLocaleDateString()
 			input.value = value

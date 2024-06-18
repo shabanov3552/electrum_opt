@@ -439,6 +439,9 @@ document.addEventListener("click", function (e) {
       dropdownAction(e, ddWrapper, ddActive);
    } else if (ddActive) {
       ddActive.classList.remove('_dd-active');
+      if (target.closest('.qs-arrow')) {
+         ddActive.classList.add('_dd-active');
+      }
    }
 });
 

@@ -21,14 +21,38 @@
          gap: 16px;
          grid-template-columns: 455px 200px;
          justify-content: end;
+
+         @media (max-width:em(1439.98)) {
+            justify-content: start;
+         }
+
+         @media (max-width:$lg) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+         }
       }
 
       .sort__box {
          grid-template-columns: auto 1fr;
+
+         @media (max-width:em(1439.98)) {
+            gap: 24px;
+         }
+
+         @media (max-width:$lg) {
+            grid-template-columns: 1fr;
+            gap: 8px;
+         }
       }
 
       .sort__title {
          margin: 0;
+      }
+
+      @media (max-width:em(1439.98)) {
+         .sort__select {
+            margin-bottom: 0;
+         }
       }
 
       .actions {
@@ -55,12 +79,26 @@
       .actions__drop-button {
          width: 100%;
          justify-content: space-between;
+
+         @media (max-width:$lg) {}
       }
 
       .actions__drop-block {
          right: 0;
          width: 567px;
          padding: rem(32);
+
+         @media (max-width:em(1269.98)) {
+            display: block;
+         }
+
+         @media (max-width:$lg) {
+            width: 100%;
+         }
+
+         @media (max-width:$xs) {
+            padding: rem(24) rem(10);
+         }
       }
 
       .actions__radio {
@@ -68,6 +106,11 @@
          grid-template-columns: repeat(2, auto);
          gap: 80px;
          margin-bottom: rem(40);
+
+         @media (max-width:$sm) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+         }
 
          .radio-wrapper {
             gap: 10px;

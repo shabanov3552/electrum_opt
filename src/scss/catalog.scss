@@ -206,13 +206,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 rem(15);
       color: #000;
 
       @media (max-width:em(1269.98)) {
          width: auto;
          justify-content: space-between;
       }
+
    }
 
    // .actions__drop-block
@@ -826,6 +827,10 @@
    position: absolute;
    top: 32px;
    left: 32px;
+
+   .goods & {
+      display: none;
+   }
 }
 
 .card.card_no-img .checkbox {

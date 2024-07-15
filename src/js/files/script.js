@@ -439,7 +439,7 @@ document.addEventListener("click", function (e) {
       dropdownAction(e, ddWrapper, ddActive);
    } else if (ddActive) {
       ddActive.classList.remove('_dd-active');
-      if (target.closest('.qs-arrow')) {
+      if (target.closest('.qs-arrow') || target.closest('.qs-square')) {
          ddActive.classList.add('_dd-active');
       }
    }

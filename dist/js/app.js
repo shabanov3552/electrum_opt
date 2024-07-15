@@ -12765,7 +12765,7 @@ PERFORMANCE OF THIS SOFTWARE.
             const ddActive = document.querySelector("._dd-active");
             if (ddWrapper) dropdownAction(e, ddWrapper, ddActive); else if (ddActive) {
                 ddActive.classList.remove("_dd-active");
-                if (target.closest(".qs-arrow")) ddActive.classList.add("_dd-active");
+                if (target.closest(".qs-arrow") || target.closest(".qs-square")) ddActive.classList.add("_dd-active");
             }
         }));
         function dropdownAction(e, ddWrapper, ddActive) {

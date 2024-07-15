@@ -5,7 +5,11 @@
    padding-bottom: rem(40);
    // .log-in__container
 
-   &__container {}
+   &__container {
+      @media (max-width:em(460)) {
+         width: 100%;
+      }
+   }
 
    // .log-in__tabs
 

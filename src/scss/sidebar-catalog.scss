@@ -215,6 +215,8 @@
       height: 100%;
       overflow: auto;
       gap: 18px;
+      scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+      @extend %hidescroll;
 
       @media (max-width:$lg) {
          height: calc(100vh - 71px);
@@ -246,11 +248,13 @@
    &__link {
       display: flex;
       align-items: center;
-      gap: 41px;
+      gap: 17px;
       font-size: 18px;
       line-height: 20px;
       font-weight: 600;
       padding: rem(13) rem(24);
+      display: grid;
+      grid-template-columns: 27px 1fr;
 
       // sidebar-catalog__link _sub-menu-active
       @media (min-width:$md) {
@@ -261,6 +265,8 @@
       }
 
       @media (max-width:$lg) {
+         grid-template-columns: 27px 1fr 13px;
+
          &::after {
             content: url(../img/icons/sidebar-catalog__link.svg);
          }
@@ -274,11 +280,16 @@
          background: #fff;
          color: #2976ce;
 
-         @media (max-width:$md) {
+         @media (max-width:$lg) {
 
             &::after {
                content: url(../img/icons/sidebar-catalog__link-hv.svg);
             }
+         }
+
+         .sidebar-catalog__link-svg use {
+            fill: #2876ce;
+            opacity: 1;
          }
       }
    }
@@ -287,12 +298,17 @@
 
    &__link-svg {
       flex: 0 0 38px;
-      width: 38px;
-      height: 38px;
+      width: 27px;
+      height: 22px;
 
       use {
-         transition: fill 0.3s;
-         fill: #5D5D5D;
+         fill: #fff;
+         opacity: 0.499682;
+
+         ._sub-menu-active & {
+            fill: #2876ce;
+            opacity: 1;
+         }
       }
    }
 
@@ -343,6 +359,7 @@
       position: relative;
       height: 100%;
       overflow: auto;
+      scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
 
       @media (max-width:$xxl) {
          padding: 0 0 0 rem(60);

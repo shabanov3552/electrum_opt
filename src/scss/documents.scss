@@ -1,6 +1,13 @@
 .documents {
    margin-bottom: rem(60);
 
+   .history-card & {
+      display: grid;
+      justify-content: start;
+      gap: 15px;
+      margin: 0;
+   }
+
    .pagging {
       padding: 0;
       margin: 0;
@@ -209,5 +216,9 @@
       display: flex;
       align-items: center;
       gap: 8px;
+
+      &:hover {
+         text-decoration: underline;
+      }
    }
 }

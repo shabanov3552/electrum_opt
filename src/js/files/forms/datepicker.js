@@ -24,4 +24,34 @@ if (document.querySelector('[data-datepicker]')) {
 		}
 	});
 	flsModules.datepicker = picker;
+
+	// const start = datepicker('.start', {
+	// 	id: 1,
+	// 	customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+	// 	customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+	// 	overlayButton: 'Применить',
+	// 	overlayPlaceholder: 'Год (4 цифры)',
+	// 	startDay: 0,
+	// 	alwaysShow: true,
+	// 	formatter: (input, date, instance) => {
+	// 		const value = date.toLocaleDateString()
+	// 		input.value = value
+	// 	},
+	// })
+	// const end = datepicker('.end', {
+	// 	id: 1,
+	// 	customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+	// 	customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+	// 	overlayButton: 'Применить',
+	// 	overlayPlaceholder: 'Год (4 цифры)',
+	// 	startDay: 0,
+	// 	alwaysShow: true,
+	// 	formatter: (input, date, instance) => {
+	// 		const value = date.toLocaleDateString()
+	// 		input.value = value
+	// 	},
+	// })
+
+	// start.getRange() // { start: <JS date object>, end: <JS date object> }
+	// end.getRange()
 }

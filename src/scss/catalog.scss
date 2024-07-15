@@ -60,6 +60,7 @@
 
 .search-block {
    margin-bottom: rem(60);
+   max-width: 1495px;
 
    @media (max-width:$lg) {
       margin-bottom: rem(32);

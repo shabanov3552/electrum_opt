@@ -115,7 +115,10 @@
 			&:after {
 				position: absolute;
 				right: -28px;
-				bottom: 0px;
+				top: 50%;
+				width: 12px;
+				height: 7px;
+				transform: translateY(-50%);
 			}
 
 			@media (max-width:em(1869.98)) and (min-width:em(1729.98)) {
@@ -132,6 +135,10 @@
 		&._dd-active {
 			.dropdown__button::before {
 				opacity: 1;
+			}
+
+			.dropdown__button::after {
+				transform: translateY(-50%) rotate(-180deg);
 			}
 		}
 

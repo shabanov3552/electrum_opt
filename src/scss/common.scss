@@ -127,6 +127,7 @@
    &__links {
       overflow: auto;
       height: calc(100% - 121px);
+      scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
       @extend %hidescroll;
 
       @media (max-width:$md) {

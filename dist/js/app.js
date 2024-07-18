@@ -1,5 +1,1607 @@
 (() => {
     var __webpack_modules__ = {
+        327: function(module) {
+            !function(e, t) {
+                true ? module.exports = t() : 0;
+            }(0, (function() {
+                return function() {
+                    "use strict";
+                    var e = {
+                        d: function(t, i) {
+                            for (var s in i) e.o(i, s) && !e.o(t, s) && Object.defineProperty(t, s, {
+                                enumerable: !0,
+                                get: i[s]
+                            });
+                        },
+                        o: function(e, t) {
+                            return Object.prototype.hasOwnProperty.call(e, t);
+                        }
+                    }, t = {};
+                    e.d(t, {
+                        default: function() {
+                            return R;
+                        }
+                    });
+                    var i = {
+                        days: "days",
+                        months: "months",
+                        years: "years",
+                        day: "day",
+                        month: "month",
+                        year: "year",
+                        eventChangeViewDate: "changeViewDate",
+                        eventChangeCurrentView: "changeCurrentView",
+                        eventChangeFocusDate: "changeFocusDate",
+                        eventChangeSelectedDate: "changeSelectedDate",
+                        eventChangeTime: "changeTime",
+                        eventChangeLastSelectedDate: "changeLastSelectedDate",
+                        actionSelectDate: "selectDate",
+                        actionUnselectDate: "unselectDate",
+                        cssClassWeekend: "-weekend-"
+                    }, s = {
+                        classes: "",
+                        inline: !1,
+                        locale: {
+                            days: [ "Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота" ],
+                            daysShort: [ "Вос", "Пон", "Вто", "Сре", "Чет", "Пят", "Суб" ],
+                            daysMin: [ "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
+                            months: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+                            monthsShort: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
+                            today: "Сегодня",
+                            clear: "Очистить",
+                            dateFormat: "dd.MM.yyyy",
+                            timeFormat: "HH:mm",
+                            firstDay: 1
+                        },
+                        startDate: new Date,
+                        firstDay: "",
+                        weekends: [ 6, 0 ],
+                        dateFormat: "",
+                        altField: "",
+                        altFieldDateFormat: "T",
+                        toggleSelected: !0,
+                        keyboardNav: !0,
+                        selectedDates: !1,
+                        container: "",
+                        isMobile: !1,
+                        visible: !1,
+                        position: "bottom left",
+                        offset: 12,
+                        view: i.days,
+                        minView: i.days,
+                        showOtherMonths: !0,
+                        selectOtherMonths: !0,
+                        moveToOtherMonthsOnSelect: !0,
+                        showOtherYears: !0,
+                        selectOtherYears: !0,
+                        moveToOtherYearsOnSelect: !0,
+                        minDate: "",
+                        maxDate: "",
+                        disableNavWhenOutOfRange: !0,
+                        multipleDates: !1,
+                        multipleDatesSeparator: ", ",
+                        range: !1,
+                        dynamicRange: !0,
+                        buttons: !1,
+                        monthsField: "monthsShort",
+                        showEvent: "focus",
+                        autoClose: !1,
+                        fixedHeight: !1,
+                        prevHtml: '<svg><path d="M 17,12 l -5,5 l 5,5"></path></svg>',
+                        nextHtml: '<svg><path d="M 14,12 l 5,5 l -5,5"></path></svg>',
+                        navTitles: {
+                            days: "MMMM, <i>yyyy</i>",
+                            months: "yyyy",
+                            years: "yyyy1 - yyyy2"
+                        },
+                        timepicker: !1,
+                        onlyTimepicker: !1,
+                        dateTimeSeparator: " ",
+                        timeFormat: "",
+                        minHours: 0,
+                        maxHours: 24,
+                        minMinutes: 0,
+                        maxMinutes: 59,
+                        hoursStep: 1,
+                        minutesStep: 1,
+                        onSelect: !1,
+                        onChangeViewDate: !1,
+                        onChangeView: !1,
+                        onRenderCell: !1,
+                        onShow: !1,
+                        onHide: !1,
+                        onClickDayName: !1
+                    };
+                    function a(e) {
+                        let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document;
+                        return "string" == typeof e ? t.querySelector(e) : e;
+                    }
+                    function n() {
+                        let {tagName: e = "div", className: t = "", innerHtml: i = "", id: s = "", attrs: a = {}} = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, n = document.createElement(e);
+                        return t && n.classList.add(...t.split(" ")), s && (n.id = s), i && (n.innerHTML = i), 
+                        a && r(n, a), n;
+                    }
+                    function r(e, t) {
+                        for (let [i, s] of Object.entries(t)) void 0 !== s && e.setAttribute(i, s);
+                        return e;
+                    }
+                    function o(e) {
+                        return new Date(e.getFullYear(), e.getMonth() + 1, 0).getDate();
+                    }
+                    function h(e) {
+                        let t = e.getHours(), {hours: i, dayPeriod: s} = l(t);
+                        return {
+                            year: e.getFullYear(),
+                            month: e.getMonth(),
+                            fullMonth: e.getMonth() + 1 < 10 ? "0" + (e.getMonth() + 1) : e.getMonth() + 1,
+                            date: e.getDate(),
+                            fullDate: e.getDate() < 10 ? "0" + e.getDate() : e.getDate(),
+                            day: e.getDay(),
+                            hours: t,
+                            fullHours: d(t),
+                            hours12: i,
+                            dayPeriod: s,
+                            fullHours12: d(i),
+                            minutes: e.getMinutes(),
+                            fullMinutes: e.getMinutes() < 10 ? "0" + e.getMinutes() : e.getMinutes()
+                        };
+                    }
+                    function l(e) {
+                        return {
+                            dayPeriod: e > 11 ? "pm" : "am",
+                            hours: e % 12 == 0 ? 12 : e % 12
+                        };
+                    }
+                    function d(e) {
+                        return e < 10 ? "0" + e : e;
+                    }
+                    function c(e) {
+                        let t = 10 * Math.floor(e.getFullYear() / 10);
+                        return [ t, t + 9 ];
+                    }
+                    function u() {
+                        let e = [];
+                        for (var t = arguments.length, i = new Array(t), s = 0; s < t; s++) i[s] = arguments[s];
+                        return i.forEach((t => {
+                            if ("object" == typeof t) for (let i in t) t[i] && e.push(i); else t && e.push(t);
+                        })), e.join(" ");
+                    }
+                    function p(e, t) {
+                        let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : i.days;
+                        if (!e || !t) return !1;
+                        let a = h(e), n = h(t);
+                        return {
+                            [i.days]: a.date === n.date && a.month === n.month && a.year === n.year,
+                            [i.months]: a.month === n.month && a.year === n.year,
+                            [i.years]: a.year === n.year
+                        }[s];
+                    }
+                    function m(e, t, i) {
+                        let s = g(e, !1).getTime(), a = g(t, !1).getTime();
+                        return i ? s >= a : s > a;
+                    }
+                    function v(e, t) {
+                        return !m(e, t, !0);
+                    }
+                    function g(e) {
+                        let t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1], i = new Date(e.getTime());
+                        return "boolean" != typeof t || t || function(e) {
+                            e.setHours(0, 0, 0, 0);
+                        }(i), i;
+                    }
+                    function D(e, t, i) {
+                        e.length ? e.forEach((e => {
+                            e.addEventListener(t, i);
+                        })) : e.addEventListener(t, i);
+                    }
+                    function y(e, t) {
+                        return !(!e || e === document || e instanceof DocumentFragment) && (e.matches(t) ? e : y(e.parentNode, t));
+                    }
+                    function f(e, t, i) {
+                        return e > i ? i : e < t ? t : e;
+                    }
+                    function w(e) {
+                        for (var t = arguments.length, i = new Array(t > 1 ? t - 1 : 0), s = 1; s < t; s++) i[s - 1] = arguments[s];
+                        return i.filter((e => e)).forEach((t => {
+                            for (let [i, s] of Object.entries(t)) if (void 0 !== s && "[object Object]" === s.toString()) {
+                                let t = void 0 !== e[i] ? e[i].toString() : void 0, a = s.toString(), n = Array.isArray(s) ? [] : {};
+                                e[i] = e[i] ? t !== a ? n : e[i] : n, w(e[i], s);
+                            } else e[i] = s;
+                        })), e;
+                    }
+                    function b(e) {
+                        let t = e;
+                        return e instanceof Date || ("string" == typeof e && /^\d{4}-\d{2}-\d{2}$/.test(e) && (e += "T00:00:00"), 
+                        t = new Date(e)), isNaN(t.getTime()) && (console.log(`Unable to convert value "${e}" to Date object`), 
+                        t = !1), t;
+                    }
+                    function k(e) {
+                        let t = "\\s|\\.|-|/|\\\\|,|\\$|\\!|\\?|:|;";
+                        return new RegExp("(^|>|" + t + ")(" + e + ")($|<|" + t + ")", "g");
+                    }
+                    function $(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    class C {
+                        constructor() {
+                            let {type: e, date: t, dp: i, opts: s, body: a} = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                            $(this, "focus", (() => {
+                                this.$cell.classList.add("-focus-"), this.focused = !0;
+                            })), $(this, "removeFocus", (() => {
+                                this.$cell.classList.remove("-focus-"), this.focused = !1;
+                            })), $(this, "select", (() => {
+                                this.$cell.classList.add("-selected-"), this.selected = !0;
+                            })), $(this, "removeSelect", (() => {
+                                this.$cell.classList.remove("-selected-", "-range-from-", "-range-to-"), this.selected = !1;
+                            })), $(this, "onChangeSelectedDate", (() => {
+                                this.isDisabled || (this._handleSelectedStatus(), this.opts.range && this._handleRangeStatus());
+                            })), $(this, "onChangeFocusDate", (e => {
+                                if (!e) return void (this.focused && this.removeFocus());
+                                let t = p(e, this.date, this.type);
+                                t ? this.focus() : !t && this.focused && this.removeFocus(), this.opts.range && this._handleRangeStatus();
+                            })), $(this, "render", (() => (this.$cell.innerHTML = this._getHtml(), this._handleClasses(), 
+                            this.$cell))), this.type = e, this.singleType = this.type.slice(0, -1), this.date = t, 
+                            this.dp = i, this.opts = s, this.body = a, this.customData = !1, this.init();
+                        }
+                        init() {
+                            var e;
+                            let {onRenderCell: t} = this.opts;
+                            t && (this.customData = t({
+                                date: this.date,
+                                cellType: this.singleType,
+                                datepicker: this.dp
+                            })), this._createElement(), this._bindDatepickerEvents(), null !== (e = this.customData) && void 0 !== e && e.disabled && this.dp.disableDate(this.date);
+                        }
+                        _bindDatepickerEvents() {
+                            this.dp.on(i.eventChangeSelectedDate, this.onChangeSelectedDate), this.dp.on(i.eventChangeFocusDate, this.onChangeFocusDate);
+                        }
+                        unbindDatepickerEvents() {
+                            this.dp.off(i.eventChangeSelectedDate, this.onChangeSelectedDate), this.dp.off(i.eventChangeFocusDate, this.onChangeFocusDate);
+                        }
+                        _createElement() {
+                            var e;
+                            let {year: t, month: i, date: s} = h(this.date), a = (null === (e = this.customData) || void 0 === e ? void 0 : e.attrs) || {};
+                            this.$cell = n({
+                                attrs: {
+                                    "data-year": t,
+                                    "data-month": i,
+                                    "data-date": s,
+                                    ...a
+                                }
+                            }), this.$cell.adpCell = this;
+                        }
+                        _getClassName() {
+                            var e;
+                            let t = new Date, {selectOtherMonths: s, selectOtherYears: a} = this.opts, {minDate: n, maxDate: r, isDateDisabled: o} = this.dp, {day: l} = h(this.date), d = this._isOutOfMinMaxRange(), c = o(this.date), m = u("air-datepicker-cell", `-${this.singleType}-`, {
+                                "-current-": p(t, this.date, this.type),
+                                "-min-date-": n && p(n, this.date, this.type),
+                                "-max-date-": r && p(r, this.date, this.type)
+                            }), v = "";
+                            switch (this.type) {
+                              case i.days:
+                                v = u({
+                                    "-weekend-": this.dp.isWeekend(l),
+                                    "-other-month-": this.isOtherMonth,
+                                    "-disabled-": this.isOtherMonth && !s || d || c
+                                });
+                                break;
+
+                              case i.months:
+                                v = u({
+                                    "-disabled-": d
+                                });
+                                break;
+
+                              case i.years:
+                                v = u({
+                                    "-other-decade-": this.isOtherDecade,
+                                    "-disabled-": d || this.isOtherDecade && !a
+                                });
+                            }
+                            return u(m, v, null === (e = this.customData) || void 0 === e ? void 0 : e.classes).split(" ");
+                        }
+                        _getHtml() {
+                            var e;
+                            let {year: t, month: s, date: a} = h(this.date), {showOtherMonths: n, showOtherYears: r} = this.opts;
+                            if (null !== (e = this.customData) && void 0 !== e && e.html) return this.customData.html;
+                            switch (this.type) {
+                              case i.days:
+                                return !n && this.isOtherMonth ? "" : a;
+
+                              case i.months:
+                                return this.dp.locale[this.opts.monthsField][s];
+
+                              case i.years:
+                                return !r && this.isOtherDecade ? "" : t;
+                            }
+                        }
+                        _isOutOfMinMaxRange() {
+                            let {minDate: e, maxDate: t} = this.dp, {type: s, date: a} = this, {month: n, year: r, date: o} = h(a), l = s === i.days, d = s === i.years, c = !!e && new Date(r, d ? e.getMonth() : n, l ? o : e.getDate()), u = !!t && new Date(r, d ? t.getMonth() : n, l ? o : t.getDate());
+                            return e && t ? v(c, e) || m(u, t) : e ? v(c, e) : t ? m(u, t) : void 0;
+                        }
+                        destroy() {
+                            this.unbindDatepickerEvents();
+                        }
+                        _handleRangeStatus() {
+                            const {selectedDates: e, focusDate: t, rangeDateTo: i, rangeDateFrom: s} = this.dp, a = e.length;
+                            if (!a) return;
+                            let n = s, r = i;
+                            if (1 === a && t) {
+                                const i = m(t, e[0]);
+                                n = i ? e[0] : t, r = i ? t : e[0];
+                            }
+                            let o = u({
+                                "-in-range-": n && r && (h = this.date, l = n, d = r, m(h, l) && v(h, d)),
+                                "-range-from-": n && p(this.date, n, this.type),
+                                "-range-to-": r && p(this.date, r, this.type)
+                            });
+                            var h, l, d;
+                            this.$cell.classList.remove("-range-from-", "-range-to-", "-in-range-"), o && this.$cell.classList.add(...o.split(" "));
+                        }
+                        _handleSelectedStatus() {
+                            let e = this.dp._checkIfDateIsSelected(this.date, this.type);
+                            e ? this.select() : !e && this.selected && this.removeSelect();
+                        }
+                        _handleInitialFocusStatus() {
+                            p(this.dp.focusDate, this.date, this.type) && this.focus();
+                        }
+                        _handleClasses() {
+                            this.$cell.setAttribute("class", ""), this._handleInitialFocusStatus(), this.dp.hasSelectedDates && (this._handleSelectedStatus(), 
+                            this.dp.opts.range && this._handleRangeStatus()), this.$cell.classList.add(...this._getClassName());
+                        }
+                        get isDisabled() {
+                            return this.$cell.matches(".-disabled-");
+                        }
+                        get isOtherMonth() {
+                            return this.dp.isOtherMonth(this.date);
+                        }
+                        get isOtherDecade() {
+                            return this.dp.isOtherDecade(this.date);
+                        }
+                    }
+                    function _(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    let M = {
+                        [i.days]: `<div class="air-datepicker-body--day-names"></div><div class="air-datepicker-body--cells -${i.days}-"></div>`,
+                        [i.months]: `<div class="air-datepicker-body--cells -${i.months}-"></div>`,
+                        [i.years]: `<div class="air-datepicker-body--cells -${i.years}-"></div>`
+                    };
+                    const S = ".air-datepicker-cell";
+                    class T {
+                        constructor(e) {
+                            let {dp: t, type: s, opts: a} = e;
+                            _(this, "handleClick", (e => {
+                                let t = e.target.closest(S).adpCell;
+                                if (t.isDisabled) return;
+                                if (!this.dp.isMinViewReached) return void this.dp.down();
+                                let i = this.dp._checkIfDateIsSelected(t.date, t.type);
+                                i ? this.dp._handleAlreadySelectedDates(i, t.date) : this.dp.selectDate(t.date);
+                            })), _(this, "handleDayNameClick", (e => {
+                                let t = e.target.getAttribute("data-day-index");
+                                this.opts.onClickDayName({
+                                    dayIndex: Number(t),
+                                    datepicker: this.dp
+                                });
+                            })), _(this, "onChangeCurrentView", (e => {
+                                e !== this.type ? this.hide() : (this.show(), this.render());
+                            })), _(this, "onMouseOverCell", (e => {
+                                let t = y(e.target, S);
+                                this.dp.setFocusDate(!!t && t.adpCell.date);
+                            })), _(this, "onMouseOutCell", (() => {
+                                this.dp.setFocusDate(!1);
+                            })), _(this, "onClickBody", (e => {
+                                let {onClickDayName: t} = this.opts, i = e.target;
+                                i.closest(S) && this.handleClick(e), t && i.closest(".air-datepicker-body--day-name") && this.handleDayNameClick(e);
+                            })), _(this, "onMouseDown", (e => {
+                                this.pressed = !0;
+                                let t = y(e.target, S), i = t && t.adpCell;
+                                p(i.date, this.dp.rangeDateFrom) && (this.rangeFromFocused = !0), p(i.date, this.dp.rangeDateTo) && (this.rangeToFocused = !0);
+                            })), _(this, "onMouseMove", (e => {
+                                if (!this.pressed || !this.dp.isMinViewReached) return;
+                                e.preventDefault();
+                                let t = y(e.target, S), i = t && t.adpCell, {selectedDates: s, rangeDateTo: a, rangeDateFrom: n} = this.dp;
+                                if (!i || i.isDisabled) return;
+                                let {date: r} = i;
+                                if (2 === s.length) {
+                                    if (this.rangeFromFocused && !m(r, a)) {
+                                        let {hours: e, minutes: t} = h(n);
+                                        r.setHours(e), r.setMinutes(t), this.dp.rangeDateFrom = r, this.dp.replaceDate(n, r);
+                                    }
+                                    if (this.rangeToFocused && !v(r, n)) {
+                                        let {hours: e, minutes: t} = h(a);
+                                        r.setHours(e), r.setMinutes(t), this.dp.rangeDateTo = r, this.dp.replaceDate(a, r);
+                                    }
+                                }
+                            })), _(this, "onMouseUp", (() => {
+                                this.pressed = !1, this.rangeFromFocused = !1, this.rangeToFocused = !1;
+                            })), _(this, "onChangeViewDate", ((e, t) => {
+                                if (!this.isVisible) return;
+                                let s = c(e), a = c(t);
+                                switch (this.dp.currentView) {
+                                  case i.days:
+                                    if (p(e, t, i.months)) return;
+                                    break;
+
+                                  case i.months:
+                                    if (p(e, t, i.years)) return;
+                                    break;
+
+                                  case i.years:
+                                    if (s[0] === a[0] && s[1] === a[1]) return;
+                                }
+                                this.render();
+                            })), _(this, "render", (() => {
+                                this.destroyCells(), this._generateCells(), this.cells.forEach((e => {
+                                    this.$cells.appendChild(e.render());
+                                }));
+                            })), this.dp = t, this.type = s, this.opts = a, this.cells = [], this.$el = "", 
+                            this.pressed = !1, this.isVisible = !0, this.init();
+                        }
+                        init() {
+                            this._buildBaseHtml(), this.type === i.days && this.renderDayNames(), this.render(), 
+                            this._bindEvents(), this._bindDatepickerEvents();
+                        }
+                        _bindEvents() {
+                            let {range: e, dynamicRange: t} = this.opts;
+                            D(this.$el, "mouseover", this.onMouseOverCell), D(this.$el, "mouseout", this.onMouseOutCell), 
+                            D(this.$el, "click", this.onClickBody), e && t && (D(this.$el, "mousedown", this.onMouseDown), 
+                            D(this.$el, "mousemove", this.onMouseMove), D(window.document, "mouseup", this.onMouseUp));
+                        }
+                        _bindDatepickerEvents() {
+                            this.dp.on(i.eventChangeViewDate, this.onChangeViewDate), this.dp.on(i.eventChangeCurrentView, this.onChangeCurrentView);
+                        }
+                        _buildBaseHtml() {
+                            this.$el = n({
+                                className: `air-datepicker-body -${this.type}-`,
+                                innerHtml: M[this.type]
+                            }), this.$names = a(".air-datepicker-body--day-names", this.$el), this.$cells = a(".air-datepicker-body--cells", this.$el);
+                        }
+                        _getDayNamesHtml() {
+                            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.dp.locale.firstDay, t = "", s = this.dp.isWeekend, {onClickDayName: a} = this.opts, n = e, r = 0;
+                            for (;r < 7; ) {
+                                let e = n % 7;
+                                t += `<div class="${u("air-datepicker-body--day-name", {
+                                    [i.cssClassWeekend]: s(e),
+                                    "-clickable-": !!a
+                                })}" data-day-index='${e}'>${this.dp.locale.daysMin[e]}</div>`, r++, n++;
+                            }
+                            return t;
+                        }
+                        renderDayNames() {
+                            this.$names.innerHTML = this._getDayNamesHtml();
+                        }
+                        _generateCell(e) {
+                            let {type: t, dp: i, opts: s} = this;
+                            return new C({
+                                type: t,
+                                dp: i,
+                                opts: s,
+                                date: e,
+                                body: this
+                            });
+                        }
+                        _generateCells() {
+                            T.getDatesFunction(this.type)(this.dp, (e => {
+                                this.cells.push(this._generateCell(e));
+                            }));
+                        }
+                        show() {
+                            this.isVisible = !0, this.$el.classList.remove("-hidden-");
+                        }
+                        hide() {
+                            this.isVisible = !1, this.$el.classList.add("-hidden-");
+                        }
+                        destroyCells() {
+                            this.cells.forEach((e => e.destroy())), this.cells = [], this.$cells.innerHTML = "";
+                        }
+                        destroy() {
+                            this.destroyCells(), this.dp.off(i.eventChangeViewDate, this.onChangeViewDate), 
+                            this.dp.off(i.eventChangeCurrentView, this.onChangeCurrentView);
+                        }
+                        static getDaysDates(e, t) {
+                            let {viewDate: i, opts: {fixedHeight: s}, locale: {firstDay: a}} = e, n = o(i), {year: r, month: l} = h(i), d = new Date(r, l, 1), c = new Date(r, l, n), u = d.getDay() - a, p = 6 - c.getDay() + a;
+                            u = u < 0 ? u + 7 : u, p = p > 6 ? p - 7 : p;
+                            let m = function(e, t) {
+                                let {year: i, month: s, date: a} = h(e);
+                                return new Date(i, s, a - t);
+                            }(d, u), v = n + u + p, g = m.getDate(), {year: D, month: y} = h(m), f = 0;
+                            s && (v = 42);
+                            const w = [];
+                            for (;f < v; ) {
+                                let e = new Date(D, y, g + f);
+                                t && t(e), w.push(e), f++;
+                            }
+                            return w;
+                        }
+                        static getMonthsDates(e, t) {
+                            let {year: i} = e.parsedViewDate, s = 0, a = [];
+                            for (;s < 12; ) {
+                                const e = new Date(i, s);
+                                a.push(e), t && t(e), s++;
+                            }
+                            return a;
+                        }
+                        static getYearsDates(e, t) {
+                            let i = c(e.viewDate), s = i[0] - 1, a = i[1] + 1, n = s, r = [];
+                            for (;n <= a; ) {
+                                const e = new Date(n, 0);
+                                r.push(e), t && t(e), n++;
+                            }
+                            return r;
+                        }
+                        static getDatesFunction() {
+                            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : i.days;
+                            return {
+                                [i.days]: T.getDaysDates,
+                                [i.months]: T.getMonthsDates,
+                                [i.years]: T.getYearsDates
+                            }[e];
+                        }
+                    }
+                    function F(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    class V {
+                        constructor(e) {
+                            let {dp: t, opts: i} = e;
+                            F(this, "onClickNav", (e => {
+                                let t = y(e.target, ".air-datepicker-nav--action");
+                                if (!t) return;
+                                let i = t.dataset.action;
+                                this.dp[i]();
+                            })), F(this, "onChangeViewDate", (() => {
+                                this.render(), this._resetNavStatus(), this.handleNavStatus();
+                            })), F(this, "onChangeCurrentView", (() => {
+                                this.render(), this._resetNavStatus(), this.handleNavStatus();
+                            })), F(this, "onClickNavTitle", (() => {
+                                this.dp.isFinalView || this.dp.up();
+                            })), F(this, "update", (() => {
+                                let {prevHtml: e, nextHtml: t} = this.opts;
+                                this.$prev.innerHTML = e, this.$next.innerHTML = t, this._resetNavStatus(), this.render(), 
+                                this.handleNavStatus();
+                            })), F(this, "renderDelay", (() => {
+                                setTimeout(this.render);
+                            })), F(this, "render", (() => {
+                                this.$title.innerHTML = this._getTitle(), function(e, t) {
+                                    for (let i in t) t[i] ? e.classList.add(i) : e.classList.remove(i);
+                                }(this.$title, {
+                                    "-disabled-": this.dp.isFinalView
+                                });
+                            })), this.dp = t, this.opts = i, this.init();
+                        }
+                        init() {
+                            this._createElement(), this._buildBaseHtml(), this._defineDOM(), this.render(), 
+                            this.handleNavStatus(), this._bindEvents(), this._bindDatepickerEvents();
+                        }
+                        _defineDOM() {
+                            this.$title = a(".air-datepicker-nav--title", this.$el), this.$prev = a('[data-action="prev"]', this.$el), 
+                            this.$next = a('[data-action="next"]', this.$el);
+                        }
+                        _bindEvents() {
+                            this.$el.addEventListener("click", this.onClickNav), this.$title.addEventListener("click", this.onClickNavTitle);
+                        }
+                        _bindDatepickerEvents() {
+                            this.dp.on(i.eventChangeViewDate, this.onChangeViewDate), this.dp.on(i.eventChangeCurrentView, this.onChangeCurrentView), 
+                            this.isNavIsFunction && (this.dp.on(i.eventChangeSelectedDate, this.renderDelay), 
+                            this.dp.opts.timepicker && this.dp.on(i.eventChangeTime, this.render));
+                        }
+                        destroy() {
+                            this.dp.off(i.eventChangeViewDate, this.onChangeViewDate), this.dp.off(i.eventChangeCurrentView, this.onChangeCurrentView), 
+                            this.isNavIsFunction && (this.dp.off(i.eventChangeSelectedDate, this.renderDelay), 
+                            this.dp.opts.timepicker && this.dp.off(i.eventChangeTime, this.render));
+                        }
+                        _createElement() {
+                            this.$el = n({
+                                tagName: "nav",
+                                className: "air-datepicker-nav"
+                            });
+                        }
+                        _getTitle() {
+                            let {dp: e, opts: t} = this, i = t.navTitles[e.currentView];
+                            return "function" == typeof i ? i(e) : e.formatDate(e.viewDate, i);
+                        }
+                        handleNavStatus() {
+                            let {disableNavWhenOutOfRange: e} = this.opts, {minDate: t, maxDate: s} = this.dp;
+                            if (!t && !s || !e) return;
+                            let {year: a, month: n} = this.dp.parsedViewDate, r = !!t && h(t), o = !!s && h(s);
+                            switch (this.dp.currentView) {
+                              case i.days:
+                                t && r.month >= n && r.year >= a && this._disableNav("prev"), s && o.month <= n && o.year <= a && this._disableNav("next");
+                                break;
+
+                              case i.months:
+                                t && r.year >= a && this._disableNav("prev"), s && o.year <= a && this._disableNav("next");
+                                break;
+
+                              case i.years:
+                                {
+                                    let e = c(this.dp.viewDate);
+                                    t && r.year >= e[0] && this._disableNav("prev"), s && o.year <= e[1] && this._disableNav("next");
+                                    break;
+                                }
+                            }
+                        }
+                        _disableNav(e) {
+                            a('[data-action="' + e + '"]', this.$el).classList.add("-disabled-");
+                        }
+                        _resetNavStatus() {
+                            !function(e) {
+                                for (var t = arguments.length, i = new Array(t > 1 ? t - 1 : 0), s = 1; s < t; s++) i[s - 1] = arguments[s];
+                                e.length ? e.forEach((e => {
+                                    e.classList.remove(...i);
+                                })) : e.classList.remove(...i);
+                            }(this.$el.querySelectorAll(".air-datepicker-nav--action"), "-disabled-");
+                        }
+                        _buildBaseHtml() {
+                            let {prevHtml: e, nextHtml: t} = this.opts;
+                            this.$el.innerHTML = `<div class="air-datepicker-nav--action" data-action="prev">${e}</div><div class="air-datepicker-nav--title"></div><div class="air-datepicker-nav--action" data-action="next">${t}</div>`;
+                        }
+                        get isNavIsFunction() {
+                            let {navTitles: e} = this.opts;
+                            return Object.keys(e).find((t => "function" == typeof e[t]));
+                        }
+                    }
+                    var x = {
+                        today: {
+                            content: e => e.locale.today,
+                            onClick: e => e.setViewDate(new Date)
+                        },
+                        clear: {
+                            content: e => e.locale.clear,
+                            onClick: e => e.clear()
+                        }
+                    };
+                    class H {
+                        constructor(e) {
+                            let {dp: t, opts: i} = e;
+                            this.dp = t, this.opts = i, this.init();
+                        }
+                        init() {
+                            this.createElement(), this.render();
+                        }
+                        createElement() {
+                            this.$el = n({
+                                className: "air-datepicker-buttons"
+                            });
+                        }
+                        destroy() {
+                            this.$el.parentNode.removeChild(this.$el);
+                        }
+                        clearHtml() {
+                            return this.$el.innerHTML = "", this;
+                        }
+                        generateButtons() {
+                            let {buttons: e} = this.opts;
+                            Array.isArray(e) || (e = [ e ]), e.forEach((e => {
+                                let t = e;
+                                "string" == typeof e && x[e] && (t = x[e]);
+                                let i = this.createButton(t);
+                                t.onClick && this.attachEventToButton(i, t.onClick), this.$el.appendChild(i);
+                            }));
+                        }
+                        attachEventToButton(e, t) {
+                            e.addEventListener("click", (() => {
+                                t(this.dp);
+                            }));
+                        }
+                        createButton(e) {
+                            let {content: t, className: i, tagName: s = "button", attrs: a = {}} = e;
+                            return n({
+                                tagName: s,
+                                innerHtml: `<span tabindex='-1'>${"function" == typeof t ? t(this.dp) : t}</span>`,
+                                className: u("air-datepicker-button", i),
+                                attrs: a
+                            });
+                        }
+                        render() {
+                            this.generateButtons();
+                        }
+                    }
+                    function E(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    class L {
+                        constructor() {
+                            let {opts: e, dp: t} = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                            E(this, "toggleTimepickerIsActive", (e => {
+                                this.dp.timepickerIsActive = e;
+                            })), E(this, "onChangeSelectedDate", (e => {
+                                let {date: t, updateTime: i = !1} = e;
+                                t && (this.setMinMaxTime(t), this.setCurrentTime(!!i && t), this.addTimeToDate(t));
+                            })), E(this, "onChangeLastSelectedDate", (e => {
+                                e && (this.setTime(e), this.render());
+                            })), E(this, "onChangeInputRange", (e => {
+                                let t = e.target;
+                                this[t.getAttribute("name")] = t.value, this.updateText(), this.dp.trigger(i.eventChangeTime, {
+                                    hours: this.hours,
+                                    minutes: this.minutes
+                                });
+                            })), E(this, "onMouseEnterLeave", (e => {
+                                let t = e.target.getAttribute("name"), i = this.$minutesText;
+                                "hours" === t && (i = this.$hoursText), i.classList.toggle("-focus-");
+                            })), E(this, "onFocus", (() => {
+                                this.toggleTimepickerIsActive(!0);
+                            })), E(this, "onBlur", (() => {
+                                this.toggleTimepickerIsActive(!1);
+                            })), this.opts = e, this.dp = t;
+                            let {timeFormat: s} = this.dp.locale;
+                            s && (s.match(k("h")) || s.match(k("hh"))) && (this.ampm = !0), this.init();
+                        }
+                        init() {
+                            this.setTime(this.dp.lastSelectedDate || this.dp.viewDate), this.createElement(), 
+                            this.buildHtml(), this.defineDOM(), this.render(), this.bindDatepickerEvents(), 
+                            this.bindDOMEvents();
+                        }
+                        bindDatepickerEvents() {
+                            this.dp.on(i.eventChangeSelectedDate, this.onChangeSelectedDate), this.dp.on(i.eventChangeLastSelectedDate, this.onChangeLastSelectedDate);
+                        }
+                        bindDOMEvents() {
+                            let e = "input";
+                            navigator.userAgent.match(/trident/gi) && (e = "change"), D(this.$ranges, e, this.onChangeInputRange), 
+                            D(this.$ranges, "mouseenter", this.onMouseEnterLeave), D(this.$ranges, "mouseleave", this.onMouseEnterLeave), 
+                            D(this.$ranges, "focus", this.onFocus), D(this.$ranges, "mousedown", this.onFocus), 
+                            D(this.$ranges, "blur", this.onBlur);
+                        }
+                        createElement() {
+                            this.$el = n({
+                                className: u("air-datepicker-time", {
+                                    "-am-pm-": this.dp.ampm
+                                })
+                            });
+                        }
+                        destroy() {
+                            this.dp.off(i.eventChangeSelectedDate, this.onChangeSelectedDate), this.dp.off(i.eventChangeLastSelectedDate, this.onChangeLastSelectedDate), 
+                            this.$el.parentNode.removeChild(this.$el);
+                        }
+                        buildHtml() {
+                            let {ampm: e, hours: t, displayHours: i, minutes: s, minHours: a, minMinutes: n, maxHours: r, maxMinutes: o, dayPeriod: h, opts: {hoursStep: l, minutesStep: c}} = this;
+                            this.$el.innerHTML = `<div class="air-datepicker-time--current">   <span class="air-datepicker-time--current-hours">${d(i)}</span>   <span class="air-datepicker-time--current-colon">:</span>   <span class="air-datepicker-time--current-minutes">${d(s)}</span>   ` + (e ? `<span class='air-datepicker-time--current-ampm'>${h}</span>` : "") + '</div><div class="air-datepicker-time--sliders">   <div class="air-datepicker-time--row">' + `      <input type="range" name="hours" value="${t}" min="${a}" max="${r}" step="${l}"/>   </div>   <div class="air-datepicker-time--row">` + `      <input type="range" name="minutes" value="${s}" min="${n}" max="${o}" step="${c}"/>   </div></div>`;
+                        }
+                        defineDOM() {
+                            let e = e => a(e, this.$el);
+                            this.$ranges = this.$el.querySelectorAll('[type="range"]'), this.$hours = e('[name="hours"]'), 
+                            this.$minutes = e('[name="minutes"]'), this.$hoursText = e(".air-datepicker-time--current-hours"), 
+                            this.$minutesText = e(".air-datepicker-time--current-minutes"), this.$ampm = e(".air-datepicker-time--current-ampm");
+                        }
+                        setTime(e) {
+                            this.setMinMaxTime(e), this.setCurrentTime(e);
+                        }
+                        addTimeToDate(e) {
+                            e && (e.setHours(this.hours), e.setMinutes(this.minutes));
+                        }
+                        setMinMaxTime(e) {
+                            if (this.setMinMaxTimeFromOptions(), e) {
+                                let {minDate: t, maxDate: i} = this.dp;
+                                t && p(e, t) && this.setMinTimeFromMinDate(t), i && p(e, i) && this.setMaxTimeFromMaxDate(i);
+                            }
+                        }
+                        setCurrentTime(e) {
+                            let {hours: t, minutes: i} = e ? h(e) : this;
+                            this.hours = f(t, this.minHours, this.maxHours), this.minutes = f(i, this.minMinutes, this.maxMinutes);
+                        }
+                        setMinMaxTimeFromOptions() {
+                            let {minHours: e, minMinutes: t, maxHours: i, maxMinutes: s} = this.opts;
+                            this.minHours = f(e, 0, 23), this.minMinutes = f(t, 0, 59), this.maxHours = f(i, 0, 23), 
+                            this.maxMinutes = f(s, 0, 59);
+                        }
+                        setMinTimeFromMinDate(e) {
+                            let {lastSelectedDate: t} = this.dp;
+                            this.minHours = e.getHours(), t && t.getHours() > e.getHours() ? this.minMinutes = this.opts.minMinutes : this.minMinutes = e.getMinutes();
+                        }
+                        setMaxTimeFromMaxDate(e) {
+                            let {lastSelectedDate: t} = this.dp;
+                            this.maxHours = e.getHours(), t && t.getHours() < e.getHours() ? this.maxMinutes = this.opts.maxMinutes : this.maxMinutes = e.getMinutes();
+                        }
+                        updateSliders() {
+                            r(this.$hours, {
+                                min: this.minHours,
+                                max: this.maxHours
+                            }).value = this.hours, r(this.$minutes, {
+                                min: this.minMinutes,
+                                max: this.maxMinutes
+                            }).value = this.minutes;
+                        }
+                        updateText() {
+                            this.$hoursText.innerHTML = d(this.displayHours), this.$minutesText.innerHTML = d(this.minutes), 
+                            this.ampm && (this.$ampm.innerHTML = this.dayPeriod);
+                        }
+                        set hours(e) {
+                            this._hours = e;
+                            let {hours: t, dayPeriod: i} = l(e);
+                            this.displayHours = this.ampm ? t : e, this.dayPeriod = i;
+                        }
+                        get hours() {
+                            return this._hours;
+                        }
+                        render() {
+                            this.updateSliders(), this.updateText();
+                        }
+                    }
+                    function O(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    class A {
+                        constructor(e) {
+                            let {dp: t, opts: i} = e;
+                            O(this, "pressedKeys", new Set), O(this, "hotKeys", new Map([ [ [ [ "Control", "ArrowRight" ], [ "Control", "ArrowUp" ] ], e => e.month++ ], [ [ [ "Control", "ArrowLeft" ], [ "Control", "ArrowDown" ] ], e => e.month-- ], [ [ [ "Shift", "ArrowRight" ], [ "Shift", "ArrowUp" ] ], e => e.year++ ], [ [ [ "Shift", "ArrowLeft" ], [ "Shift", "ArrowDown" ] ], e => e.year-- ], [ [ [ "Alt", "ArrowRight" ], [ "Alt", "ArrowUp" ] ], e => e.year += 10 ], [ [ [ "Alt", "ArrowLeft" ], [ "Alt", "ArrowDown" ] ], e => e.year -= 10 ], [ [ "Control", "Shift", "ArrowUp" ], (e, t) => t.up() ] ])), 
+                            O(this, "handleHotKey", (e => {
+                                let t = this.hotKeys.get(e), i = h(this.getInitialFocusDate());
+                                t(i, this.dp);
+                                let {year: s, month: a, date: n} = i, r = o(new Date(s, a));
+                                r < n && (n = r);
+                                let l = this.dp.getClampedDate(new Date(s, a, n));
+                                this.dp.setFocusDate(l, {
+                                    viewDateTransition: !0
+                                });
+                            })), O(this, "isHotKeyPressed", (() => {
+                                let e = !1, t = this.pressedKeys.size, i = e => this.pressedKeys.has(e);
+                                for (let [s] of this.hotKeys) {
+                                    if (e) break;
+                                    if (Array.isArray(s[0])) s.forEach((a => {
+                                        e || t !== a.length || (e = a.every(i) && s);
+                                    })); else {
+                                        if (t !== s.length) continue;
+                                        e = s.every(i) && s;
+                                    }
+                                }
+                                return e;
+                            })), O(this, "isArrow", (e => e >= 37 && e <= 40)), O(this, "onKeyDown", (e => {
+                                let {key: t, which: i} = e, {dp: s, dp: {focusDate: a}, opts: n} = this;
+                                this.registerKey(t);
+                                let r = this.isHotKeyPressed();
+                                if (r) return e.preventDefault(), void this.handleHotKey(r);
+                                if (this.isArrow(i)) return e.preventDefault(), void this.focusNextCell(t);
+                                if ("Enter" === t) {
+                                    if (s.currentView !== n.minView) return void s.down();
+                                    if (a) {
+                                        let e = s._checkIfDateIsSelected(a);
+                                        return void (e ? s._handleAlreadySelectedDates(e, a) : s.selectDate(a));
+                                    }
+                                }
+                                "Escape" === t && this.dp.hide();
+                            })), O(this, "onKeyUp", (e => {
+                                this.removeKey(e.key);
+                            })), this.dp = t, this.opts = i, this.init();
+                        }
+                        init() {
+                            this.bindKeyboardEvents();
+                        }
+                        bindKeyboardEvents() {
+                            let {$el: e} = this.dp;
+                            e.addEventListener("keydown", this.onKeyDown), e.addEventListener("keyup", this.onKeyUp);
+                        }
+                        destroy() {
+                            let {$el: e} = this.dp;
+                            e.removeEventListener("keydown", this.onKeyDown), e.removeEventListener("keyup", this.onKeyUp), 
+                            this.hotKeys = null, this.pressedKeys = null;
+                        }
+                        getInitialFocusDate() {
+                            let {focusDate: e, currentView: t, selectedDates: s, parsedViewDate: {year: a, month: n}} = this.dp, r = e || s[s.length - 1];
+                            if (!r) switch (t) {
+                              case i.days:
+                                r = new Date(a, n, (new Date).getDate());
+                                break;
+
+                              case i.months:
+                                r = new Date(a, n, 1);
+                                break;
+
+                              case i.years:
+                                r = new Date(a, 0, 1);
+                            }
+                            return r;
+                        }
+                        focusNextCell(e) {
+                            let t = this.getInitialFocusDate(), {currentView: s} = this.dp, {days: a, months: n, years: r} = i, o = h(t), l = o.year, d = o.month, c = o.date;
+                            switch (e) {
+                              case "ArrowLeft":
+                                s === a && (c -= 1), s === n && (d -= 1), s === r && (l -= 1);
+                                break;
+
+                              case "ArrowUp":
+                                s === a && (c -= 7), s === n && (d -= 3), s === r && (l -= 4);
+                                break;
+
+                              case "ArrowRight":
+                                s === a && (c += 1), s === n && (d += 1), s === r && (l += 1);
+                                break;
+
+                              case "ArrowDown":
+                                s === a && (c += 7), s === n && (d += 3), s === r && (l += 4);
+                            }
+                            let u = this.dp.getClampedDate(new Date(l, d, c));
+                            this.dp.setFocusDate(u, {
+                                viewDateTransition: !0
+                            });
+                        }
+                        registerKey(e) {
+                            this.pressedKeys.add(e);
+                        }
+                        removeKey(e) {
+                            this.pressedKeys.delete(e);
+                        }
+                    }
+                    let N = {
+                        on(e, t) {
+                            this.__events || (this.__events = {}), this.__events[e] ? this.__events[e].push(t) : this.__events[e] = [ t ];
+                        },
+                        off(e, t) {
+                            this.__events && this.__events[e] && (this.__events[e] = this.__events[e].filter((e => e !== t)));
+                        },
+                        removeAllEvents() {
+                            this.__events = {};
+                        },
+                        trigger(e) {
+                            for (var t = arguments.length, i = new Array(t > 1 ? t - 1 : 0), s = 1; s < t; s++) i[s - 1] = arguments[s];
+                            this.__events && this.__events[e] && this.__events[e].forEach((e => {
+                                e(...i);
+                            }));
+                        }
+                    };
+                    function I(e, t, i) {
+                        return (t = function(e) {
+                            var t = function(e, t) {
+                                if ("object" != typeof e || null === e) return e;
+                                var i = e[Symbol.toPrimitive];
+                                if (void 0 !== i) {
+                                    var s = i.call(e, "string");
+                                    if ("object" != typeof s) return s;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                                }
+                                return String(e);
+                            }(e);
+                            return "symbol" == typeof t ? t : String(t);
+                        }(t)) in e ? Object.defineProperty(e, t, {
+                            value: i,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = i, e;
+                    }
+                    let P = "", j = "", B = !1;
+                    class R {
+                        static buildGlobalContainer(e) {
+                            B = !0, P = n({
+                                className: e,
+                                id: e
+                            }), a("body").appendChild(P);
+                        }
+                        constructor(e, t) {
+                            var r = this;
+                            if (I(this, "viewIndexes", [ i.days, i.months, i.years ]), I(this, "next", (() => {
+                                let {year: e, month: t} = this.parsedViewDate;
+                                switch (this.currentView) {
+                                  case i.days:
+                                    this.setViewDate(new Date(e, t + 1, 1));
+                                    break;
+
+                                  case i.months:
+                                    this.setViewDate(new Date(e + 1, t, 1));
+                                    break;
+
+                                  case i.years:
+                                    this.setViewDate(new Date(e + 10, 0, 1));
+                                }
+                            })), I(this, "prev", (() => {
+                                let {year: e, month: t} = this.parsedViewDate;
+                                switch (this.currentView) {
+                                  case i.days:
+                                    this.setViewDate(new Date(e, t - 1, 1));
+                                    break;
+
+                                  case i.months:
+                                    this.setViewDate(new Date(e - 1, t, 1));
+                                    break;
+
+                                  case i.years:
+                                    this.setViewDate(new Date(e - 10, 0, 1));
+                                }
+                            })), I(this, "_finishHide", (() => {
+                                this.hideAnimation = !1, this._destroyComponents(), this.$container.removeChild(this.$datepicker);
+                            })), I(this, "setPosition", (function(e) {
+                                let t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
+                                if ("function" == typeof (e = e || r.opts.position)) return void (r.customHide = e({
+                                    $datepicker: r.$datepicker,
+                                    $target: r.$el,
+                                    $pointer: r.$pointer,
+                                    isViewChange: t,
+                                    done: r._finishHide
+                                }));
+                                let i, s, {isMobile: a} = r.opts, n = r.$el.getBoundingClientRect(), o = r.$el.getBoundingClientRect(), h = r.$datepicker.offsetParent, l = r.$el.offsetParent, d = r.$datepicker.getBoundingClientRect(), c = e.split(" "), u = window.scrollY, p = window.scrollX, m = r.opts.offset, v = c[0], g = c[1];
+                                if (a) r.$datepicker.style.cssText = "left: 50%; top: 50%"; else {
+                                    if (h === l && h !== document.body && (o = {
+                                        top: r.$el.offsetTop,
+                                        left: r.$el.offsetLeft,
+                                        width: n.width,
+                                        height: r.$el.offsetHeight
+                                    }, u = 0, p = 0), h !== l && h !== document.body) {
+                                        let e = h.getBoundingClientRect();
+                                        o = {
+                                            top: n.top - e.top,
+                                            left: n.left - e.left,
+                                            width: n.width,
+                                            height: n.height
+                                        }, u = 0, p = 0;
+                                    }
+                                    switch (v) {
+                                      case "top":
+                                        i = o.top - d.height - m;
+                                        break;
+
+                                      case "right":
+                                        s = o.left + o.width + m;
+                                        break;
+
+                                      case "bottom":
+                                        i = o.top + o.height + m;
+                                        break;
+
+                                      case "left":
+                                        s = o.left - d.width - m;
+                                    }
+                                    switch (g) {
+                                      case "top":
+                                        i = o.top;
+                                        break;
+
+                                      case "right":
+                                        s = o.left + o.width - d.width;
+                                        break;
+
+                                      case "bottom":
+                                        i = o.top + o.height - d.height;
+                                        break;
+
+                                      case "left":
+                                        s = o.left;
+                                        break;
+
+                                      case "center":
+                                        /left|right/.test(v) ? i = o.top + o.height / 2 - d.height / 2 : s = o.left + o.width / 2 - d.width / 2;
+                                    }
+                                    r.$datepicker.style.cssText = `left: ${s + p}px; top: ${i + u}px`;
+                                }
+                            })), I(this, "_setInputValue", (() => {
+                                let {opts: e, $altField: t, locale: {dateFormat: i}} = this, {altFieldDateFormat: s, altField: a} = e;
+                                a && t && (t.value = this._getInputValue(s)), this.$el.value = this._getInputValue(i);
+                            })), I(this, "_getInputValue", (e => {
+                                let {selectedDates: t, opts: i} = this, {multipleDates: s, multipleDatesSeparator: a} = i;
+                                if (!t.length) return "";
+                                let n = "function" == typeof e, r = n ? e(s ? t : t[0]) : t.map((t => this.formatDate(t, e)));
+                                return r = n ? r : r.join(a), r;
+                            })), I(this, "_checkIfDateIsSelected", (function(e) {
+                                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : i.days, s = !1;
+                                return r.selectedDates.some((i => {
+                                    let a = p(e, i, t);
+                                    return s = a && i, a;
+                                })), s;
+                            })), I(this, "_scheduleCallAfterTransition", (e => {
+                                this._cancelScheduledCall(), e && e(!1), this._onTransitionEnd = () => {
+                                    e && e(!0);
+                                }, this.$datepicker.addEventListener("transitionend", this._onTransitionEnd, {
+                                    once: !0
+                                });
+                            })), I(this, "_cancelScheduledCall", (() => {
+                                this.$datepicker.removeEventListener("transitionend", this._onTransitionEnd);
+                            })), I(this, "setViewDate", (e => {
+                                if (!((e = b(e)) instanceof Date)) return;
+                                if (p(e, this.viewDate)) return;
+                                let t = this.viewDate;
+                                this.viewDate = e;
+                                let {onChangeViewDate: s} = this.opts;
+                                if (s) {
+                                    let {month: e, year: t} = this.parsedViewDate;
+                                    s({
+                                        month: e,
+                                        year: t,
+                                        decade: this.curDecade
+                                    });
+                                }
+                                this.trigger(i.eventChangeViewDate, e, t);
+                            })), I(this, "setFocusDate", (function(e) {
+                                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                                (!e || (e = b(e)) instanceof Date) && (r.focusDate = e, r.trigger(i.eventChangeFocusDate, e, t));
+                            })), I(this, "setCurrentView", (function(e) {
+                                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                                if (r.viewIndexes.includes(e)) {
+                                    if (r.currentView = e, r.elIsInput && r.visible && r.setPosition(void 0, !0), r.trigger(i.eventChangeCurrentView, e), 
+                                    !r.views[e]) {
+                                        let t = r.views[e] = new T({
+                                            dp: r,
+                                            opts: r.opts,
+                                            type: e
+                                        });
+                                        r.shouldUpdateDOM && r.$content.appendChild(t.$el);
+                                    }
+                                    r.opts.onChangeView && !t.silent && r.opts.onChangeView(e);
+                                }
+                            })), I(this, "_updateLastSelectedDate", (e => {
+                                this.lastSelectedDate = e, this.trigger(i.eventChangeLastSelectedDate, e);
+                            })), I(this, "destroy", (() => {
+                                if (this.isDestroyed) return;
+                                let {showEvent: e, isMobile: t} = this.opts, i = this.$datepicker.parentNode;
+                                i && i.removeChild(this.$datepicker), this.$el.removeEventListener(e, this._onFocus), 
+                                this.$el.removeEventListener("blur", this._onBlur), window.removeEventListener("resize", this._onResize), 
+                                t && this._removeMobileAttributes(), this.keyboardNav && this.keyboardNav.destroy(), 
+                                this.views = null, this.nav = null, this.$datepicker = null, this.opts = {}, this.$customContainer = null, 
+                                this.viewDate = null, this.focusDate = null, this.selectedDates = [], this.rangeDateFrom = null, 
+                                this.rangeDateTo = null, this.isDestroyed = !0;
+                            })), I(this, "update", (function() {
+                                let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, s = w({}, r.opts), {silent: a} = t;
+                                w(r.opts, e);
+                                let {timepicker: n, buttons: o, range: h, selectedDates: l, isMobile: d} = r.opts, c = r.visible || r.treatAsInline;
+                                r._createMinMaxDates(), r._limitViewDateByMaxMinDates(), r._handleLocale(), l && (r.selectedDates = [], 
+                                r.selectDate(l, {
+                                    silent: a
+                                })), e.view && r.setCurrentView(e.view, {
+                                    silent: a
+                                }), r._setInputValue(), s.range && !h ? (r.rangeDateTo = !1, r.rangeDateFrom = !1) : !s.range && h && r.selectedDates.length && (r.rangeDateFrom = r.selectedDates[0], 
+                                r.rangeDateTo = r.selectedDates[1]), s.timepicker && !n ? (c && r.timepicker.destroy(), 
+                                r.timepicker = !1, r.$timepicker.parentNode.removeChild(r.$timepicker)) : !s.timepicker && n && r._addTimepicker(), 
+                                !s.buttons && o ? r._addButtons() : s.buttons && !o ? (r.buttons.destroy(), r.$buttons.parentNode.removeChild(r.$buttons)) : c && s.buttons && o && r.buttons.clearHtml().render(), 
+                                !s.isMobile && d ? (r.treatAsInline || j || r._createMobileOverlay(), r._addMobileAttributes(), 
+                                r.visible && r._showMobileOverlay()) : s.isMobile && !d && (r._removeMobileAttributes(), 
+                                r.visible && (j.classList.remove("-active-"), "function" != typeof r.opts.position && r.setPosition())), 
+                                c && (r.nav.update(), r.views[r.currentView].render(), r.currentView === i.days && r.views[r.currentView].renderDayNames());
+                            })), I(this, "disableDate", ((e, t) => {
+                                (Array.isArray(e) ? e : [ e ]).forEach((e => {
+                                    let i = b(e);
+                                    if (!i) return;
+                                    let s = t ? "delete" : "add";
+                                    this.disabledDates[s](this.formatDate(i, "yyyy-MM-dd"));
+                                    let a = this.getCell(i, this.currentViewSingular);
+                                    a && a.adpCell.render();
+                                }), []);
+                            })), I(this, "enableDate", (e => {
+                                this.disableDate(e, !0);
+                            })), I(this, "isDateDisabled", (e => {
+                                let t = b(e);
+                                return this.disabledDates.has(this.formatDate(t, "yyyy-MM-dd"));
+                            })), I(this, "isOtherMonth", (e => {
+                                let {month: t} = h(e);
+                                return t !== this.parsedViewDate.month;
+                            })), I(this, "isOtherYear", (e => {
+                                let {year: t} = h(e);
+                                return t !== this.parsedViewDate.year;
+                            })), I(this, "isOtherDecade", (e => {
+                                let {year: t} = h(e), [i, s] = c(this.viewDate);
+                                return t < i || t > s;
+                            })), I(this, "_onChangeSelectedDate", (e => {
+                                let {silent: t} = e;
+                                setTimeout((() => {
+                                    this._setInputValue(), this.opts.onSelect && !t && this._triggerOnSelect();
+                                }));
+                            })), I(this, "_onChangeFocusedDate", (function(e) {
+                                let {viewDateTransition: t} = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                                if (!e) return;
+                                let i = !1;
+                                t && (i = r.isOtherMonth(e) || r.isOtherYear(e) || r.isOtherDecade(e)), i && r.setViewDate(e), 
+                                r.opts.onFocus && r.opts.onFocus({
+                                    datepicker: r,
+                                    date: e
+                                });
+                            })), I(this, "_onChangeTime", (e => {
+                                let {hours: t, minutes: i} = e, s = new Date, {lastSelectedDate: a, opts: {onSelect: n}} = this, r = a;
+                                a || (r = s);
+                                let o = this.getCell(r, this.currentViewSingular), h = o && o.adpCell;
+                                h && h.isDisabled || (r.setHours(t), r.setMinutes(i), a ? (this._setInputValue(), 
+                                n && this._triggerOnSelect()) : this.selectDate(r));
+                            })), I(this, "_onFocus", (e => {
+                                this.visible || this.show();
+                            })), I(this, "_onBlur", (e => {
+                                this.inFocus || !this.visible || this.opts.isMobile || this.hide();
+                            })), I(this, "_onMouseDown", (e => {
+                                this.inFocus = !0;
+                            })), I(this, "_onMouseUp", (e => {
+                                this.inFocus = !1, this.$el.focus();
+                            })), I(this, "_onResize", (() => {
+                                this.visible && "function" != typeof this.opts.position && this.setPosition();
+                            })), I(this, "_onClickOverlay", (() => {
+                                this.visible && this.hide();
+                            })), I(this, "getViewDates", (function() {
+                                let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : i.days;
+                                return T.getDatesFunction(e)(r);
+                            })), I(this, "isWeekend", (e => this.opts.weekends.includes(e))), I(this, "getClampedDate", (e => {
+                                let {minDate: t, maxDate: i} = this, s = e;
+                                return i && m(e, i) ? s = i : t && v(e, t) && (s = t), s;
+                            })), this.$el = a(e), !this.$el) return;
+                            this.$datepicker = n({
+                                className: "air-datepicker"
+                            }), this.opts = w({}, s, t), this.$customContainer = !!this.opts.container && a(this.opts.container), 
+                            this.$altField = a(this.opts.altField || !1);
+                            let {view: o, startDate: l} = this.opts;
+                            l || (this.opts.startDate = new Date), "INPUT" === this.$el.nodeName && (this.elIsInput = !0), 
+                            this.inited = !1, this.visible = !1, this.viewDate = b(this.opts.startDate), this.focusDate = !1, 
+                            this.initialReadonly = this.$el.getAttribute("readonly"), this.customHide = !1, 
+                            this.currentView = o, this.selectedDates = [], this.disabledDates = new Set, this.isDestroyed = !1, 
+                            this.views = {}, this.keys = [], this.rangeDateFrom = "", this.rangeDateTo = "", 
+                            this.timepickerIsActive = !1, this.treatAsInline = this.opts.inline || !this.elIsInput, 
+                            this.init();
+                        }
+                        init() {
+                            let {opts: e, treatAsInline: t, opts: {inline: i, isMobile: s, selectedDates: n, keyboardNav: r, onlyTimepicker: o}} = this, h = a("body");
+                            (!B || B && P && !h.contains(P)) && !i && this.elIsInput && !this.$customContainer && R.buildGlobalContainer(R.defaultGlobalContainerId), 
+                            !s || j || t || this._createMobileOverlay(), this._handleLocale(), this._bindSubEvents(), 
+                            this._createMinMaxDates(), this._limitViewDateByMaxMinDates(), this.elIsInput && (i || this._bindEvents(), 
+                            r && !o && (this.keyboardNav = new A({
+                                dp: this,
+                                opts: e
+                            }))), n && this.selectDate(n, {
+                                silent: !0
+                            }), this.opts.visible && !t && this.show(), s && !t && this.$el.setAttribute("readonly", !0), 
+                            t && this._createComponents();
+                        }
+                        _createMobileOverlay() {
+                            j = n({
+                                className: "air-datepicker-overlay"
+                            }), P.appendChild(j);
+                        }
+                        _createComponents() {
+                            let {opts: e, treatAsInline: t, opts: {inline: i, buttons: s, timepicker: a, position: n, classes: r, onlyTimepicker: o, isMobile: h}} = this;
+                            this._buildBaseHtml(), this.elIsInput && (i || this._setPositionClasses(n)), !i && this.elIsInput || this.$datepicker.classList.add("-inline-"), 
+                            r && this.$datepicker.classList.add(...r.split(" ")), o && this.$datepicker.classList.add("-only-timepicker-"), 
+                            h && !t && this._addMobileAttributes(), this.views[this.currentView] = new T({
+                                dp: this,
+                                type: this.currentView,
+                                opts: e
+                            }), this.nav = new V({
+                                dp: this,
+                                opts: e
+                            }), a && this._addTimepicker(), s && this._addButtons(), this.$content.appendChild(this.views[this.currentView].$el), 
+                            this.$nav.appendChild(this.nav.$el);
+                        }
+                        _destroyComponents() {
+                            for (let e in this.views) this.views[e].destroy();
+                            this.views = {}, this.nav.destroy(), this.timepicker && this.timepicker.destroy();
+                        }
+                        _addMobileAttributes() {
+                            j.addEventListener("click", this._onClickOverlay), this.$datepicker.classList.add("-is-mobile-"), 
+                            this.$el.setAttribute("readonly", !0);
+                        }
+                        _removeMobileAttributes() {
+                            j.removeEventListener("click", this._onClickOverlay), this.$datepicker.classList.remove("-is-mobile-"), 
+                            this.initialReadonly || "" === this.initialReadonly || this.$el.removeAttribute("readonly");
+                        }
+                        _createMinMaxDates() {
+                            let {minDate: e, maxDate: t} = this.opts;
+                            this.minDate = !!e && b(e), this.maxDate = !!t && b(t);
+                        }
+                        _addTimepicker() {
+                            this.$timepicker = n({
+                                className: "air-datepicker--time"
+                            }), this.$datepicker.appendChild(this.$timepicker), this.timepicker = new L({
+                                dp: this,
+                                opts: this.opts
+                            }), this.$timepicker.appendChild(this.timepicker.$el);
+                        }
+                        _addButtons() {
+                            this.$buttons = n({
+                                className: "air-datepicker--buttons"
+                            }), this.$datepicker.appendChild(this.$buttons), this.buttons = new H({
+                                dp: this,
+                                opts: this.opts
+                            }), this.$buttons.appendChild(this.buttons.$el);
+                        }
+                        _bindSubEvents() {
+                            this.on(i.eventChangeSelectedDate, this._onChangeSelectedDate), this.on(i.eventChangeFocusDate, this._onChangeFocusedDate), 
+                            this.on(i.eventChangeTime, this._onChangeTime);
+                        }
+                        _buildBaseHtml() {
+                            let {inline: e} = this.opts;
+                            var t, i;
+                            this.elIsInput ? e ? (t = this.$datepicker, (i = this.$el).parentNode.insertBefore(t, i.nextSibling)) : this.$container.appendChild(this.$datepicker) : this.$el.appendChild(this.$datepicker), 
+                            this.$datepicker.innerHTML = '<i class="air-datepicker--pointer"></i><div class="air-datepicker--navigation"></div><div class="air-datepicker--content"></div>', 
+                            this.$content = a(".air-datepicker--content", this.$datepicker), this.$pointer = a(".air-datepicker--pointer", this.$datepicker), 
+                            this.$nav = a(".air-datepicker--navigation", this.$datepicker);
+                        }
+                        _handleLocale() {
+                            let {locale: e, dateFormat: t, firstDay: i, timepicker: s, onlyTimepicker: a, timeFormat: n, dateTimeSeparator: r} = this.opts;
+                            var o;
+                            this.locale = (o = e, JSON.parse(JSON.stringify(o))), t && (this.locale.dateFormat = t), 
+                            void 0 !== n && "" !== n && (this.locale.timeFormat = n);
+                            let {timeFormat: h} = this.locale;
+                            if ("" !== i && (this.locale.firstDay = i), s && "function" != typeof t) {
+                                let e = h ? r : "";
+                                this.locale.dateFormat = [ this.locale.dateFormat, h || "" ].join(e);
+                            }
+                            a && "function" != typeof t && (this.locale.dateFormat = this.locale.timeFormat);
+                        }
+                        _setPositionClasses(e) {
+                            if ("function" == typeof e) return void this.$datepicker.classList.add("-custom-position-");
+                            let t = (e = e.split(" "))[0], i = `air-datepicker -${t}-${e[1]}- -from-${t}-`;
+                            this.$datepicker.classList.add(...i.split(" "));
+                        }
+                        _bindEvents() {
+                            this.$el.addEventListener(this.opts.showEvent, this._onFocus), this.$el.addEventListener("blur", this._onBlur), 
+                            this.$datepicker.addEventListener("mousedown", this._onMouseDown), this.$datepicker.addEventListener("mouseup", this._onMouseUp), 
+                            window.addEventListener("resize", this._onResize);
+                        }
+                        _limitViewDateByMaxMinDates() {
+                            let {viewDate: e, minDate: t, maxDate: i} = this;
+                            i && m(e, i) && this.setViewDate(i), t && v(e, t) && this.setViewDate(t);
+                        }
+                        formatDate() {
+                            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.viewDate, t = arguments.length > 1 ? arguments[1] : void 0;
+                            if (e = b(e), !(e instanceof Date)) return;
+                            let i = t, s = this.locale, a = h(e), n = a.dayPeriod, r = c(e), o = R.replacer, l = {
+                                T: e.getTime(),
+                                m: a.minutes,
+                                mm: a.fullMinutes,
+                                h: a.hours12,
+                                hh: a.fullHours12,
+                                H: a.hours,
+                                HH: a.fullHours,
+                                aa: n,
+                                AA: n.toUpperCase(),
+                                E: s.daysShort[a.day],
+                                EEEE: s.days[a.day],
+                                d: a.date,
+                                dd: a.fullDate,
+                                M: a.month + 1,
+                                MM: a.fullMonth,
+                                MMM: s.monthsShort[a.month],
+                                MMMM: s.months[a.month],
+                                yy: a.year.toString().slice(-2),
+                                yyyy: a.year,
+                                yyyy1: r[0],
+                                yyyy2: r[1]
+                            };
+                            for (let [e, t] of Object.entries(l)) i = o(i, k(e), t);
+                            return i;
+                        }
+                        down(e) {
+                            this._handleUpDownActions(e, "down");
+                        }
+                        up(e) {
+                            this._handleUpDownActions(e, "up");
+                        }
+                        selectDate(e) {
+                            let t, s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, {currentView: a, parsedViewDate: n, selectedDates: r} = this, {updateTime: o} = s, {moveToOtherMonthsOnSelect: h, moveToOtherYearsOnSelect: l, multipleDates: d, range: c, autoClose: u, onBeforeSelect: p} = this.opts, v = r.length;
+                            if (Array.isArray(e)) return e.forEach((e => {
+                                this.selectDate(e, s);
+                            })), new Promise((e => {
+                                setTimeout(e);
+                            }));
+                            if ((e = b(e)) instanceof Date) {
+                                if (p && !p({
+                                    date: e,
+                                    datepicker: this
+                                })) return Promise.resolve();
+                                if (a === i.days && e.getMonth() !== n.month && h && (t = new Date(e.getFullYear(), e.getMonth(), 1)), 
+                                a === i.years && e.getFullYear() !== n.year && l && (t = new Date(e.getFullYear(), 0, 1)), 
+                                t && this.setViewDate(t), d && !c) {
+                                    if (v === d) return;
+                                    this._checkIfDateIsSelected(e) || r.push(e);
+                                } else if (c) switch (v) {
+                                  case 1:
+                                    r.push(e), this.rangeDateTo || (this.rangeDateTo = e), m(this.rangeDateFrom, this.rangeDateTo) && (this.rangeDateTo = this.rangeDateFrom, 
+                                    this.rangeDateFrom = e), this.selectedDates = [ this.rangeDateFrom, this.rangeDateTo ];
+                                    break;
+
+                                  case 2:
+                                    this.selectedDates = [ e ], this.rangeDateFrom = e, this.rangeDateTo = "";
+                                    break;
+
+                                  default:
+                                    this.selectedDates = [ e ], this.rangeDateFrom = e;
+                                } else this.selectedDates = [ e ];
+                                return this.trigger(i.eventChangeSelectedDate, {
+                                    action: i.actionSelectDate,
+                                    silent: null == s ? void 0 : s.silent,
+                                    date: e,
+                                    updateTime: o
+                                }), this._updateLastSelectedDate(e), u && !this.timepickerIsActive && this.visible && (d || c ? c && 1 === v && this.hide() : this.hide()), 
+                                new Promise((e => {
+                                    setTimeout(e);
+                                }));
+                            }
+                        }
+                        unselectDate(e) {
+                            let t = this.selectedDates, s = this;
+                            if ((e = b(e)) instanceof Date) return t.some(((a, n) => {
+                                if (p(a, e)) return t.splice(n, 1), s.selectedDates.length ? (s.rangeDateTo = "", 
+                                s.rangeDateFrom = t[0], s._updateLastSelectedDate(s.selectedDates[s.selectedDates.length - 1])) : (s.rangeDateFrom = "", 
+                                s.rangeDateTo = "", s._updateLastSelectedDate(!1)), this.trigger(i.eventChangeSelectedDate, {
+                                    action: i.actionUnselectDate,
+                                    date: e
+                                }), !0;
+                            }));
+                        }
+                        replaceDate(e, t) {
+                            let s = this.selectedDates.find((t => p(t, e, this.currentView))), a = this.selectedDates.indexOf(s);
+                            a < 0 || p(this.selectedDates[a], t, this.currentView) || (this.selectedDates[a] = t, 
+                            this.trigger(i.eventChangeSelectedDate, {
+                                action: i.actionSelectDate,
+                                date: t,
+                                updateTime: !0
+                            }), this._updateLastSelectedDate(t));
+                        }
+                        clear() {
+                            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                            return this.selectedDates = [], this.rangeDateFrom = !1, this.rangeDateTo = !1, 
+                            this.lastSelectedDate = !1, this.trigger(i.eventChangeSelectedDate, {
+                                action: i.actionUnselectDate,
+                                silent: e.silent
+                            }), new Promise((e => {
+                                setTimeout(e);
+                            }));
+                        }
+                        show() {
+                            let {onShow: e, isMobile: t} = this.opts;
+                            this._cancelScheduledCall(), this.visible || this.hideAnimation || this._createComponents(), 
+                            this.setPosition(this.opts.position), this.$datepicker.classList.add("-active-"), 
+                            this.visible = !0, e && this._scheduleCallAfterTransition(e), t && this._showMobileOverlay();
+                        }
+                        hide() {
+                            let {onHide: e, isMobile: t} = this.opts, i = this._hasTransition();
+                            this.visible = !1, this.hideAnimation = !0, this.$datepicker.classList.remove("-active-"), 
+                            this.customHide && this.customHide(), this.elIsInput && this.$el.blur(), this._scheduleCallAfterTransition((t => {
+                                !this.customHide && (t && i || !t && !i) && this._finishHide(), e && e(t);
+                            })), t && j.classList.remove("-active-");
+                        }
+                        _triggerOnSelect() {
+                            let e = [], t = [], {selectedDates: i, locale: s, opts: {onSelect: a, multipleDates: n, range: r}} = this, o = n || r, h = "function" == typeof s.dateFormat;
+                            i.length && (e = i.map(g), t = h ? n ? s.dateFormat(e) : e.map((e => s.dateFormat(e))) : e.map((e => this.formatDate(e, s.dateFormat)))), 
+                            a({
+                                date: o ? e : e[0],
+                                formattedDate: o ? t : t[0],
+                                datepicker: this
+                            });
+                        }
+                        _handleAlreadySelectedDates(e, t) {
+                            let {selectedDates: i, rangeDateFrom: s, rangeDateTo: a} = this, {range: n, toggleSelected: r} = this.opts, o = i.length, h = "function" == typeof r ? r({
+                                datepicker: this,
+                                date: t
+                            }) : r, l = Boolean(n && 1 === o && e), d = l ? g(t) : t;
+                            n && !h && (2 !== o && this.selectDate(d), 2 === o && p(s, a)) || (h ? this.unselectDate(d) : this._updateLastSelectedDate(l ? d : e));
+                        }
+                        _handleUpDownActions(e, t) {
+                            if (!((e = b(e || this.focusDate || this.viewDate)) instanceof Date)) return;
+                            let i = "up" === t ? this.viewIndex + 1 : this.viewIndex - 1;
+                            i > 2 && (i = 2), i < 0 && (i = 0), this.setViewDate(new Date(e.getFullYear(), e.getMonth(), 1)), 
+                            this.setCurrentView(this.viewIndexes[i]);
+                        }
+                        getCell(e) {
+                            let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : i.day;
+                            if (!((e = b(e)) instanceof Date)) return;
+                            let {year: s, month: a, date: n} = h(e), r = `[data-year="${s}"]`, o = `[data-month="${a}"]`, l = {
+                                [i.day]: `${r}${o}[data-date="${n}"]`,
+                                [i.month]: `${r}${o}`,
+                                [i.year]: `${r}`
+                            };
+                            return this.views[this.currentView] ? this.views[this.currentView].$el.querySelector(l[t]) : void 0;
+                        }
+                        _showMobileOverlay() {
+                            j.classList.add("-active-");
+                        }
+                        _hasTransition() {
+                            return window.getComputedStyle(this.$datepicker).getPropertyValue("transition-duration").split(", ").reduce(((e, t) => parseFloat(t) + e), 0) > 0;
+                        }
+                        get shouldUpdateDOM() {
+                            return this.visible || this.treatAsInline;
+                        }
+                        get parsedViewDate() {
+                            return h(this.viewDate);
+                        }
+                        get currentViewSingular() {
+                            return this.currentView.slice(0, -1);
+                        }
+                        get curDecade() {
+                            return c(this.viewDate);
+                        }
+                        get viewIndex() {
+                            return this.viewIndexes.indexOf(this.currentView);
+                        }
+                        get isFinalView() {
+                            return this.currentView === i.years;
+                        }
+                        get hasSelectedDates() {
+                            return this.selectedDates.length > 0;
+                        }
+                        get isMinViewReached() {
+                            return this.currentView === this.opts.minView || this.currentView === i.days;
+                        }
+                        get $container() {
+                            return this.$customContainer || P;
+                        }
+                        static replacer(e, t, i) {
+                            return e.replace(t, (function(e, t, s, a) {
+                                return t + i + a;
+                            }));
+                        }
+                    }
+                    var K;
+                    return I(R, "defaults", s), I(R, "version", "3.5.3"), I(R, "defaultGlobalContainerId", "air-datepicker-global-container"), 
+                    K = R.prototype, Object.assign(K, N), t.default;
+                }();
+            }));
+        },
         958: function(module) {
             /*!
  * dist/inputmask.min
@@ -3761,475 +5363,6 @@
                     }(), i;
                 }();
             }));
-        },
-        934: module => {
-            !function(e, t) {
-                true ? module.exports = t() : 0;
-            }(window, (function() {
-                return function(e) {
-                    var t = {};
-                    function n(a) {
-                        if (t[a]) return t[a].exports;
-                        var r = t[a] = {
-                            i: a,
-                            l: !1,
-                            exports: {}
-                        };
-                        return e[a].call(r.exports, r, r.exports, n), r.l = !0, r.exports;
-                    }
-                    return n.m = e, n.c = t, n.d = function(e, t, a) {
-                        n.o(e, t) || Object.defineProperty(e, t, {
-                            enumerable: !0,
-                            get: a
-                        });
-                    }, n.r = function(e) {
-                        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-                            value: "Module"
-                        }), Object.defineProperty(e, "__esModule", {
-                            value: !0
-                        });
-                    }, n.t = function(e, t) {
-                        if (1 & t && (e = n(e)), 8 & t) return e;
-                        if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-                        var a = Object.create(null);
-                        if (n.r(a), Object.defineProperty(a, "default", {
-                            enumerable: !0,
-                            value: e
-                        }), 2 & t && "string" != typeof e) for (var r in e) n.d(a, r, function(t) {
-                            return e[t];
-                        }.bind(null, r));
-                        return a;
-                    }, n.n = function(e) {
-                        var t = e && e.__esModule ? function() {
-                            return e.default;
-                        } : function() {
-                            return e;
-                        };
-                        return n.d(t, "a", t), t;
-                    }, n.o = function(e, t) {
-                        return Object.prototype.hasOwnProperty.call(e, t);
-                    }, n.p = "", n(n.s = 0);
-                }([ function(e, t, n) {
-                    "use strict";
-                    n.r(t);
-                    var a = [], r = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ], i = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ], o = {
-                        t: "top",
-                        r: "right",
-                        b: "bottom",
-                        l: "left",
-                        c: "centered"
-                    };
-                    function s() {}
-                    var l = [ "click", "focusin", "keydown", "input" ];
-                    function d(e) {
-                        l.forEach((function(t) {
-                            e.addEventListener(t, e === document ? L : Y);
-                        }));
-                    }
-                    function c(e) {
-                        return Array.isArray(e) ? e.map(c) : "[object Object]" === x(e) ? Object.keys(e).reduce((function(t, n) {
-                            return t[n] = c(e[n]), t;
-                        }), {}) : e;
-                    }
-                    function u(e, t) {
-                        var n = e.calendar.querySelector(".qs-overlay"), a = n && !n.classList.contains("qs-hidden");
-                        t = t || new Date(e.currentYear, e.currentMonth), e.calendar.innerHTML = [ h(t, e, a), f(t, e, a), v(e, a) ].join(""), 
-                        a && window.requestAnimationFrame((function() {
-                            M(!0, e);
-                        }));
-                    }
-                    function h(e, t, n) {
-                        return [ '<div class="qs-controls' + (n ? " qs-blur" : "") + '">', '<div class="qs-arrow qs-left"></div>', '<div class="qs-month-year' + (t.disableYearOverlay ? " qs-disabled-year-overlay" : "") + '">', '<span class="qs-month">' + t.months[e.getMonth()] + "</span>", '<span class="qs-year">' + e.getFullYear() + "</span>", "</div>", '<div class="qs-arrow qs-right"></div>', "</div>" ].join("");
-                    }
-                    function f(e, t, n) {
-                        var a = t.currentMonth, r = t.currentYear, i = t.dateSelected, o = t.maxDate, s = t.minDate, l = t.showAllDates, d = t.days, c = t.disabledDates, u = t.startDay, h = t.weekendIndices, f = t.events, v = t.getRange ? t.getRange() : {}, m = +v.start, y = +v.end, p = g(new Date(e).setDate(1)), w = p.getDay() - u, D = w < 0 ? 7 : 0;
-                        p.setMonth(p.getMonth() + 1), p.setDate(0);
-                        var b = p.getDate(), q = [], S = D + 7 * ((w + b) / 7 | 0);
-                        S += (w + b) % 7 ? 7 : 0;
-                        for (var M = 1; M <= S; M++) {
-                            var E = (M - 1) % 7, x = d[E], C = M - (w >= 0 ? w : 7 + w), L = new Date(r, a, C), Y = f[+L], j = C < 1 || C > b, O = j ? C < 1 ? -1 : 1 : 0, P = j && !l, k = P ? "" : L.getDate(), N = +L == +i, _ = E === h[0] || E === h[1], I = m !== y, A = "qs-square " + x;
-                            Y && !P && (A += " qs-event"), j && (A += " qs-outside-current-month"), !l && j || (A += " qs-num"), 
-                            N && (A += " qs-active"), (c[+L] || t.disabler(L) || _ && t.noWeekends || s && +L < +s || o && +L > +o) && !P && (A += " qs-disabled"), 
-                            +g(new Date) == +L && (A += " qs-current"), +L === m && y && I && (A += " qs-range-start"), 
-                            +L > m && +L < y && (A += " qs-range-middle"), +L === y && m && I && (A += " qs-range-end"), 
-                            P && (A += " qs-empty", k = ""), q.push('<div class="' + A + '" data-direction="' + O + '">' + k + "</div>");
-                        }
-                        var R = d.map((function(e) {
-                            return '<div class="qs-square qs-day">' + e + "</div>";
-                        })).concat(q);
-                        return R.unshift('<div class="qs-squares' + (n ? " qs-blur" : "") + '">'), R.push("</div>"), 
-                        R.join("");
-                    }
-                    function v(e, t) {
-                        var n = e.overlayPlaceholder, a = e.overlayButton;
-                        return [ '<div class="qs-overlay' + (t ? "" : " qs-hidden") + '">', "<div>", '<input class="qs-overlay-year" placeholder="' + n + '" inputmode="numeric" />', '<div class="qs-close">&#10005;</div>', "</div>", '<div class="qs-overlay-month-container">' + e.overlayMonths.map((function(e, t) {
-                            return '<div class="qs-overlay-month" data-month-num="' + t + '">' + e + "</div>";
-                        })).join("") + "</div>", '<div class="qs-submit qs-disabled">' + a + "</div>", "</div>" ].join("");
-                    }
-                    function m(e, t, n) {
-                        var a = t.el, r = t.calendar.querySelector(".qs-active"), i = e.textContent, o = t.sibling;
-                        (a.disabled || a.readOnly) && t.respectDisabledReadOnly || (t.dateSelected = n ? void 0 : new Date(t.currentYear, t.currentMonth, i), 
-                        r && r.classList.remove("qs-active"), n || e.classList.add("qs-active"), p(a, t, n), 
-                        n || q(t), o && (y({
-                            instance: t,
-                            deselect: n
-                        }), t.first && !o.dateSelected && (o.currentYear = t.currentYear, o.currentMonth = t.currentMonth, 
-                        o.currentMonthName = t.currentMonthName), u(t), u(o)), t.onSelect(t, n ? void 0 : new Date(t.dateSelected)));
-                    }
-                    function y(e) {
-                        var t = e.instance.first ? e.instance : e.instance.sibling, n = t.sibling;
-                        t === e.instance ? e.deselect ? (t.minDate = t.originalMinDate, n.minDate = n.originalMinDate) : n.minDate = t.dateSelected : e.deselect ? (n.maxDate = n.originalMaxDate, 
-                        t.maxDate = t.originalMaxDate) : t.maxDate = n.dateSelected;
-                    }
-                    function p(e, t, n) {
-                        if (!t.nonInput) return n ? e.value = "" : t.formatter !== s ? t.formatter(e, t.dateSelected, t) : void (e.value = t.dateSelected.toDateString());
-                    }
-                    function w(e, t, n, a) {
-                        n || a ? (n && (t.currentYear = +n), a && (t.currentMonth = +a)) : (t.currentMonth += e.contains("qs-right") ? 1 : -1, 
-                        12 === t.currentMonth ? (t.currentMonth = 0, t.currentYear++) : -1 === t.currentMonth && (t.currentMonth = 11, 
-                        t.currentYear--)), t.currentMonthName = t.months[t.currentMonth], u(t), t.onMonthChange(t);
-                    }
-                    function D(e) {
-                        if (!e.noPosition) {
-                            var t = e.position.top, n = e.position.right;
-                            if (e.position.centered) return e.calendarContainer.classList.add("qs-centered");
-                            var a = e.positionedEl.getBoundingClientRect(), r = e.el.getBoundingClientRect(), i = e.calendarContainer.getBoundingClientRect(), o = r.top - a.top + (t ? -1 * i.height : r.height) + "px", s = r.left - a.left + (n ? r.width - i.width : 0) + "px";
-                            e.calendarContainer.style.setProperty("top", o), e.calendarContainer.style.setProperty("left", s);
-                        }
-                    }
-                    function b(e) {
-                        return "[object Date]" === x(e) && "Invalid Date" !== e.toString();
-                    }
-                    function g(e) {
-                        if (b(e) || "number" == typeof e && !isNaN(e)) {
-                            var t = new Date(+e);
-                            return new Date(t.getFullYear(), t.getMonth(), t.getDate());
-                        }
-                    }
-                    function q(e) {
-                        e.disabled || !e.calendarContainer.classList.contains("qs-hidden") && !e.alwaysShow && ("overlay" !== e.defaultView && M(!0, e), 
-                        e.calendarContainer.classList.add("qs-hidden"), e.onHide(e));
-                    }
-                    function S(e) {
-                        e.disabled || (e.calendarContainer.classList.remove("qs-hidden"), "overlay" === e.defaultView && M(!1, e), 
-                        D(e), e.onShow(e));
-                    }
-                    function M(e, t) {
-                        var n = t.calendar, a = n.querySelector(".qs-overlay"), r = a.querySelector(".qs-overlay-year"), i = n.querySelector(".qs-controls"), o = n.querySelector(".qs-squares");
-                        e ? (a.classList.add("qs-hidden"), i.classList.remove("qs-blur"), o.classList.remove("qs-blur"), 
-                        r.value = "") : (a.classList.remove("qs-hidden"), i.classList.add("qs-blur"), o.classList.add("qs-blur"), 
-                        r.focus());
-                    }
-                    function E(e, t, n, a) {
-                        var r = isNaN(+(new Date).setFullYear(t.value || void 0)), i = r ? null : t.value;
-                        if (13 === e.which || 13 === e.keyCode || "click" === e.type) a ? w(null, n, i, a) : r || t.classList.contains("qs-disabled") || w(null, n, i); else if (n.calendar.contains(t)) n.calendar.querySelector(".qs-submit").classList[r ? "add" : "remove"]("qs-disabled");
-                    }
-                    function x(e) {
-                        return {}.toString.call(e);
-                    }
-                    function C(e) {
-                        a.forEach((function(t) {
-                            t !== e && q(t);
-                        }));
-                    }
-                    function L(e) {
-                        if (!e.__qs_shadow_dom) {
-                            var t = e.which || e.keyCode, n = e.type, r = e.target, o = r.classList, s = a.filter((function(e) {
-                                return e.calendar.contains(r) || e.el === r;
-                            }))[0], l = s && s.calendar.contains(r);
-                            if (!(s && s.isMobile && s.disableMobile)) if ("click" === n) {
-                                if (!s) return a.forEach(q);
-                                if (s.disabled) return;
-                                var d = s.calendar, c = s.calendarContainer, h = s.disableYearOverlay, f = s.nonInput, v = d.querySelector(".qs-overlay-year"), y = !!d.querySelector(".qs-hidden"), p = d.querySelector(".qs-month-year").contains(r), D = r.dataset.monthNum;
-                                if (s.noPosition && !l) (c.classList.contains("qs-hidden") ? S : q)(s); else if (o.contains("qs-arrow")) w(o, s); else if (p || o.contains("qs-close")) h || M(!y, s); else if (D) E(e, v, s, D); else {
-                                    if (o.contains("qs-disabled")) return;
-                                    if (o.contains("qs-num")) {
-                                        var b = r.textContent, g = +r.dataset.direction, x = new Date(s.currentYear, s.currentMonth + g, b);
-                                        if (g) {
-                                            s.currentYear = x.getFullYear(), s.currentMonth = x.getMonth(), s.currentMonthName = i[s.currentMonth], 
-                                            u(s);
-                                            for (var L, Y = s.calendar.querySelectorAll('[data-direction="0"]'), j = 0; !L; ) {
-                                                var O = Y[j];
-                                                O.textContent === b && (L = O), j++;
-                                            }
-                                            r = L;
-                                        }
-                                        return void (+x == +s.dateSelected ? m(r, s, !0) : r.classList.contains("qs-disabled") || m(r, s));
-                                    }
-                                    o.contains("qs-submit") ? E(e, v, s) : f && r === s.el && (S(s), C(s));
-                                }
-                            } else if ("focusin" === n && s) S(s), C(s); else if ("keydown" === n && 9 === t && s) q(s); else if ("keydown" === n && s && !s.disabled) {
-                                var P = !s.calendar.querySelector(".qs-overlay").classList.contains("qs-hidden");
-                                13 === t && P && l ? E(e, r, s) : 27 === t && P && l && M(!0, s);
-                            } else if ("input" === n) {
-                                if (!s || !s.calendar.contains(r)) return;
-                                var k = s.calendar.querySelector(".qs-submit"), N = r.value.split("").reduce((function(e, t) {
-                                    return e || "0" !== t ? e + (t.match(/[0-9]/) ? t : "") : "";
-                                }), "").slice(0, 4);
-                                r.value = N, k.classList[4 === N.length ? "remove" : "add"]("qs-disabled");
-                            }
-                        }
-                    }
-                    function Y(e) {
-                        L(e), e.__qs_shadow_dom = !0;
-                    }
-                    function j(e, t) {
-                        l.forEach((function(n) {
-                            e.removeEventListener(n, t);
-                        }));
-                    }
-                    function O() {
-                        S(this);
-                    }
-                    function P() {
-                        q(this);
-                    }
-                    function k(e, t) {
-                        var n = g(e), a = this.currentYear, r = this.currentMonth, i = this.sibling;
-                        if (null == e) return this.dateSelected = void 0, p(this.el, this, !0), i && (y({
-                            instance: this,
-                            deselect: !0
-                        }), u(i)), u(this), this;
-                        if (!b(e)) throw new Error("`setDate` needs a JavaScript Date object.");
-                        if (this.disabledDates[+n] || n < this.minDate || n > this.maxDate) throw new Error("You can't manually set a date that's disabled.");
-                        this.dateSelected = n, t && (this.currentYear = n.getFullYear(), this.currentMonth = n.getMonth(), 
-                        this.currentMonthName = this.months[n.getMonth()]), p(this.el, this), i && (y({
-                            instance: this
-                        }), u(i));
-                        var o = a === n.getFullYear() && r === n.getMonth();
-                        return o || t ? u(this, n) : o || u(this, new Date(a, r, 1)), this;
-                    }
-                    function N(e) {
-                        return I(this, e, !0);
-                    }
-                    function _(e) {
-                        return I(this, e);
-                    }
-                    function I(e, t, n) {
-                        var a = e.dateSelected, r = e.first, i = e.sibling, o = e.minDate, s = e.maxDate, l = g(t), d = n ? "Min" : "Max";
-                        function c() {
-                            return "original" + d + "Date";
-                        }
-                        function h() {
-                            return d.toLowerCase() + "Date";
-                        }
-                        function f() {
-                            return "set" + d;
-                        }
-                        function v() {
-                            throw new Error("Out-of-range date passed to " + f());
-                        }
-                        if (null == t) e[c()] = void 0, i ? (i[c()] = void 0, n ? (r && !a || !r && !i.dateSelected) && (e.minDate = void 0, 
-                        i.minDate = void 0) : (r && !i.dateSelected || !r && !a) && (e.maxDate = void 0, 
-                        i.maxDate = void 0)) : e[h()] = void 0; else {
-                            if (!b(t)) throw new Error("Invalid date passed to " + f());
-                            i ? ((r && n && l > (a || s) || r && !n && l < (i.dateSelected || o) || !r && n && l > (i.dateSelected || s) || !r && !n && l < (a || o)) && v(), 
-                            e[c()] = l, i[c()] = l, (n && (r && !a || !r && !i.dateSelected) || !n && (r && !i.dateSelected || !r && !a)) && (e[h()] = l, 
-                            i[h()] = l)) : ((n && l > (a || s) || !n && l < (a || o)) && v(), e[h()] = l);
-                        }
-                        return i && u(i), u(e), e;
-                    }
-                    function A() {
-                        var e = this.first ? this : this.sibling, t = e.sibling;
-                        return {
-                            start: e.dateSelected,
-                            end: t.dateSelected
-                        };
-                    }
-                    function R() {
-                        var e = this.shadowDom, t = this.positionedEl, n = this.calendarContainer, r = this.sibling, i = this;
-                        this.inlinePosition && (a.some((function(e) {
-                            return e !== i && e.positionedEl === t;
-                        })) || t.style.setProperty("position", null));
-                        n.remove(), a = a.filter((function(e) {
-                            return e !== i;
-                        })), r && delete r.sibling, a.length || j(document, L);
-                        var o = a.some((function(t) {
-                            return t.shadowDom === e;
-                        }));
-                        for (var s in e && !o && j(e, Y), this) delete this[s];
-                        a.length || l.forEach((function(e) {
-                            document.removeEventListener(e, L);
-                        }));
-                    }
-                    function F(e, t) {
-                        var n = new Date(e);
-                        if (!b(n)) throw new Error("Invalid date passed to `navigate`");
-                        this.currentYear = n.getFullYear(), this.currentMonth = n.getMonth(), u(this), t && this.onMonthChange(this);
-                    }
-                    function B() {
-                        var e = !this.calendarContainer.classList.contains("qs-hidden"), t = !this.calendarContainer.querySelector(".qs-overlay").classList.contains("qs-hidden");
-                        e && M(t, this);
-                    }
-                    t.default = function(e, t) {
-                        var n = function(e, t) {
-                            var n, l, d = function(e) {
-                                var t = c(e);
-                                t.events && (t.events = t.events.reduce((function(e, t) {
-                                    if (!b(t)) throw new Error('"options.events" must only contain valid JavaScript Date objects.');
-                                    return e[+g(t)] = !0, e;
-                                }), {}));
-                                [ "startDate", "dateSelected", "minDate", "maxDate" ].forEach((function(e) {
-                                    var n = t[e];
-                                    if (n && !b(n)) throw new Error('"options.' + e + '" needs to be a valid JavaScript Date object.');
-                                    t[e] = g(n);
-                                }));
-                                var n = t.position, i = t.maxDate, l = t.minDate, d = t.dateSelected, u = t.overlayPlaceholder, h = t.overlayButton, f = t.startDay, v = t.id;
-                                if (t.startDate = g(t.startDate || d || new Date), t.disabledDates = (t.disabledDates || []).reduce((function(e, t) {
-                                    var n = +g(t);
-                                    if (!b(t)) throw new Error('You supplied an invalid date to "options.disabledDates".');
-                                    if (n === +g(d)) throw new Error('"disabledDates" cannot contain the same date as "dateSelected".');
-                                    return e[n] = 1, e;
-                                }), {}), t.hasOwnProperty("id") && null == v) throw new Error("`id` cannot be `null` or `undefined`");
-                                if (null != v) {
-                                    var m = a.filter((function(e) {
-                                        return e.id === v;
-                                    }));
-                                    if (m.length > 1) throw new Error("Only two datepickers can share an id.");
-                                    m.length ? (t.second = !0, t.sibling = m[0]) : t.first = !0;
-                                }
-                                var y = [ "tr", "tl", "br", "bl", "c" ].some((function(e) {
-                                    return n === e;
-                                }));
-                                if (n && !y) throw new Error('"options.position" must be one of the following: tl, tr, bl, br, or c.');
-                                function p(e) {
-                                    throw new Error('"dateSelected" in options is ' + (e ? "less" : "greater") + ' than "' + (e || "max") + 'Date".');
-                                }
-                                if (t.position = function(e) {
-                                    var t = e[0], n = e[1], a = {};
-                                    a[o[t]] = 1, n && (a[o[n]] = 1);
-                                    return a;
-                                }(n || "bl"), i < l) throw new Error('"maxDate" in options is less than "minDate".');
-                                d && (l > d && p("min"), i < d && p());
-                                if ([ "onSelect", "onShow", "onHide", "onMonthChange", "formatter", "disabler" ].forEach((function(e) {
-                                    "function" != typeof t[e] && (t[e] = s);
-                                })), [ "customDays", "customMonths", "customOverlayMonths" ].forEach((function(e, n) {
-                                    var a = t[e], r = n ? 12 : 7;
-                                    if (a) {
-                                        if (!Array.isArray(a) || a.length !== r || a.some((function(e) {
-                                            return "string" != typeof e;
-                                        }))) throw new Error('"' + e + '" must be an array with ' + r + " strings.");
-                                        t[n ? n < 2 ? "months" : "overlayMonths" : "days"] = a;
-                                    }
-                                })), f && f > 0 && f < 7) {
-                                    var w = (t.customDays || r).slice(), D = w.splice(0, f);
-                                    t.customDays = w.concat(D), t.startDay = +f, t.weekendIndices = [ w.length - 1, w.length ];
-                                } else t.startDay = 0, t.weekendIndices = [ 6, 0 ];
-                                "string" != typeof u && delete t.overlayPlaceholder;
-                                "string" != typeof h && delete t.overlayButton;
-                                var q = t.defaultView;
-                                if (q && "calendar" !== q && "overlay" !== q) throw new Error('options.defaultView must either be "calendar" or "overlay".');
-                                return t.defaultView = q || "calendar", t;
-                            }(t || {
-                                startDate: g(new Date),
-                                position: "bl",
-                                defaultView: "calendar"
-                            }), u = e;
-                            if ("string" == typeof u) u = "#" === u[0] ? document.getElementById(u.slice(1)) : document.querySelector(u); else {
-                                if ("[object ShadowRoot]" === x(u)) throw new Error("Using a shadow DOM as your selector is not supported.");
-                                for (var h, f = u.parentNode; !h; ) {
-                                    var v = x(f);
-                                    "[object HTMLDocument]" === v ? h = !0 : "[object ShadowRoot]" === v ? (h = !0, 
-                                    n = f, l = f.host) : f = f.parentNode;
-                                }
-                            }
-                            if (!u) throw new Error("No selector / element found.");
-                            if (a.some((function(e) {
-                                return e.el === u;
-                            }))) throw new Error("A datepicker already exists on that element.");
-                            var m = u === document.body, y = n ? u.parentElement || n : m ? document.body : u.parentElement, w = n ? u.parentElement || l : y, D = document.createElement("div"), q = document.createElement("div");
-                            D.className = "qs-datepicker-container qs-hidden", q.className = "qs-datepicker";
-                            var M = {
-                                shadowDom: n,
-                                customElement: l,
-                                positionedEl: w,
-                                el: u,
-                                parent: y,
-                                nonInput: "INPUT" !== u.nodeName,
-                                noPosition: m,
-                                position: !m && d.position,
-                                startDate: d.startDate,
-                                dateSelected: d.dateSelected,
-                                disabledDates: d.disabledDates,
-                                minDate: d.minDate,
-                                maxDate: d.maxDate,
-                                noWeekends: !!d.noWeekends,
-                                weekendIndices: d.weekendIndices,
-                                calendarContainer: D,
-                                calendar: q,
-                                currentMonth: (d.startDate || d.dateSelected).getMonth(),
-                                currentMonthName: (d.months || i)[(d.startDate || d.dateSelected).getMonth()],
-                                currentYear: (d.startDate || d.dateSelected).getFullYear(),
-                                events: d.events || {},
-                                defaultView: d.defaultView,
-                                setDate: k,
-                                remove: R,
-                                setMin: N,
-                                setMax: _,
-                                show: O,
-                                hide: P,
-                                navigate: F,
-                                toggleOverlay: B,
-                                onSelect: d.onSelect,
-                                onShow: d.onShow,
-                                onHide: d.onHide,
-                                onMonthChange: d.onMonthChange,
-                                formatter: d.formatter,
-                                disabler: d.disabler,
-                                months: d.months || i,
-                                days: d.customDays || r,
-                                startDay: d.startDay,
-                                overlayMonths: d.overlayMonths || (d.months || i).map((function(e) {
-                                    return e.slice(0, 3);
-                                })),
-                                overlayPlaceholder: d.overlayPlaceholder || "4-digit year",
-                                overlayButton: d.overlayButton || "Submit",
-                                disableYearOverlay: !!d.disableYearOverlay,
-                                disableMobile: !!d.disableMobile,
-                                isMobile: "ontouchstart" in window,
-                                alwaysShow: !!d.alwaysShow,
-                                id: d.id,
-                                showAllDates: !!d.showAllDates,
-                                respectDisabledReadOnly: !!d.respectDisabledReadOnly,
-                                first: d.first,
-                                second: d.second
-                            };
-                            if (d.sibling) {
-                                var E = d.sibling, C = M, L = E.minDate || C.minDate, Y = E.maxDate || C.maxDate;
-                                C.sibling = E, E.sibling = C, E.minDate = L, E.maxDate = Y, C.minDate = L, C.maxDate = Y, 
-                                E.originalMinDate = L, E.originalMaxDate = Y, C.originalMinDate = L, C.originalMaxDate = Y, 
-                                E.getRange = A, C.getRange = A;
-                            }
-                            d.dateSelected && p(u, M);
-                            var j = getComputedStyle(w).position;
-                            m || j && "static" !== j || (M.inlinePosition = !0, w.style.setProperty("position", "relative"));
-                            var I = a.filter((function(e) {
-                                return e.positionedEl === M.positionedEl;
-                            }));
-                            I.some((function(e) {
-                                return e.inlinePosition;
-                            })) && (M.inlinePosition = !0, I.forEach((function(e) {
-                                e.inlinePosition = !0;
-                            })));
-                            D.appendChild(q), y.appendChild(D), M.alwaysShow && S(M);
-                            return M;
-                        }(e, t);
-                        if (a.length || d(document), n.shadowDom && (a.some((function(e) {
-                            return e.shadowDom === n.shadowDom;
-                        })) || d(n.shadowDom)), a.push(n), n.second) {
-                            var l = n.sibling;
-                            y({
-                                instance: n,
-                                deselect: !n.dateSelected
-                            }), y({
-                                instance: l,
-                                deselect: !l.dateSelected
-                            }), u(l);
-                        }
-                        return u(n, n.startDate || n.dateSelected), n.alwaysShow && D(n), n;
-                    };
-                } ]).default;
-            }));
         }
     };
     var __webpack_module_cache__ = {};
@@ -4242,6 +5375,26 @@
         __webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
         return module.exports;
     }
+    (() => {
+        __webpack_require__.n = module => {
+            var getter = module && module.__esModule ? () => module["default"] : () => module;
+            __webpack_require__.d(getter, {
+                a: getter
+            });
+            return getter;
+        };
+    })();
+    (() => {
+        __webpack_require__.d = (exports, definition) => {
+            for (var key in definition) if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) Object.defineProperty(exports, key, {
+                enumerable: true,
+                get: definition[key]
+            });
+        };
+    })();
+    (() => {
+        __webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
+    })();
     (() => {
         "use strict";
         const modules_flsModules = {};
@@ -5519,23 +6672,14 @@
             }
         }
         modules_flsModules.select = new SelectConstructor({});
-        var datepicker_min = __webpack_require__(934);
-        if (document.querySelector("[data-datepicker]")) {
-            const picker = datepicker_min("[data-datepicker]", {
-                customDays: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" ],
-                customMonths: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
-                overlayButton: "Применить",
-                overlayPlaceholder: "Год (4 цифры)",
-                startDay: 0,
-                alwaysShow: true,
-                formatter: (input, date, instance) => {
-                    const value = date.toLocaleDateString();
-                    input.value = value;
-                },
-                onSelect: function(input, instance, date) {}
-            });
-            modules_flsModules.datepicker = picker;
-        }
+        var air_datepicker = __webpack_require__(327);
+        var air_datepicker_default = __webpack_require__.n(air_datepicker);
+        const index_es = air_datepicker_default();
+        if (document.querySelector("[data-datepicker]")) new index_es("[data-datepicker]", {
+            range: true,
+            multipleDatesSeparator: " - ",
+            inline: true
+        });
         __webpack_require__(958);
         const inputMasks = document.querySelectorAll("input");
         if (inputMasks.length) modules_flsModules.inputmask = Inputmask().mask(inputMasks);

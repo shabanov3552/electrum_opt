@@ -2,56 +2,15 @@
 
 // Подключение функционала "Чертогов Фрилансера"
 // Подключение списка активных модулей
-import { flsModules } from "../modules.js";
-
-// Подключение модуля
-import datepicker from 'js-datepicker';
+import AirDatepicker from 'air-datepicker';
+import 'air-datepicker/air-datepicker.css';
 
 if (document.querySelector('[data-datepicker]')) {
-	const picker = datepicker('[data-datepicker]', {
-		customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-		customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-		overlayButton: 'Применить',
-		overlayPlaceholder: 'Год (4 цифры)',
-		startDay: 0,
-		alwaysShow: true,
-		formatter: (input, date, instance) => {
-			const value = date.toLocaleDateString()
-			input.value = value
-		},
-		onSelect: function (input, instance, date) {
+	new AirDatepicker('[data-datepicker]', {
+		range: true,
+		multipleDatesSeparator: ' - ',
+		inline: true
+	})
 
-		}
-	});
-	flsModules.datepicker = picker;
-
-	// const start = datepicker('.start', {
-	// 	id: 1,
-	// 	customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-	// 	customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-	// 	overlayButton: 'Применить',
-	// 	overlayPlaceholder: 'Год (4 цифры)',
-	// 	startDay: 0,
-	// 	alwaysShow: true,
-	// 	formatter: (input, date, instance) => {
-	// 		const value = date.toLocaleDateString()
-	// 		input.value = value
-	// 	},
-	// })
-	// const end = datepicker('.end', {
-	// 	id: 1,
-	// 	customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-	// 	customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-	// 	overlayButton: 'Применить',
-	// 	overlayPlaceholder: 'Год (4 цифры)',
-	// 	startDay: 0,
-	// 	alwaysShow: true,
-	// 	formatter: (input, date, instance) => {
-	// 		const value = date.toLocaleDateString()
-	// 		input.value = value
-	// 	},
-	// })
-
-	// start.getRange() // { start: <JS date object>, end: <JS date object> }
-	// end.getRange()
 }
+

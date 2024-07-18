@@ -86,5 +86,13 @@
 
 	// .checkbox__text
 
-	&__text {}
+	&__text {
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
 }

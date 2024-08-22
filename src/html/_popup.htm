@@ -66,7 +66,7 @@
 				</div>
 				<div class="popup__main">
 					<div class="popup__text">Мы свяжемся с вами в ближайшее время для уточнения информации</div>
-					<button data-close type="button" class="popup__close">
+					<button data-close type="button" class="popup__close popup__close-thanks btn-15">
 						Ok
 					</button>
 					<div class="popup__icon">
@@ -133,12 +133,12 @@
 				<div class="popup__header">
 					<div class="popup__title">Корзина</div>
 					<div class="modal-basket-btns"> <!-- добавить style="display: none;" если пустая корзина -->
-						<a href="" class="modal-basket-btns__link">
+						<button type="button" class="modal-basket-btns__link js-print-basket">
 							<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M26.9943 6.89477H21.5431V1.00215C21.5431 0.736362 21.4371 0.481461 21.2485 0.293522C21.0599 0.105583 20.8041 0 20.5374 0H7.46264C7.1959 0 6.94009 0.105583 6.75147 0.293522C6.56286 0.481461 6.4569 0.736362 6.4569 1.00215V6.89477H1.00575C0.739006 6.89477 0.483191 7.00036 0.294576 7.1883C0.105962 7.37624 0 7.63114 0 7.89692V19.1711C0 19.4369 0.105962 19.6918 0.294576 19.8797C0.483191 20.0676 0.739006 20.1732 1.00575 20.1732H5.1092V26.9979C5.1092 27.2636 5.21516 27.5185 5.40377 27.7065C5.59239 27.8944 5.8482 28 6.11494 28H21.8549C22.1216 28 22.3774 27.8944 22.5661 27.7065C22.7547 27.5185 22.8606 27.2636 22.8606 26.9979V20.1732H26.9943C27.261 20.1732 27.5168 20.0676 27.7054 19.8797C27.894 19.6918 28 19.4369 28 19.1711V7.89692C28 7.63114 27.894 7.37624 27.7054 7.1883C27.5168 7.00036 27.261 6.89477 26.9943 6.89477ZM8.44828 2.0043H19.5115V6.89477H8.44828V2.0043ZM20.8491 25.9957H7.12069V18.189H20.8491V25.9957ZM25.9885 18.1689H22.8606V17.1668C22.8606 16.901 22.7547 16.6461 22.5661 16.4582C22.3774 16.2702 22.1216 16.1646 21.8549 16.1646H6.11494C5.8482 16.1646 5.59239 16.2702 5.40377 16.4582C5.21516 16.6461 5.1092 16.901 5.1092 17.1668V18.1689H2.01149V8.89907H25.9885V18.1689Z" fill="#004EA6" />
 							</svg>
 							Печать корзины
-						</a>
+						</button>
 						<a href="" class="modal-basket-btns__link">
 							<svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.123 1.7522H3.24957C2.65294 1.7522 2.08076 1.9892 1.65888 2.41108C1.23701 2.83295 1 3.40514 1 4.00176V21.9983C1 22.5949 1.23701 23.1671 1.65888 23.589C2.08076 24.0108 2.65294 24.2478 3.24957 24.2478H16.747C17.3436 24.2478 17.9158 24.0108 18.3376 23.589C18.7595 23.1671 18.9965 22.5949 18.9965 21.9983V9.62568L11.123 1.7522Z" stroke="#004FA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -703,7 +703,7 @@
 									</div>
 									<div class="form__line">
 										<label for="" class="form__label">Адрес доставки</label>
-										<input id="" type="text" name="" class="form__input">
+										<input type="text" name="" class="form__input">
 										<svg class="form__clear-svg">
 											<use xlink:href="img/icons/icons.svg#input_clear"></use>
 										</svg>
@@ -771,7 +771,7 @@
 									</div>
 									<div class="form__line">
 										<label for="" class="form__label">Адрес доставки</label>
-										<input id="" type="text" name="" class="form__input">
+										<input type="text" name="" class="form__input">
 										<svg class="form__clear-svg">
 											<use xlink:href="img/icons/icons.svg#input_clear"></use>
 										</svg>
@@ -810,7 +810,7 @@
 					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
 						<div class="form__line">
 							<label for="" class="form__label">Пароль</label>
-							<input id="" type="password" name="" class="form__input">
+							<input type="password" name="" class="form__input">
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>
@@ -888,7 +888,7 @@
 						</div>
 						<div class="form__line">
 							<label for="" class="form__label">Адрес доставки</label>
-							<input id="" type="text" name="" class="form__input">
+							<input type="text" name="" class="form__input">
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>
@@ -925,87 +925,107 @@
 					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
 						<div class="form__line">
 							<label for="" class="form__label">Тема заявки</label>
-							<input id="" type="text" name="" class="form__input">
+							<input type="text" name="" class="form__input">
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>
 						</div>
 						<div class="form__line">
 							<label for="" class="form__label">Текст претензии</label>
-							<textarea required id="" autocomplete="off" name="" class="form__input"></textarea>
+							<textarea required autocomplete="off" name="" class="form__input"></textarea>
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>
 						</div>
-						<div class="form__line form__line_file">
-							<input type="file" name="file" id="input__file" class="input input__file" required>
-							<label for="input__file" class="input__file-button">
-								<span class="input__file-icon-wrapper">
+						<div class="form__line form-line-file js-file-upload">
+							<!-- data-max-files максимальное колличество файлов -->
+							<!-- data-max-size общий максимальный размер файлов в Мб -->
+							<input type="file" name="file" id="input-file" multiple accept="image/png, image/jpeg" data-max-files="5" data-max-size="30" class="input form-line-file__input" required style="display: none;">
+							<label for="input-file" class="form-line-file__label">
+								<div class="form-line-file__button">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M21.4383 11.0499L12.2483 20.2399C11.1225 21.3658 9.59552 21.9983 8.00334 21.9983C6.41115 21.9983 4.88418 21.3658 3.75834 20.2399C2.63249 19.1141 2 17.5871 2 15.9949C2 14.4027 2.63249 12.8758 3.75834 11.7499L12.9483 2.55992C13.6989 1.80936 14.7169 1.3877 15.7783 1.3877C16.8398 1.3877 17.8578 1.80936 18.6083 2.55992C19.3589 3.31048 19.7806 4.32846 19.7806 5.38992C19.7806 6.45138 19.3589 7.46936 18.6083 8.21992L9.40834 17.4099C9.03306 17.7852 8.52406 17.996 7.99334 17.996C7.46261 17.996 6.95362 17.7852 6.57834 17.4099C6.20306 17.0346 5.99222 16.5256 5.99222 15.9949C5.99222 15.4642 6.20306 14.9552 6.57834 14.5799L15.0683 6.09992" stroke="#004FA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 									</svg>
-								</span>
-								<div class="input__file-button-text">Прикрепить файл</div>
+									<span>Прикрепить файл</span>
+								</div>
 							</label>
-							<div class="form__line_file-caption">Прикрепите фото в формате PNG или JPEG.
-								Не более 5 файлов, объемом не более 10 Мб.</div>
+							<ul class="form-line-file__list"></ul>
+							<div class="form-line-file__caption">Прикрепите фото в формате PNG или JPEG. Не более 5 файлов, объемом не более 10 Мб.</div>
 							<script>
-								const input = document.querySelector('.input__file');
-								const preview = document.querySelector('.input__file-button-text');
-								const fileIcon = document.querySelector('.input__file-icon-wrapper');
-								let clsBtn = clearBtnCreate();
-								input.style.opacity = 0;
+								const fileUploadBlock = document.querySelector('.js-file-upload');
+								const inputFile = fileUploadBlock.querySelector('.form-line-file__input');
+								const textBlock = fileUploadBlock.querySelector('.form-line-file__button span');
+								const formLineFileList = fileUploadBlock.querySelector('.form-line-file__list');
+								const maxFiles = +inputFile.dataset.maxFiles;
+								const maxSize = inputFile.dataset.maxSize * 1024 * 1024;
 
-								input.addEventListener('change', insertFileName);
-								clsBtn.addEventListener('click', fileRemove);
+								inputFile.addEventListener('change', insertFileName);
+								formLineFileList.addEventListener('click', fileDelete)
 
-								function fileRemove(e) {
-									e.preventDefault();
-									input.value = '';
-									clsBtn.remove();
-									preview.textContent = `Прикрепить файл`;
-									preview.before(fileIcon);
-								}
-
-								function clearBtnCreate() {
-									let clearBtn = document.createElement('span');
-									clearBtn.classList.add('clear-btn');
-									clearBtn.insertAdjacentHTML(
-										'beforeend',
-										`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M23.768 22.6474C23.9165 22.4987 24 22.2972 24 22.0871C24 21.8769 23.9165 21.6754 23.768 21.5267L14.242 12.0008L23.7672 2.47246C23.9157 2.32384 23.9992 2.1223 23.9992 1.91215C23.9992 1.70201 23.9157 1.50047 23.7672 1.35185L22.6474 0.232036C22.4987 0.0834634 22.2972 0 22.0871 0C21.8769 0 21.6754 0.0834634 21.5267 0.232036L12.0008 9.75799L2.47246 0.232828C2.32384 0.0842559 2.1223 0.000792509 1.91215 0.000792509C1.70201 0.000792509 1.50047 0.0842559 1.35185 0.232828L0.232036 1.35264C0.0834634 1.50126 0 1.7028 0 1.91295C0 2.12309 0.0834634 2.32463 0.232036 2.47325L9.75799 12L0.232828 21.5267C0.0842559 21.6754 0.000792509 21.8769 0.000792509 22.0871C0.000792509 22.2972 0.0842559 22.4987 0.232828 22.6474L1.35344 23.768C1.50205 23.9165 1.70359 24 1.91374 24C2.12388 24 2.32543 23.9165 2.47404 23.768L12.0008 14.242L21.5275 23.768C21.6762 23.9165 21.8777 24 22.0878 24C22.298 24 22.4995 23.9165 22.6481 23.768L23.7688 22.6474H23.768Z" fill="#004FA6"/>
-										 </svg>
-`
-									);
-									return clearBtn
-								}
-
-
+								// обработчик файлов
 								function insertFileName() {
-									while (preview.firstChild) {
-										preview.removeChild(preview.firstChild);
+									const fileList = Array.from(this.files); // массив с объектами файлов
+									const fileListSize = fileList.reduce((acc, item) => acc + item.size, 0) // общий размер файлов
+
+									if (fileListSize > maxSize) { resetInput(`Первышен допустимый объем файлов, максимум ${this.dataset.maxSize} Мб`); return } // если общий размер файлов больше чем maxSize
+									if (fileList.length > maxFiles) { resetInput(`Первышено количество файлов, максимум ${maxFiles}`); return } // если колличество файлов больше чем maxFiles
+
+									renderFileList(fileList);
+								}
+
+								function fileDelete(e) {
+									const fileArray = Array.from(inputFile.files);
+									const target = e.target;
+									let fileIndex;
+
+									if (target.closest('.form-line-file__item svg')) {
+										fileArray.map((file, i) => { file.name == target.closest('.form-line-file__item').textContent.trim() ? fileIndex = i : null });
+
+										fileArray.splice(fileIndex, 1);
+
+										const dataTransfer = new DataTransfer();
+
+										fileArray.forEach(file => dataTransfer.items.add(file));
+
+										inputFile.value = '';
+
+										inputFile.files = dataTransfer.files
 									}
 
-									const curFiles = input.files;
-									if (curFiles.length === 0) {
-										const para = document.createElement('p');
-										para.textContent = 'Не выбрано ни одного файла';
-										preview.appendChild(para);
-									} else {
-										fileIcon.remove();
-										preview.before(clsBtn);
-										const list = document.createElement('ul');
-										preview.appendChild(list);
-										// list.style.paddingLeft = "20px";
-										for (const file of curFiles) {
-											const listItem = document.createElement('li');
-											const para = document.createElement('p');
-											para.textContent = file.name;
-											listItem.appendChild(para);
-											list.appendChild(listItem);
-										}
-									}
+									renderFileList(fileArray)
 								}
+
+								// Сбрасываем инпут и выводим сообщение
+								function resetInput(str) {
+									textBlock.textContent = `${str}`;
+									formLineFileList.innerHTML = '';
+									inputFile.value = '';
+									let timer = setTimeout(() => {
+										textBlock.textContent = 'Прикрепить файл';
+										clearTimeout(timer);
+									}, 5000);
+								}
+
+								function renderFileList(fileList) {
+									formLineFileList.innerHTML = '';
+									fileList.forEach(file => {
+										formLineFileList.insertAdjacentElement('beforeend', createFileItem(file))
+									})
+								}
+
+								function createFileItem(file) {
+									let fileItem = document.createElement('li');
+									fileItem.classList.add('form-line-file__item');
+									fileItem.insertAdjacentText('afterbegin', file.name)
+									fileItem.insertAdjacentHTML('afterbegin', `
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M23.768 22.6474C23.9165 22.4987 24 22.2972 24 22.0871C24 21.8769 23.9165 21.6754 23.768 21.5267L14.242 12.0008L23.7672 2.47246C23.9157 2.32384 23.9992 2.1223 23.9992 1.91215C23.9992 1.70201 23.9157 1.50047 23.7672 1.35185L22.6474 0.232036C22.4987 0.0834634 22.2972 0 22.0871 0C21.8769 0 21.6754 0.0834634 21.5267 0.232036L12.0008 9.75799L2.47246 0.232828C2.32384 0.0842559 2.1223 0.000792509 1.91215 0.000792509C1.70201 0.000792509 1.50047 0.0842559 1.35185 0.232828L0.232036 1.35264C0.0834634 1.50126 0 1.7028 0 1.91295C0 2.12309 0.0834634 2.32463 0.232036 2.47325L9.75799 12L0.232828 21.5267C0.0842559 21.6754 0.000792509 21.8769 0.000792509 22.0871C0.000792509 22.2972 0.0842559 22.4987 0.232828 22.6474L1.35344 23.768C1.50205 23.9165 1.70359 24 1.91374 24C2.12388 24 2.32543 23.9165 2.47404 23.768L12.0008 14.242L21.5275 23.768C21.6762 23.9165 21.8777 24 22.0878 24C22.298 24 22.4995 23.9165 22.6481 23.768L23.7688 22.6474H23.768Z" fill="#004FA6" />
+										</svg>
+									`);
+									return fileItem;
+								}
+
+
 							</script>
 						</div>
 						<a href="" class="claim__link">
@@ -1039,14 +1059,14 @@
 					<form action="" class="form" data-parsley-validate data-parsley-trigger="change">
 						<div class="form__line">
 							<label for="" class="form__label">Название документа</label>
-							<input id="" type="text" name="" class="form__input">
+							<input type="text" name="" class="form__input">
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>
 						</div>
 						<div class="form__line">
 							<label for="" class="form__label">Сообщение</label>
-							<textarea required id="" autocomplete="off" name="" class="form__input"></textarea>
+							<textarea required autocomplete="off" name="" class="form__input"></textarea>
 							<svg class="form__clear-svg">
 								<use xlink:href="img/icons/icons.svg#input_clear"></use>
 							</svg>

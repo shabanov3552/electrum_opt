@@ -5398,6 +5398,7 @@
     (() => {
         "use strict";
         const modules_flsModules = {};
+        window.flsModules = modules_flsModules;
         function isWebp() {
             function testWebP(callback) {
                 let webP = new Image;
@@ -5722,6 +5723,7 @@
                 }
             }
         }
+        window.tabs = tabs;
         function menuInit() {
             if (document.querySelector(".icon-menu")) document.addEventListener("click", (function(e) {
                 if (bodyLockStatus && e.target.closest(".icon-menu")) {
@@ -5794,16 +5796,7 @@
                     if (showMoreContent.children.length <= showMoreTypeValue) return;
                     for (let index = 1; index < showMoreItems.length; index++) {
                         const showMoreItem = showMoreItems[index - 1];
-                        hiddenHeight += showMoreItem.offsetHeight;
-                        if (index == showMoreTypeValue) break;
-                    }
-                } else if (showMoreType === "parag") {
-                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 2;
-                    const showMoreItems = showMoreContent.children;
-                    if (showMoreContent.children.length <= showMoreTypeValue) return;
-                    for (let index = 1; index < showMoreItems.length; index++) {
-                        const showMoreItem = showMoreItems[index - 1];
-                        hiddenHeight += showMoreItem.offsetHeight;
+                        hiddenHeight += showMoreItem.offsetHeight + parseInt(getComputedStyle(showMoreItem).marginBottom);
                         if (index == showMoreTypeValue) break;
                     }
                 } else {
@@ -5836,7 +5829,14 @@
                         const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : "500";
                         const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
                         if (!showMoreContent.classList.contains("_slide")) {
-                            showMoreBlock.classList.contains("_showmore-active") ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
+                            if (showMoreBlock.classList.contains("_showmore-active")) {
+                                if (showMoreBlock.matches(".categories")) window.scrollTo({
+                                    top: showMoreBlock.offsetTop - 50,
+                                    left: 0,
+                                    behavior: "smooth"
+                                });
+                                _slideUp(showMoreContent, showMoreSpeed, hiddenHeight);
+                            } else _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
                             showMoreBlock.classList.toggle("_showmore-active");
                         }
                     }
@@ -5986,7 +5986,7 @@
                         return;
                     }
                     const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
-                    if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen) {
+                    if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen && !e.target.closest(".form-line-file__item")) {
                         e.preventDefault();
                         this.close();
                         return;
@@ -6636,6 +6636,9 @@
                     tempButton.remove();
                 }
                 const selectItem = originalSelect.parentElement;
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("change", false, true);
+                originalSelect.dispatchEvent(evt);
                 this.selectCallback(selectItem, originalSelect);
             }
             selectDisabled(selectItem, originalSelect) {
@@ -10381,75 +10384,6 @@
         };
         breakpoint.addEventListener("change", breakpointChecker);
         breakpointChecker();
-        class CustomTippy {
-            constructor(node, text, activeText) {
-                this.node = node;
-                this.text = text;
-                this.activeText = activeText;
-                this.tippyItem = tippy_esm(this.node);
-                this.isMobile = isMobile.any();
-                this.breakpoint = null;
-            }
-            initTippy() {
-                this.tippyItem.setContent(`Добавить в ${this.text}`);
-                let observer = new MutationObserver((records => {
-                    records[0].target.classList.forEach((item => {
-                        item == "_active" ? this.tippyItem.setContent(`Удалить из ${this.activeText}`) : this.tippyItem.setContent(`Добавить в ${this.text}`);
-                    }));
-                }));
-                observer.observe(this.node, {
-                    subtree: true,
-                    attributes: true
-                });
-                this.breakpointCheck();
-                this.node.addEventListener("click", (e => {
-                    this.createMobileTippy(e);
-                }));
-            }
-            breakpointCheck() {
-                const breakpoint = window.matchMedia("(max-width: 768px)");
-                const breakpointChecker = () => {
-                    if (breakpoint.matches) {
-                        this.breakpoint = true;
-                        this.tippyItem.disable();
-                    } else {
-                        this.breakpoint = false;
-                        this.tippyItem.enable();
-                    }
-                };
-                breakpoint.addEventListener("change", breakpointChecker);
-                breakpointChecker();
-            }
-            createMobileTippy(e) {
-                if (this.breakpoint) {
-                    let element = document.createElement("div");
-                    element.classList.add("action-notification");
-                    if (!this.node.classList.contains("_active")) element.insertAdjacentHTML("afterbegin", `\n\t\t\t\t<p>Товар добавлен в ${this.text}</p>\n\t\t\t`); else element.insertAdjacentHTML("afterbegin", `\n\t\t\t\t<p>Товар удален из ${this.activeText}</p>\n\t\t\t`);
-                    document.querySelector(".wrapper").insertAdjacentElement("afterend", element);
-                    setTimeout((() => {
-                        element.classList.add("show");
-                        setTimeout((() => {
-                            element.classList.remove("show");
-                            element.remove();
-                        }), 2e3);
-                    }), 100);
-                }
-            }
-        }
-        const favorButtons = document.querySelectorAll(".product-card__btn-favorites");
-        favorButtons.forEach((element => {
-            let tip = new CustomTippy(element, "избранное", "избранного");
-            tip.initTippy();
-        }));
-        const favorBasketButtons = document.querySelectorAll(".basket-card__favor");
-        favorBasketButtons.forEach((element => {
-            let tip = new CustomTippy(element, "избранное", "избранного");
-            tip.initTippy();
-        }));
-        if (document.querySelector(".product")) {
-            let productFavorTippy = new CustomTippy(document.querySelector(".product__btn-favorites"), "избранное", "избранного");
-            productFavorTippy.initTippy();
-        }
         let addWindowScrollEvent = false;
         function headerScroll() {
             addWindowScrollEvent = true;
@@ -13674,7 +13608,15 @@ PERFORMANCE OF THIS SOFTWARE.
                 target.classList.contains("_spoller-active") ? target.innerHTML = "Свернуть детали заказа" : target.innerHTML = "Показать детали заказа";
                 e.preventDefault();
             }
+            if (e.target.closest(".js-print-basket")) {
+                document.documentElement.classList.add("print-basket");
+                window.print();
+            }
         }));
+        window.addEventListener("beforeprint", (() => {
+            if (document.querySelector(".popup-basket").matches(".popup_show")) document.documentElement.classList.add("print-basket");
+        }));
+        window.addEventListener("afterprint", (() => document.documentElement.classList.remove("print-basket")));
         const filtersPopup = document.querySelector("#filters-more");
         if (filtersPopup) {
             filtersPopup.remove();
@@ -13927,10 +13869,12 @@ PERFORMANCE OF THIS SOFTWARE.
         spollers();
         tabs();
         showMore();
-        formFieldsInit({
-            viewPass: true,
-            autoHeight: false
-        });
+        window.addEventListener("load", (() => {
+            formFieldsInit({
+                viewPass: true,
+                autoHeight: false
+            });
+        }));
         headerScroll();
     })();
 })();

@@ -51,7 +51,7 @@ textarea {
 	// .input__file-button
 
 	&__file-button {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: 10px;
 		cursor: pointer;
@@ -240,16 +240,85 @@ textarea {
 	margin-bottom: rem(-20);
 }
 
-.form__line_file-caption {
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 143%;
-	color: #8a8a8a;
-	margin-top: rem(8);
-}
-
 //</FORM>
 
+//#region file upload
+
+.form-line-file {
+	.parsley-errors-list {
+		margin: 0;
+		padding-bottom: rem(5);
+	}
+
+	// .form-line-file__input
+
+	&__input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		clip: rect(0 0 0 0);
+		overflow: hidden;
+
+		&.parsley-error {
+			&~.form-line-file__label .form-line-file__button {
+				border-bottom: 2px solid var(--red-error);
+
+				svg path {
+					stroke: var(--red-error);
+				}
+			}
+		}
+	}
+
+	// .form-line-file__label
+
+	&__label {}
+
+	// .form-line-file__button
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+	}
+
+	// .form-line-file__list
+
+	&__list {}
+
+	// .form-line-file__item
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: rem(10);
+		font-size: 14px;
+
+		&:not(:first-child) {
+			margin-top: rem(5);
+		}
+
+		svg {
+			width: 14px;
+			height: 14px;
+			cursor: pointer;
+		}
+	}
+
+	// .form-line-file__caption
+
+	&__caption {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 143%;
+		color: #8a8a8a;
+		margin-top: rem(8);
+	}
+}
+
+//#endregion
 
 // <CHECK>
 // Снипет (HTML): chk

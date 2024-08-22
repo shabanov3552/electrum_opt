@@ -52,9 +52,20 @@ document.addEventListener("click", function (e) {
       target.classList.contains('_spoller-active') ? target.innerHTML = 'Свернуть детали заказа' : target.innerHTML = 'Показать детали заказа';
       e.preventDefault()
    }
+   // Печать корзины
+   if (e.target.closest('.js-print-basket')) {
+      document.documentElement.classList.add('print-basket')
+      window.print();
+   }
 });
-
 //#endregion
+
+window.addEventListener("beforeprint", () => {
+   if (document.querySelector('.popup-basket').matches('.popup_show')) {
+      document.documentElement.classList.add('print-basket')
+   }
+});
+window.addEventListener("afterprint", () => document.documentElement.classList.remove('print-basket'));
 
 //#region Перемещение модалки с фильтрами под .wrapper
 

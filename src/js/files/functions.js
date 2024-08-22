@@ -421,6 +421,7 @@ export function tabs() {
 		}
 	}
 }
+window.tabs = tabs;
 //#endregion
 
 //#region Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
@@ -455,6 +456,7 @@ export function showMore(targetBlocks) {
 		});
 	} else {
 		window.addEventListener('load', (e) => {
+
 			showMoreBlocks = document.querySelectorAll('[data-showmore]');
 			if (showMoreBlocks.length) {
 				// Получение обычных объектов
@@ -529,18 +531,7 @@ export function showMore(targetBlocks) {
 			}
 			for (let index = 1; index < showMoreItems.length; index++) {
 				const showMoreItem = showMoreItems[index - 1];
-				hiddenHeight += showMoreItem.offsetHeight;
-				if (index == showMoreTypeValue) break
-			}
-		} else if (showMoreType === 'parag') {
-			const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 2;
-			const showMoreItems = showMoreContent.children;
-			if (showMoreContent.children.length <= showMoreTypeValue) {
-				return
-			}
-			for (let index = 1; index < showMoreItems.length; index++) {
-				const showMoreItem = showMoreItems[index - 1];
-				hiddenHeight += showMoreItem.offsetHeight;
+				hiddenHeight += showMoreItem.offsetHeight + parseInt(getComputedStyle(showMoreItem).marginBottom);
 				if (index == showMoreTypeValue) break
 			}
 		} else {
@@ -573,7 +564,18 @@ export function showMore(targetBlocks) {
 				const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : '500';
 				const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
 				if (!showMoreContent.classList.contains('_slide')) {
-					showMoreBlock.classList.contains('_showmore-active') ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
+					if (showMoreBlock.classList.contains('_showmore-active')) {
+						if (showMoreBlock.matches('.categories')) {
+							window.scrollTo({
+								top: showMoreBlock.offsetTop - 50,
+								left: 0,
+								behavior: "smooth"
+							});
+						}
+						_slideUp(showMoreContent, showMoreSpeed, hiddenHeight)
+					} else {
+						_slideDown(showMoreContent, showMoreSpeed, hiddenHeight)
+					}
 					showMoreBlock.classList.toggle('_showmore-active');
 				}
 			}

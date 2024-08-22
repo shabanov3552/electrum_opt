@@ -133,7 +133,7 @@ class Popup {
 			}
 			// Закрытие на пустом месте (popup__wrapper) и кнопки закрытия (popup__close) для закрытия
 			const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
-			if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen) {
+			if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen && !e.target.closest('.form-line-file__item')) {
 				e.preventDefault();
 				this.close();
 				return;

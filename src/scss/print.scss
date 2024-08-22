@@ -1,0 +1,74 @@
+@media print {
+   @page {
+      margin: 10mm 10mm 10mm 20mm;
+   }
+
+   .print-basket {
+
+      body::after,
+      .wrapper,
+      .popup:not(.popup-basket),
+      .popup.popup-basket .modal-basket-btns,
+      .popup.popup-basket .popup__close,
+      .popup.popup-basket .modal-basket__navigation,
+      .popup.popup-basket .card-modal__btns,
+      .popup.popup-basket .modal-basket__order {
+         display: none;
+      }
+
+      .popup.popup-basket {
+         all: unset;
+
+         .popup__wrapper {
+            all: unset;
+         }
+
+         .popup__content {
+            all: unset;
+         }
+
+         .popup__header {
+            padding: 0;
+            display: block;
+            margin-bottom: 5mm;
+         }
+
+         .popup__main {
+            padding: 0;
+            margin: 0;
+         }
+
+         .modal-basket {
+            display: block;
+            height: auto;
+         }
+
+         .modal-basket__content {
+            display: block;
+            height: auto;
+            overflow: visible;
+            margin-bottom: 1cm;
+         }
+
+         .modal-basket__body {
+            display: block;
+         }
+
+         .card-modal {
+            page-break-inside: avoid;
+         }
+
+         .card-modal__quantity {
+            .quantity {
+               height: 1cm;
+               -webkit-print-color-adjust: exact;
+               print-color-adjust: exact;
+            }
+         }
+
+         .modal-basket__prices {
+            page-break-inside: avoid;
+         }
+      }
+   }
+}

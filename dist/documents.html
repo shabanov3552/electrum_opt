@@ -6,13 +6,13 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240822201845">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240826190953">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240822201845" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240826190953" rel="stylesheet">
 </head>
 
 <body>
@@ -342,7 +342,7 @@
 					</div>
 				</div>
 				<div class="menu-right" data-da=".menu-mobile, 767.98, 0">
-					<a href="#search" class="menu-right__btn">
+					<a href="" class="menu-right__btn" data-popup="#search">
 						<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M20.539 4.14491C16.012 -0.381636 8.67227 -0.381637 4.14527 4.14491C-0.381755 8.67147 -0.381755 16.0105 4.14527 20.537C8.30994 24.7013 14.8547 25.0345 19.4007 21.537L24.6947 26.8306C25.254 27.3898 26.1608 27.3898 26.7201 26.8306L26.8305 26.7202C27.3898 26.1609 27.3898 25.2542 26.8305 24.6949L21.5368 19.4018C25.0371 14.8562 24.7046 8.31007 20.539 4.14491ZM6.17064 6.17015C9.57906 2.76208 15.1052 2.76208 18.5136 6.17015C21.922 9.57821 21.922 15.1037 18.5136 18.5118C15.1052 21.9199 9.57906 21.9199 6.17064 18.5118C2.76224 15.1037 2.76224 9.57821 6.17064 6.17015Z" fill="#141414" />
 						</svg>
@@ -649,7 +649,7 @@
 						<div class="share">
 							<div class="share__social">
 								<!-- uSocial -->
-								<script async src="https://usocial.pro/usocial/usocial.js?uid=21cd4b58eaf61697&v=6.1.5&_v=20240822201845" data-script="usocial" charset="utf-8"></script>
+								<script async src="https://usocial.pro/usocial/usocial.js?uid=21cd4b58eaf61697&v=6.1.5&_v=20240826190953" data-script="usocial" charset="utf-8"></script>
 								<div class="uSocial-Share" data-pid="b7450283dbc9e941ee22b283d6036804" data-type="share" data-options="round-rect,style1,default,absolute,horizontal,size48,eachCounter0,counter0,nomobile,mobile_position_right" data-social="vk,ok,telegram,wa,vi"></div>
 								<!-- /uSocial -->
 							</div>
@@ -1714,9 +1714,126 @@
 			</div>
 		</div>
 		<!-- Запрос документа -->
+
+		<!-- Поиск -->
+		<div id="search" aria-hidden="true" class="popup modal-search">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="popup__header">
+						<div class="popup__title title-h2Hel">Поиск</div>
+						<button data-close type="button" class="popup__close">
+							<svg class="popup__close-svg">
+								<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="popup__main">
+						<form action="#" method="post" class="modal-search__form">
+							<div class="form__line">
+								<input id="" type="text" name="" class="form__input modal-search__input">
+								<svg class="form__clear-svg">
+									<use xlink:href="img/icons/icons.svg#input_clear"></use>
+								</svg>
+							</div>
+
+							<div class="modal-search__resalt resalt">
+								<ul class="resalt__resalt-list">
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_1.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16А С ВА47-100 10кА</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">773,7 ₽</div>
+													<div class="resalt__price-old">814 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_2.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16А С ВА47-29 4.5кА</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">100,94 ₽</div>
+													<div class="resalt__price-old">106 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_3.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">174,6 ₽</div>
+													<div class="resalt__price-old">196 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_3.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">174,6 ₽</div>
+													<div class="resalt__price-old">196 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_3.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">174,6 ₽</div>
+													<div class="resalt__price-old">196 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_3.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">174,6 ₽</div>
+													<div class="resalt__price-old">196 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="resalt__item">
+										<a href="" class="resalt__link">
+											<div class="resalt__image"><img src="img/catalimg_3.webp" alt=""></div>
+											<div class="resalt__col">
+												<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
+												<div class="resalt__prices">
+													<div class="resalt__price">174,6 ₽</div>
+													<div class="resalt__price-old">196 ₽</div>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<a href="" class="resalt__more btn-15">Посмотреть все результаты</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Поиск -->
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240822201845" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20240822201845"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240826190953" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20240826190953"></script>
 </body>
 
 </html>

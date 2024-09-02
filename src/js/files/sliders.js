@@ -8,7 +8,7 @@
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Thumbs } from 'swiper/modules';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -28,19 +28,34 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.product-slider__main')) { // Указываем скласс нужного слайдера
+		let thumbsProdSlider = new Swiper('.product-slider__thumbs', {
+			grabCursor: true,
+			spaceBetween: 10,
+			slidesPerView: 'auto',
+			breakpoints: {
+				320: {
+					direction: "horizontal",
+				},
+				767.98: {
+					direction: "vertical",
+				},
+			},
+		})
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		let mainProdSLider = new Swiper('.product-slider__main', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation],
-			observer: true,
-			observeParents: true,
+			modules: [Thumbs],
 			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
-			speed: 800,
-
+			spaceBetween: 10,
+			thumbs: {
+				swiper: thumbsProdSlider,
+			}
+			// speed: 800,
+			// observer: true,
+			// observeParents: true,
+			// autoHeight: true,
 			//touchRatio: 0,
 			//simulateTouch: false,
 			//loop: true,
@@ -73,10 +88,10 @@ function initSliders() {
 			*/
 
 			// Кнопки "влево/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
 
 			// Брейкпоинты
 			/*
@@ -101,9 +116,9 @@ function initSliders() {
 			},
 			*/
 			// События
-			on: {
+			// on: {
 
-			}
+			// }
 		});
 	}
 }

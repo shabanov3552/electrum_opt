@@ -497,6 +497,7 @@
       grid-template-columns: 369px 1fr;
       grid-template-rows: auto 1fr auto;
       column-gap: 60px;
+      margin-bottom: rem(80);
 
       @media (max-width:$xxl) {
          grid-template-columns: 290px 1fr;
@@ -515,6 +516,7 @@
       .pagging {
          grid-column: 2/3;
          padding: 0;
+         margin-bottom: 0;
 
          @media (max-width:$xl) {
             grid-column: 1/3;

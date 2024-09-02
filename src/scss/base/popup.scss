@@ -815,7 +815,11 @@ body::after {
 
 	// .tabs__navigation
 
-	&__navigation {}
+	&__navigation {
+		.data-change & {
+			display: none;
+		}
+	}
 
 	// .tabs__title
 

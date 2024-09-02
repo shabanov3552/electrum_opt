@@ -68,7 +68,10 @@ class DynamicAdapt {
 	}
 	// Функция перемещения
 	moveTo(place, element, destination) {
-		element.classList.add(this.daClassname)
+		element.classList.add(this.daClassname);
+
+		if (destination === null) return;
+
 		if (place === 'last' || place >= destination.children.length) {
 			destination.append(element)
 			return

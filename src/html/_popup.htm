@@ -672,7 +672,7 @@
 					</button>
 				</div>
 				<div class="popup__main">
-					<div data-tabs class="tabs">
+					<div data-tabs class="data-change tabs">
 						<nav data-tabs-titles class="tabs__navigation log-in__navigation">
 							<button type="button" class="tabs__title log-in__title _tab-active">Физ. лицо</button>
 							<button type="button" class="tabs__title log-in__title">Юр. лицо</button>
@@ -710,7 +710,7 @@
 									</div>
 									<div class="form__check">
 										<label class="checkbox">
-											<input class="checkbox__input" type="checkbox" checked>
+											<input class="checkbox__input" type="checkbox" name="check" checked>
 											<span class="checkbox__chunk"></span>
 											<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
 										</label>
@@ -778,7 +778,7 @@
 									</div>
 									<div class="form__check">
 										<label class="checkbox">
-											<input class="checkbox__input" type="checkbox" checked>
+											<input class="checkbox__input" type="checkbox" name="check" checked>
 											<span class="checkbox__chunk"></span>
 											<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
 										</label>
@@ -895,7 +895,7 @@
 						</div>
 						<div class="form__check">
 							<label class="checkbox">
-								<input class="checkbox__input" type="checkbox" checked>
+								<input class="checkbox__input" type="checkbox" name="check" checked>
 								<span class="checkbox__chunk"></span>
 								<span class="checkbox__text">Я даю своё <a href="/consent/">согласие на обработку перс. данных</a></span>
 							</label>
@@ -940,7 +940,7 @@
 						<div class="form__line form-line-file js-file-upload">
 							<!-- data-max-files максимальное колличество файлов -->
 							<!-- data-max-size общий максимальный размер файлов в Мб -->
-							<input type="file" name="file" id="input-file" multiple accept="image/png, image/jpeg" data-max-files="5" data-max-size="30" class="input form-line-file__input" required style="display: none;">
+							<input type="file" name="file" id="input-file" multiple accept="image/png, image/jpeg, .pdf" data-max-files="10" data-max-size="20" class="input form-line-file__input" required style="display: none;">
 							<label for="input-file" class="form-line-file__label">
 								<div class="form-line-file__button">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -950,100 +950,93 @@
 								</div>
 							</label>
 							<ul class="form-line-file__list"></ul>
-							<div class="form-line-file__caption">Прикрепите фото в формате PNG или JPEG. Не более 5 файлов, объемом не более 10 Мб.</div>
+							<div class="form-line-file__caption">Прикрепите фото или документы в формате PNG, JPEG или PDF. Не более 10 файлов, объемом не более 20 Мб.</div>
 							<script>
-								const fileUploadBlock = document.querySelector('.js-file-upload'); // Блок загрузки файлов
-								const inputFile = fileUploadBlock.querySelector('.form-line-file__input'); // Элемент input для файлов
-								const textBlock = fileUploadBlock.querySelector('.form-line-file__button span'); // Текстовый блок кнопки
-								const formLineFileList = fileUploadBlock.querySelector('.form-line-file__list'); // Список для отображения выбранных файлов
-								const maxFiles = +inputFile.dataset.maxFiles; // Максимальное количество файлов
-								const maxSize = inputFile.dataset.maxSize * 1024 * 1024; // Максимальный общий размер файлов в байтах
+								const fileUploadBlock = document.querySelector('.js-file-upload');
+								const inputFile = fileUploadBlock.querySelector('.form-line-file__input');
+								const textBlock = fileUploadBlock.querySelector('.form-line-file__button span');
+								const formLineFileList = fileUploadBlock.querySelector('.form-line-file__list');
+								const maxFiles = +inputFile.dataset.maxFiles;
+								const maxSize = inputFile.dataset.maxSize * 1024 * 1024;
+								let fileList = [];
 
-								// Обработчик события изменения списка файлов
 								inputFile.addEventListener('change', handleFilesChange);
-								// Обработчик события удаления файла из списка
 								formLineFileList.addEventListener('click', handleFileDelete);
 
-								// Функция для обработки изменения списка файлов
 								function handleFilesChange() {
-									let fileList = Array.from(inputFile.files); // Преобразуем FileList в массив
-									const currentTotalSize = fileList.reduce((acc, item) => acc + item.size, 0); // Рассчитываем общий размер файлов
+									Array.from(inputFile.files).forEach(item => {
+										if (!fileList.some(obj => obj.name === item.name)) {
+											if (fileList.length >= maxFiles) {
+												resetInput(`Превышено количество файлов, максимум ${maxFiles}`);
+												return;
+											}
+											fileList.push(item)
 
-									// Проверка на превышение допустимого размера файлов
-									if (currentTotalSize > maxSize) {
-										resetInput(`Превышен допустимый объем файлов, максимум ${inputFile.dataset.maxSize} Мб`);
-										return;
-									}
-
-									// Проверка на превышение количества файлов
-									if (fileList.length > maxFiles) {
-										resetInput(`Превышено количество файлов, максимум ${maxFiles}`);
-										return;
-									}
-
-									// Отображаем список файлов
-									renderFileList(fileList);
+											const currentTotalSize = fileList.reduce((acc, item) => acc + item.size, 0);
+											if (currentTotalSize >= maxSize) {
+												fileList.pop()
+												resetInput(`Превышен допустимый объем файлов, максимум ${inputFile.dataset.maxSize} Мб`);
+												return;
+											}
+										}
+									})
+									updateFileInput(fileList);
 								}
 
-								// Функция для обработки удаления файла из списка
 								function handleFileDelete(e) {
-									const fileArray = Array.from(inputFile.files); // Преобразуем FileList в массив
 									const target = e.target;
 
-									// Проверяем, нажата ли кнопка удаления файла
-									if (target.closest('.form-line-file__item svg')) {
-										const fileItem = target.closest('.form-line-file__item'); // Находим элемент списка файлов
-										const fileName = fileItem.textContent.trim(); // Получаем имя файла
-
-										// Удаляем выбранный файл из массива
-										const updatedFileArray = fileArray.filter(file => file.name !== fileName);
-
-										// Обновляем input и список файлов
-										updateFileInput(updatedFileArray);
+									if (target.closest('.form-line-file__item-del')) {
+										const fileItem = target.closest('.form-line-file__item');
+										const fileName = fileItem.textContent.trim();
+										fileList = fileList.filter(file => file.name !== fileName);
+										updateFileInput(fileList);
 									}
 								}
 
-								// Функция для сброса input и отображения сообщения
 								function resetInput(message) {
-									textBlock.textContent = message; // Отображаем сообщение пользователю
-									formLineFileList.innerHTML = ''; // Очищаем список файлов
-									inputFile.value = ''; // Сбрасываем значение input
+									textBlock.textContent = message;
+									updateFileInput(fileList);
 
-									// Через 5 секунд восстанавливаем текст кнопки
 									setTimeout(() => {
 										textBlock.textContent = 'Прикрепить файл';
 									}, 5000);
 								}
 
-								// Функция для отображения списка файлов
 								function renderFileList(fileList) {
-									formLineFileList.innerHTML = ''; // Очищаем текущий список файлов
-									// Проходимся по каждому файлу и добавляем его в список
+									formLineFileList.innerHTML = '';
+
 									fileList.forEach(file => {
 										formLineFileList.insertAdjacentElement('beforeend', createFileItem(file));
 									});
 								}
 
-								// Функция для создания элемента списка файлов
 								function createFileItem(file) {
-									const fileItem = document.createElement('li'); // Создаем элемент списка
-									fileItem.classList.add('form-line-file__item'); // Добавляем класс для стилей
-									fileItem.textContent = file.name; // Вставляем имя файла
-									// Добавляем кнопку удаления файла
-									fileItem.insertAdjacentHTML('beforeend', `
-										  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<!-- SVG контент -->
-										  </svg>
+									const fileItem = document.createElement('li');
+									fileItem.classList.add('form-line-file__item');
+									fileItem.insertAdjacentHTML('afterbegin', `<span>${file.name}</span>`);
+
+									fileItem.insertAdjacentHTML('afterbegin', `
+										<svg class="form-line-file__item-del" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M23.768 22.6474C23.9165 22.4987 24 22.2972 24 22.0871C24 21.8769 23.9165 21.6754 23.768 21.5267L14.242 12.0008L23.7672 2.47246C23.9157 2.32384 23.9992 2.1223 23.9992 1.91215C23.9992 1.70201 23.9157 1.50047 23.7672 1.35185L22.6474 0.232036C22.4987 0.0834634 22.2972 0 22.0871 0C21.8769 0 21.6754 0.0834634 21.5267 0.232036L12.0008 9.75799L2.47246 0.232828C2.32384 0.0842559 2.1223 0.000792509 1.91215 0.000792509C1.70201 0.000792509 1.50047 0.0842559 1.35185 0.232828L0.232036 1.35264C0.0834634 1.50126 0 1.7028 0 1.91295C0 2.12309 0.0834634 2.32463 0.232036 2.47325L9.75799 12L0.232828 21.5267C0.0842559 21.6754 0.000792509 21.8769 0.000792509 22.0871C0.000792509 22.2972 0.0842559 22.4987 0.232828 22.6474L1.35344 23.768C1.50205 23.9165 1.70359 24 1.91374 24C2.12388 24 2.32543 23.9165 2.47404 23.768L12.0008 14.242L21.5275 23.768C21.6762 23.9165 21.8777 24 22.0878 24C22.298 24 22.4995 23.9165 22.6481 23.768L23.7688 22.6474H23.768Z" fill="#004FA6"></path>
+										</svg>
 									 `);
-									return fileItem; // Возвращаем элемент списка
+									if (file.type === 'application/pdf') {
+										fileItem.insertAdjacentHTML('beforeend', `
+										<svg class="form-line-file__item-pdf" width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M7.75 0.5H2.5C2.10218 0.5 1.72064 0.658035 1.43934 0.93934C1.15804 1.22064 1 1.60218 1 2V14C1 14.3978 1.15804 14.7794 1.43934 15.0607C1.72064 15.342 2.10218 15.5 2.5 15.5H11.5C11.8978 15.5 12.2794 15.342 12.5607 15.0607C12.842 14.7794 13 14.3978 13 14V5.75L7.75 0.5Z" stroke="#004FA6" stroke-linecap="round" stroke-linejoin="round"></path>
+											<path d="M7.75 0.5V5.75H13" stroke="#004FA6" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+										`)
+									}
+									return fileItem;
 								}
 
-								// Функция для обновления input после удаления файлов
 								function updateFileInput(files) {
-									const dataTransfer = new DataTransfer(); // Создаем новый объект DataTransfer
-									files.forEach(file => dataTransfer.items.add(file)); // Добавляем оставшиеся файлы в DataTransfer
-									inputFile.files = dataTransfer.files; // Обновляем список файлов в input
-									renderFileList(files); // Перерисовываем список файлов
+									const dataTransfer = new DataTransfer();
+									files.forEach(file => dataTransfer.items.add(file));
+									inputFile.files = dataTransfer.files;
+									renderFileList(files);
 								}
 							</script>
 						</div>
@@ -1123,7 +1116,7 @@
 							<ul class="resalt__resalt-list">
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_1.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16А С ВА47-100 10кА</div>
 											<div class="resalt__prices">
@@ -1135,7 +1128,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_2.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16А С ВА47-29 4.5кА</div>
 											<div class="resalt__prices">
@@ -1147,7 +1140,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_3.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
 											<div class="resalt__prices">
@@ -1159,7 +1152,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_3.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
 											<div class="resalt__prices">
@@ -1171,7 +1164,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_3.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
 											<div class="resalt__prices">
@@ -1183,7 +1176,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_3.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
 											<div class="resalt__prices">
@@ -1195,7 +1188,7 @@
 								</li>
 								<li class="resalt__item">
 									<a href="" class="resalt__link">
-										<div class="resalt__image"><img src="img/catalog/img_3.png" alt=""></div>
+										<div class="resalt__image"><img src="img/catalog/detail-7.jpeg" alt=""></div>
 										<div class="resalt__col">
 											<div class="resalt__name">Выключатель автоматический однополюсный 16A C 4.5кА EASY 9</div>
 											<div class="resalt__prices">

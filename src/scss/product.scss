@@ -1,8 +1,17 @@
 .product {
-   display: flex;
+   margin-bottom: rem(100);
 
-   @media (max-width: 1180px) {
-      display: block;
+   @media (max-width:$md) {
+      margin-bottom: rem(50);
+   }
+
+   &__container {
+      display: flex;
+      gap: 40px;
+
+      @media (max-width:$xl) {
+         display: block;
+      }
    }
 
    &__content {
@@ -12,13 +21,13 @@
          flex: 0 0 379px;
       }
 
-      @media (max-width: 1180px) {
+      @media (max-width:$xl) {
          margin: 0px 0px 40px 0px;
       }
    }
 
    &__wrapper {
-      @media (min-width: 1180px) {
+      @media (min-width:$xl) {
          position: sticky;
          position: -webkit-sticky;
          top: 50px;
@@ -48,10 +57,13 @@
 
    &__labels {
       display: flex;
-      margin: 0px 0px 24px 0px;
 
-      @media (max-width:$md) {
-         margin: 0px 0px 10px 0px;
+      &:has(*) {
+         margin: 0px 0px 24px 0px;
+
+         @media (max-width:$md) {
+            margin: 0px 0px 10px 0px;
+         }
       }
 
       & :not(:last-child) {
@@ -145,12 +157,6 @@
    }
 
    &__btns {
-      @media (max-width: 1180px) and (min-width: 880.98px) {
-         display: grid;
-         grid-template-columns: repeat(2, 1fr);
-         grid-template-rows: repeat(3, 58px);
-      }
-
       @media (max-width: 880.98px) {
          display: flex;
          justify-content: space-between;
@@ -191,7 +197,7 @@
       border-radius: 6px;
       margin: 0px 0px 20px 0px;
 
-      @media (max-width: 1180px) and (min-width: 880.98px) {
+      @media (max-width:$xl) and (min-width: 880.98px) {
          grid-column-start: 1;
          display: flex;
          justify-content: center;
@@ -215,11 +221,11 @@
       flex-wrap: wrap;
       align-items: flex-end;
 
-      @media (max-width: 1180px) and (min-width: 1170px) {
+      @media (max-width:$xl) and (min-width: 1170px) {
          margin-right: 10px;
       }
 
-      @media (max-width: 1180px) and (min-width: 880.98px) {
+      @media (max-width:$xl) and (min-width: 880.98px) {
          grid-row-start: 1;
          grid-column-start: 2;
          grid-row-end: 4;
@@ -306,7 +312,7 @@
          justify-content: center;
          margin: 20px 0px 0px 0px;
 
-         @media (max-width: 1180px) and (min-width: 880.98px) {
+         @media (max-width:$xl) and (min-width: 880.98px) {
             grid-column-start: 1;
             margin-bottom: 10px;
          }
@@ -330,7 +336,7 @@
    &__nav {
       margin: 0px 0px 40px 0px;
 
-      @media (max-width: 1180px) {
+      @media (max-width:$xl) {
          justify-content: space-between;
          width: 100%;
       }
@@ -456,4 +462,78 @@
 
 .price_for_meter {
    font-size: 1rem;
+}
+
+.product-slider {
+   display: grid;
+   grid-template-columns: 1fr 180px;
+   gap: 15px;
+   margin-bottom: rem(60);
+
+   @media (max-width:$md) {
+      grid-template-columns: 1fr;
+   }
+
+   // .product-slider__main
+
+   &__main {}
+
+   // .product-slider__thumbs
+
+   &__thumbs {
+      height: 580px;
+      width: 180px;
+      cursor: pointer;
+
+      @media (max-width:$xl) {
+         height: 480px;
+      }
+
+      @media (max-width:$md) {
+         width: 100%;
+         height: 122px;
+      }
+   }
+
+   // .product-slider__wrapper
+
+   &__wrapper {}
+
+   // .product-slider__slide
+
+   &__slide {
+      .product-slider__main & {
+         height: 580px;
+         width: 580px;
+
+         @media (max-width:$xl) {
+            height: 480px;
+         }
+
+         @media (max-width:$md) {
+            width: 100%;
+            height: 340px;
+         }
+      }
+
+      .product-slider__thumbs & {
+         height: 180px;
+         width: 180px;
+
+         @media (max-width:$md) {
+            width: 113px;
+            height: 113px;
+         }
+      }
+
+      img {
+         height: 100%;
+         width: 100%;
+         object-fit: contain;
+
+         .product-slider__main & {
+            object-position: top;
+         }
+      }
+   }
 }

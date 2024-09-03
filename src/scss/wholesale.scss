@@ -1,4 +1,9 @@
 .wholesale {
+   margin-bottom: rem(100);
+
+   @media (max-width:$md) {
+      margin-bottom: rem(40);
+   }
 
    // .wholesale__container
 

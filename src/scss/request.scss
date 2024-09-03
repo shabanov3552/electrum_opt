@@ -1,25 +1,25 @@
+.order:has(.request) {
+	padding: 0;
+	border: none;
+}
+
 .request {
-	padding: 0px 9.35% 120px 3.9%;
 	overflow: hidden;
+	padding-left: rem(42);
+	padding-right: rem(170);
 
-	@media (max-width: 1440px) {
-		padding: 0px 130px 120px 50px;
+	@media (max-width:em(1729.98)) {
+		padding-left: rem(22);
+		padding-right: rem(150);
 	}
 
-	@media (max-width: 1366px) {
-		padding: 0px 102px 120px 24px;
+	@media (max-width:$xl) {
+		padding-left: rem(17);
+		padding-right: rem(138);
 	}
 
-	@media (max-width: 1280px) {
-		padding: 0px 150px 80px 70px;
-	}
-
-	@media (max-width: 940px) {
-		padding: 0px 130px 60px 50px;
-	}
-
-	@media (max-width: $md) {
-		padding: 0 10px 60px 10px;
+	@media (max-width:$md) {
+		padding: rem(0) rem(8);
 	}
 
 	.bx-soa-section-content {
@@ -439,6 +439,7 @@
 			border-bottom: 1px solid rgba(20, 20, 20, 0.5);
 			resize: vertical;
 			height: 50px;
+			width: 100%;
 		}
 
 		span.bx-authform-starrequired {
@@ -494,6 +495,13 @@
 			background-color: #004ea6;
 			border-color: #004ea6;
 			padding: 13px 54px;
+			width: 100%;
+			border-radius: 6px;
+			font-size: 18px;
+			line-height: 1.3333333;
+			display: block;
+			color: #fff;
+			text-align: center;
 
 			@media (max-width: 1280px) {
 				display: none;
@@ -747,6 +755,14 @@
 		text-align: center;
 		padding: 12px 0px;
 		justify-content: center;
+		color: #fff;
+		width: 100%;
+		border-radius: 6px;
+		font-size: 18px;
+		line-height: 1.3333333;
+		display: block;
+		color: #fff;
+		text-align: center;
 	}
 
 	.bx-soa-cart-total {

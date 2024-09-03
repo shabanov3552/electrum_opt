@@ -275,24 +275,55 @@
       }
 
       &_favorites {
-         &.active {
-            color: #828282;
-            padding-left: 27px;
-            position: relative;
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         transition: all 0.3s ease 0s;
 
-            svg {
+         span {
+            &:last-child {
                display: none;
             }
+         }
 
-            &::before {
-               content: "";
-               display: block;
-               width: 18px;
-               height: 16px;
-               background: url(../img/icons/favorites_del.svg) top left no-repeat;
-               background-size: contain;
-               position: absolute;
-               left: 0px;
+         svg {
+            transition: all 0.3s ease 0s;
+            margin: 0;
+
+            path {
+               &:last-child {
+                  display: none;
+               }
+            }
+         }
+
+         &._active {
+            span {
+               &:first-child {
+                  display: none;
+               }
+
+               &:last-child {
+                  display: block;
+               }
+            }
+
+            svg {
+               path {
+                  &:last-child {
+                     display: block;
+                  }
+               }
+            }
+         }
+
+         &:hover {
+            svg {
+               transform: scale(1.1);
+            }
+
+            path {
+               fill: #1d336b;
             }
          }
       }

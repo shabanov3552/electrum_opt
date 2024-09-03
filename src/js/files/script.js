@@ -472,3 +472,11 @@ function dropdownAction(e, ddWrapper, ddActive) {
 }
 
 //#endregion
+
+//#region Следим за имзенением DOM в .history
+if (document.querySelector('.history')) {
+   let historyObserver = new MutationObserver(() => window.spollers())
+
+   historyObserver.observe(document.querySelector('.history'), { childList: true, subtree: true, });
+}
+//#endregion

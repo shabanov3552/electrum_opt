@@ -3,6 +3,7 @@
    justify-content: center;
    padding-top: rem(80);
    padding-bottom: rem(40);
+
    // .log-in__container
 
    &__container {
@@ -79,4 +80,30 @@
    // .log-in__body
 
    &__body {}
+
+   .form__link {
+      color: #004ea6;
+      font-size: 16px;
+      line-height: 18px;
+      text-decoration: underline;
+      margin-top: rem(20);
+      display: block;
+
+      &:hover {
+         text-decoration: none;
+      }
+   }
+}
+
+.login__text {
+   margin-bottom: rem(30);
+   line-height: 110%;
+}
+
+.login .is-success .success-text,
+.login .is-loading .loading-text,
+.login .is-error .error-text {
+   margin-top: rem(20);
+   line-height: 110%;
+   display: block;
 }

@@ -1071,8 +1071,6 @@
       gap: 8px;
       transition: all 0.3s ease 0s;
 
-
-
       span {
          &:last-child {
             display: none;
@@ -1191,6 +1189,7 @@
 
       @media (max-width:$xl) {
          justify-self: end;
+         text-align: right;
       }
    }
 

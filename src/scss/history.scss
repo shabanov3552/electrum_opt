@@ -147,7 +147,7 @@
    }
 
    @media (max-width:em(1439.98)) {
-      max-width: 770px;
+      max-width: 870px;
    }
 
    @media (max-width:$xl) {
@@ -383,10 +383,11 @@
 .history-card-item {
    display: grid;
    grid-template-columns: 105px 1fr auto;
-   max-width: 690px;
+   grid-template-columns: 105px 1fr 145px;
+   max-width: 790px;
    gap: 16px;
 
-   @media (max-width:$lg) {
+   @media (max-width:$xl) {
       grid-template-columns: 105px 1fr;
    }
 
@@ -400,10 +401,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      // @media (max-width:$lg) {
-      //    grid-row: 1/2;
-      // }
 
       img {
          max-width: 100%;
@@ -420,7 +417,7 @@
       grid-row: 2/3;
       white-space: nowrap;
 
-      @media (max-width:$lg) {
+      @media (max-width:$xl) {
          grid-column: 2/3;
          grid-row: 1/2;
       }
@@ -435,7 +432,7 @@
       color: var(--chernyy);
       grid-column: 2/4;
 
-      @media (max-width:$lg) {
+      @media (max-width:$xl) {
          grid-column: 2/3;
       }
    }
@@ -445,15 +442,21 @@
    &__actions {
       display: grid;
       grid-template-columns: auto 180px 1fr;
+      grid-template-columns: auto 1fr 74px;
       align-items: center;
+      gap: 16px;
 
-      @media (max-width:$lg) {
+      @media (max-width:$xl) {
          grid-column: 1/3;
       }
 
       @media (max-width:$sm) {
          grid-template-columns: auto 1fr;
          row-gap: 8px;
+      }
+
+      @media (max-width:$xxs) {
+         grid-template-columns: 1fr;
       }
    }
 
@@ -464,7 +467,7 @@
       font-size: 24px;
       line-height: 133%;
       color: #004fa6;
-      margin-left: rem(16);
+      // margin-left: rem(16);
 
       @media (max-width:$md) {
          font-size: 22px;
@@ -484,18 +487,22 @@
       border-radius: 5px;
       width: 74px;
       height: 49px;
-      margin-left: rem(40);
+      // margin-left: rem(40);
 
       @media (max-width:$md) {
-         width: 51px;
-         height: 51px;
-         margin-left: rem(30);
+         // width: 51px;
+         // height: 51px;
+         // margin-left: rem(30);
       }
 
       @media (max-width:$sm) {
          margin: 0;
          grid-column: 1/3;
          width: 100%;
+      }
+
+      @media (max-width:$xxs) {
+         grid-column: 1/2;
       }
    }
 }

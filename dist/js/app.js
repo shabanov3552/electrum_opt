@@ -5626,6 +5626,7 @@
                 }));
             }
         }
+        window.spollers = spollers;
         function tabs() {
             const tabs = document.querySelectorAll("[data-tabs]");
             let tabsActiveHash = [];
@@ -16979,6 +16980,13 @@ PERFORMANCE OF THIS SOFTWARE.
                 ddWrapper.classList.toggle("_dd-active");
                 e.preventDefault();
             }
+        }
+        if (document.querySelector(".history")) {
+            let historyObserver = new MutationObserver((() => window.spollers()));
+            historyObserver.observe(document.querySelector(".history"), {
+                childList: true,
+                subtree: true
+            });
         }
         window["FLS"] = true;
         isWebp();
